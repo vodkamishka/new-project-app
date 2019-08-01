@@ -1,0 +1,22 @@
+.budgets__header_header-up {
+    display: flex;
+    height: 132px;
+}
+.title-budgets {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 46px 32px 0 0;
+    width: 93px;
+    height: 32px;
+}
+.new-budgets {
+    width: 144px;
+    height: 44px;
+    color: white;
+    background: #3798f3;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 40px;
+}

@@ -1,0 +1,19 @@
+.sort {
+    width: 192px;
+    height: 44px;
+    display: flex;
+}
+.sort-by {
+    width: 58px;
+    height: 19px;
+    color: #6d6f75;
+}
+.created-at {
+    color: #6d6f75;
+    width: 134px;
+    height: 44px;
+    
+}
+.created-at > select {
+    border: none;
+}
