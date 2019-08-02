@@ -1,8 +1,0 @@
-.budgets {
-    display: grid;
-    grid-template-columns: 124px 1796px;
-    grid-template-rows: 215px 803px;
-    grid-template-areas: 
-    'navbar header'
-    'navbar table'
-}

@@ -1,0 +1,32 @@
+.budgets__navbar {
+    grid-area: navbar;
+    position: relative;
+}
+.sign-out {
+    position: absolute;
+    left: 28px;
+    top: 938px;
+}
+.sign-out > img {
+    width: 40px;
+    height: 40px;
+}
+.lines {
+    position: absolute;
+    top: 281px;
+}
+.line {
+    width: 6px;
+    height: 36px;
+    background: #3798f3;
+}
+.line1 {
+    height: 2px;
+    border-bottom: 6px solid #3798f3; 
+	border-right: 6px solid transparent;
+}
+.line2 {
+    height: 2px;
+    border-top: 6px solid #3798f3; 
+	border-right: 6px solid transparent;
+}

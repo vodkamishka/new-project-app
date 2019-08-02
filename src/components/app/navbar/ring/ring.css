@@ -1,0 +1,9 @@
+.ring {
+    width: 38.59px;
+    height: 38.59px;
+    border-radius: 50%;
+    border: 9px solid #3798f3;
+    position: absolute;
+    top: 15.25px;
+    left: 20px;
+}

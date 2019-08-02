@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 1920px;
+    height: 1018px;
+    font-family: 'Open Sans', sans-serif;
+}
+.app {
+        display: grid;
+        grid-template-columns: 96px 1824px;
+        /*grid-template-rows: 215px 803px;*/
+        grid-template-areas: 
+        'navbar budgets'
+        'navbar budgets';
+}
