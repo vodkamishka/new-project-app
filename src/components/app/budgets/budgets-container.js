@@ -14,10 +14,10 @@ import Budgets from './budgets';
 class BudgetsContainer extends Component {
 
     componentDidMount () {
-        let dataBudgets;
+        /*let dataBudgets;
         budgetsAPI.getBudgets()
         .then(data => dataBudgets = data.data[0])
-        .then(() => console.log(dataBudgets))
+        .then(() => console.log(dataBudgets))*/
         let budgets = this.props.apiDataService;
         this.props.dataBudgetsLoaded(budgets);
     }

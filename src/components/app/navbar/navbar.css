@@ -2,15 +2,6 @@
     grid-area: navbar;
     position: relative;
 }
-.sign-out {
-    position: absolute;
-    left: 28px;
-    top: 938px;
-}
-.sign-out > img {
-    width: 40px;
-    height: 40px;
-}
 .lines {
     position: absolute;
     top: 281px;

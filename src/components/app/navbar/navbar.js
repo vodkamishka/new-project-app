@@ -2,10 +2,11 @@ import React from 'react';
 import './navbar.css';
 import Ring from './ring/ring';
 import MiddleElements from './elements-middle/middle-elements';
+import BottomElements from './elements-bottom/bottom-elements';
 
 export default function Navbar() {
     return (
-        <div className='budgets__navbar'>
+        <div className='navbar'>
            <Ring />
            <MiddleElements />
            <div className = 'lines'>
@@ -13,7 +14,8 @@ export default function Navbar() {
                <div className = 'line'></div>
                <div className = 'line2'></div>
            </div>
-           <div className = 'sign-out'><img src='images/icons/sign-out.svg' alt='sign-out'></img></div>
+           <BottomElements />
+           
         </div>
     )
 }

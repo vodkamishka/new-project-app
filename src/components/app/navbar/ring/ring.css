@@ -9,9 +9,23 @@
 }
 .ring:after {
     content: '';
-    background:red;
-    width: 65.81px;
-    height: 22.84px;
+    background:#3798f3;
+    width: 10px;
+    height: 20px;
     display: block;
-    transform: rotate(307deg)
+    transform: rotate(307deg);
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+}
+.ring:before {
+    content: '';
+    background:#3798f3;
+    width: 10px;
+    height: 20px;
+    display: block;
+    transform: rotate(307deg);
+    position: absolute;
+    top: 32px;
+    left: 0;
 }

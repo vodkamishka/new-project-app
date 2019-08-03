@@ -1,0 +1,17 @@
+.bottom-elements {
+    left: 38px;
+    position: absolute;
+    top: 783px;
+}
+.sign-out {
+    position: relative;
+    right: 10px;
+    top: 32px;
+}
+.sign-out > img {
+    width: 40px;
+    height: 40px;
+}
+.notifications {
+    margin: 28px 0 26.5px 0;
+}

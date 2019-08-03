@@ -2,5 +2,8 @@
   height: 44px;
   display: flex;
   font-size: 14px;
+  position: relative;
+  align-items: center;
+  max-width: 1728px;
 }
 
