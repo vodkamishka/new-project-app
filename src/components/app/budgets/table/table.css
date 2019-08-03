@@ -30,8 +30,21 @@
     text-align: right;
     padding-right: 36px; 
 }
-.budgets__table .col6 {
+.budgets__table .col6 div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     width: 649px;
+    position: relative;
+}
+.budgets__table .col6 > div:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 410px, #fff 490px)
 }
 .budgets__table .col7 {
     width: 156px;

@@ -1,6 +1,8 @@
 import React from 'react';
 import './table.css';
 
+import Projects from './projects/projects';
+
 export default function Table({data}) {
     return (
         <div className='budgets__table'>
@@ -33,7 +35,7 @@ export default function Table({data}) {
                                     <div className='col-title'>Projects</div>
                                     <div>{el.projects.map(element => <span key={element.id}> {element.name}</span>)}</div>
                                 </td>
-                                <td className='col7'>Projects</td>
+                                <td className='col7'><Projects projectsCount = {el.projects.length} /></td>
                                 <td className='col8'>
                                     <div>
                                         <img src='images/icons/line-menu.svg' alt='menu-secondary' />
