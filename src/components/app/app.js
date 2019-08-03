@@ -1,5 +1,5 @@
 import React from 'react';
-import Budgets from './budgets/budgets';
+import BudgetsContainer from './budgets/budgets-container';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './app.css';
 import Navbar from './navbar/navbar';
@@ -9,7 +9,7 @@ function App() {
     <Router>
     <div className="app">
       <Navbar />
-      <Route path='/' exact component={Budgets}/>
+      <Route path='/' exact component={BudgetsContainer}/>
     </div>
     </Router>
   )
