@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { dataBudgetsLoaded, termDataTableUpdated } from '../../../actions/loaded-actions';
-import { newBudgetToggled, showHideColumnBudgetsToggled, iconSettingsToggled } from '../../../actions/modal-actions';
 import { inBudgetsSeached } from '../../../actions/functional-actions';
 
-
 import withApiDataService from '../../hoc/withApiDataService';
-import { budgetsAPI } from '../../../api/api';
+import { authAPI } from '../../../services/api/api';
 
 import Budgets from './budgets';
 
@@ -20,6 +18,8 @@ class BudgetsContainer extends Component {
         budgetsAPI.getBudgets()
         .then(data => dataBudgets = data.data[0])
         .then(() => console.log(dataBudgets))*/
+        let token = ''
+        authAPI.getToken(token)
         const { apiDataService, dataBudgetsLoaded, termDataTableUpdated} = this.props;
         let budgets = apiDataService.getData();
         
@@ -35,28 +35,17 @@ class BudgetsContainer extends Component {
 
     render() {
         let {
-            termDataTable, showNewBudget,newBudgetToggled,
-            
-            showIconViewSettingsWindow,
-            showHideColumnBudgetsToggled, columns,iconSettingsToggled,
-            
+            termDataTable, 
             inBudgetsSeached, termDataTableUpdated,
         } = this.props;
         const columnsNames = this.props.apiDataService.getColumnsNames();
         
         return (
             <Budgets 
-
             data = {termDataTable}
-            showNewBudget = {showNewBudget}
-            newBudgetToggled = {newBudgetToggled}
-
+            
             columnsNames = {columnsNames}
-            showHideColumnBudgetsToggled = {showHideColumnBudgetsToggled}
-            columns = {columns}
-            iconSettingsToggled = {iconSettingsToggled}
-            showIconViewSettingsWindow = {showIconViewSettingsWindow}
-
+          
             inBudgetsSeached = {inBudgetsSeached}
             termDataTableUpdated = {termDataTableUpdated}
             />
@@ -65,24 +54,16 @@ class BudgetsContainer extends Component {
 
 }
 
-const mapStateToProps = ({data, windows}) => {
+const mapStateToProps = ({data}) => {
     return {
         data: data.data,
         termDataTable: data.termDataTable,
-
-        showNewBudget: windows.showNewBudget,
-        columns: windows.columns,
-        showIconViewSettingsWindow: windows.showIconViewSettingsWindow
     }
 }
 
 const mapDispatchToProps = {
     dataBudgetsLoaded,
     termDataTableUpdated,
-
-    newBudgetToggled,
-    showHideColumnBudgetsToggled,
-    iconSettingsToggled,
     inBudgetsSeached  
 }
 

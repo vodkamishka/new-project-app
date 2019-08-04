@@ -1,7 +1,7 @@
 import React from 'react';
 import './view-settings-window.css';
 
-export default function ViewSettingsWindow({ columnsNames, showHideColumnBudgetsToggled, columns }) {
+export default function ViewSettingsWindow({ columnsNames, showHideColumnToggled, columns }) {
     return (
         <div className='view-settings-window'>
 
@@ -14,7 +14,7 @@ export default function ViewSettingsWindow({ columnsNames, showHideColumnBudgets
                         >
                             <img
                                 onClick={() => {
-                                    showHideColumnBudgetsToggled(el.id)
+                                    showHideColumnToggled(el.id)
                                 }}
                                 src={columns['col' + el.id] ? 
                                 'images/icons-png/checkbox-enable.png' : 

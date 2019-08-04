@@ -1,11 +1,9 @@
 import { createStore, combineReducers } from 'redux';
 
 import reducerDataLoaded from './reducers/loadedReducer';
-import showModalWindows from './reducers/modalReducers'
 
 let reducers = combineReducers({
-    data: reducerDataLoaded,
-    windows: showModalWindows
+    data: reducerDataLoaded
 })
 
 const store = createStore(reducers);
