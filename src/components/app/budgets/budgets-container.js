@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { dataBudgetsLoaded } from '../../../actions';
-import { newBudgetToggled } from '../../../actions/modal-actions';
+import { dataBudgetsLoaded, termDataTableUpdated } from '../../../actions/loaded-actions';
+import { newBudgetToggled, showHideColumnBudgetsToggled, iconSettingsToggled } from '../../../actions/modal-actions';
+import { inBudgetsSeached } from '../../../actions/functional-actions';
+
 
 import withApiDataService from '../../hoc/withApiDataService';
 import { budgetsAPI } from '../../../api/api';
@@ -18,22 +20,45 @@ class BudgetsContainer extends Component {
         budgetsAPI.getBudgets()
         .then(data => dataBudgets = data.data[0])
         .then(() => console.log(dataBudgets))*/
-        let budgets = this.props.apiDataService;
-        this.props.dataBudgetsLoaded(budgets);
+        const { apiDataService, dataBudgetsLoaded, termDataTableUpdated} = this.props;
+        let budgets = apiDataService.getData();
+        
+        let promise = new Promise(resolve => {
+            dataBudgetsLoaded(budgets);
+            resolve();
+        })
+        promise.then(() => {
+            termDataTableUpdated();
+        })
+        
     }
 
     render() {
         let {
-            data, 
-            showNewBudget,
-            newBudgetToggled 
+            termDataTable, showNewBudget,newBudgetToggled,
+            
+            showIconViewSettingsWindow,
+            showHideColumnBudgetsToggled, columns,iconSettingsToggled,
+            
+            inBudgetsSeached, termDataTableUpdated,
         } = this.props;
-       
+        const columnsNames = this.props.apiDataService.getColumnsNames();
+        
         return (
             <Budgets 
-            data = {data}
+
+            data = {termDataTable}
             showNewBudget = {showNewBudget}
             newBudgetToggled = {newBudgetToggled}
+
+            columnsNames = {columnsNames}
+            showHideColumnBudgetsToggled = {showHideColumnBudgetsToggled}
+            columns = {columns}
+            iconSettingsToggled = {iconSettingsToggled}
+            showIconViewSettingsWindow = {showIconViewSettingsWindow}
+
+            inBudgetsSeached = {inBudgetsSeached}
+            termDataTableUpdated = {termDataTableUpdated}
             />
         )
     }
@@ -43,13 +68,22 @@ class BudgetsContainer extends Component {
 const mapStateToProps = ({data, windows}) => {
     return {
         data: data.data,
-        showNewBudget: windows.showNewBudget
+        termDataTable: data.termDataTable,
+
+        showNewBudget: windows.showNewBudget,
+        columns: windows.columns,
+        showIconViewSettingsWindow: windows.showIconViewSettingsWindow
     }
 }
 
 const mapDispatchToProps = {
     dataBudgetsLoaded,
-    newBudgetToggled  
+    termDataTableUpdated,
+
+    newBudgetToggled,
+    showHideColumnBudgetsToggled,
+    iconSettingsToggled,
+    inBudgetsSeached  
 }
 
 export default compose(

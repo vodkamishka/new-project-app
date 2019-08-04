@@ -1,7 +1,7 @@
 import React from 'react';
 import './icons.css';
 
-export default function Icons() {
+export default function Icons({iconSettingsToggled}) {
     return (
         <div className= 'icons'>
           <div className='filters'><img
@@ -10,6 +10,7 @@ export default function Icons() {
             <div className='view-settings'><img 
             src='images/icons/parameters.svg' 
             alt='view-settings'
+            onClick={iconSettingsToggled}
             /></div> 
         </div>
     )

@@ -1,4 +1,5 @@
 const DATA_BUDGETS_FROM_API_LOADED = 'DATA_BUDGETS_FROM_API_LOADED';
+const TERM_DATA_TABLE_UPDATE = 'TERM_DATA_TABLE_UPDATE';
 
 
 const dataBudgetsLoaded = data => {
@@ -7,7 +8,13 @@ const dataBudgetsLoaded = data => {
         payload: data
     }
 }
+const termDataTableUpdated = () => {
+    return {
+        type: TERM_DATA_TABLE_UPDATE
+    }
+}
+
 
 export {
-    dataBudgetsLoaded
+    dataBudgetsLoaded, termDataTableUpdated
 }

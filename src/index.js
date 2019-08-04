@@ -8,7 +8,7 @@ import { ApiDataServiceProvider } from './components/api-data-context/api-data-c
 
 import DataTableService from './services/table-data-service';
 
-let data = new DataTableService().getData();
+let data = new DataTableService();
 
 
 ReactDOM.render(

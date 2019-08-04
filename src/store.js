@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 
-import reducerDataLoaded from './reducers/reducerDataLoaded';
+import reducerDataLoaded from './reducers/loadedReducer';
 import showModalWindows from './reducers/modalReducers'
 
 let reducers = combineReducers({

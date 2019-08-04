@@ -1,0 +1,31 @@
+.budgets .view-settings-window {
+    width: 227px;
+    height: 269.98px;
+    position: absolute;
+    left: 1650px;
+    top: 185px;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+    display: flex;
+    z-index: 2000;
+    font-size: 14px;  
+}
+.budgets .view-settings-window ul {
+    margin: 29.98px 0 0 28px;  
+}
+.budgets .view-settings-window li {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.budgets .view-settings-window span {
+    margin-left: 12px;
+    width: 137px;
+    white-space: nowrap;
+}
+.view-settings-window img{
+    width: 20px;
+    height: 20px;
+}

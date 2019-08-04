@@ -15,3 +15,6 @@
 .created-at > select {
     border: none;
 }
+.sort select {
+    width: 116px;
+}
