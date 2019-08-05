@@ -1,9 +1,14 @@
 .middle-elements {
     left: 38px;
     position: absolute;
-    top: 203px;
+    top: 197px;
+}
+
+.middle-elements  img{
+    width: 24px;
+    height: 24px;
 }
 
 .projects-non-active {
-    margin: 32px 0 34px 0;
+    margin: 24px 0 24px 0;
 }

@@ -4,18 +4,17 @@
 }
 body {
     width: 1920px;
-    height: 100vh;
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
+    background: #FAFAFA;
+   
 }
 .app {
         display: grid;
         grid-template-columns: 96px 1824px;
-        /*grid-template-rows: 215px 803px;*/
         grid-template-areas: 
-        'navbar budgets'
-        'navbar budgets';
-        height: 100%;
+        "navbar budgets"
+        "navbar budgets";
 }
 button:hover {
     cursor: pointer;

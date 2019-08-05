@@ -10,6 +10,7 @@ function App() {
     <div className="app">
       <Navbar />
       <Route path='/' exact component={BudgetsContainer}/>
+      
     </div>
     </Router>
   )

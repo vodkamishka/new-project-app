@@ -1,9 +1,9 @@
 .budgets .view-settings-window {
     width: 227px;
-    height: 269.98px;
+    height: 260px;
     position: absolute;
-    left: 1650px;
-    top: 185px;
+    right: 48px;
+    top: 190px;
     border-radius: 10px;
     background: white;
     box-shadow: 0 1px 5px rgba(0,0,0,0.25);
@@ -11,8 +11,18 @@
     z-index: 2000;
     font-size: 14px;  
 }
+.view-settings-window:after {
+    content: '';
+    position: absolute;
+    top: -26.5px;
+    left: 191px;
+    border-bottom:  16px solid white;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 16px solid transparent;
+}
 .budgets .view-settings-window ul {
-    margin: 29.98px 0 0 28px;  
+    margin: 20px 0 0 28px;  
 }
 .budgets .view-settings-window li {
     list-style-type: none;

@@ -1,6 +1,9 @@
-.budgets__navbar {
+.navbar {
     grid-area: navbar;
-    position: relative;
+    position: fixed;
+    height: 100vh;
+    width: 96px;
+    background: white;
 }
 .lines {
     position: absolute;
@@ -8,25 +11,25 @@
 }
 .line {
     width: 6px;
-    height: 36px;
     background: #3798f3;
+    height: 44px;
 }
 .line1 {
     height: 2px;
-    border-bottom: 6px solid #3798f3; 
-	border-right: 6px solid transparent;
+    width: 6px;
+    background: #3798f3;
 }
 .line2 {
     height: 2px;
-    border-top: 6px solid #3798f3; 
-	border-right: 6px solid transparent;
+    width: 6px;
+    background: #3798f3;
 }
 .sign-out {
     position: absolute;
-    top: 938px;
-    left: 28px;
+    top: 92%;
+    left: 36px;
 }
 .sign-out > img {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
 }

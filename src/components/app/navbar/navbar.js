@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import Ring from './ring/ring';
 import MiddleElements from './elements-middle/middle-elements';
-import BottomElements from './elements-bottom/bottom-elements';
+
 
 export default function Navbar() {
     return (

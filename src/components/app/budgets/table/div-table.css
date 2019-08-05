@@ -14,7 +14,8 @@
 }
 .budgets__table .col1 > div {
     width: 262px;
-    padding-left: 20px; 
+    padding-left: 20px;
+    cursor: pointer; 
 }
 .budgets__table .col2 > div {
     width: 155px;
