@@ -21,3 +21,12 @@
     border-top: 6px solid #3798f3; 
 	border-right: 6px solid transparent;
 }
+.sign-out {
+    position: absolute;
+    top: 938px;
+    left: 28px;
+}
+.sign-out > img {
+    width: 40px;
+    height: 40px;
+}

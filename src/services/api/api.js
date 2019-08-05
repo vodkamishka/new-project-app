@@ -22,7 +22,7 @@ export const budgetsAPI = {
      getBudgets () {
          let token =  JSON.parse(sessionStorage.getItem('tokenData'));
          return axios.get(`${api}/budgets`, { headers: {"Authorization" : `Bearer ${token}`} })
-         .then(response => console.log(response.data))
+         .then(response => console.log(response.data.data[0]))
          
     
      }

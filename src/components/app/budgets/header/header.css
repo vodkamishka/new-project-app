@@ -1,6 +1,18 @@
 .at-this-week {
+    height: 51px;
+    display: flex;
+}
+
+.at-this-week_title {
+    width: 91px;
+    height: 22px;
     font-size: 17px;
-    width: 100px;
-    height: 23px;
+    margin-right: 17px;
+    white-space: nowrap;
+    margin-top: 16px;
+}
+.at-this-week img {
+    width: 24px;
+    height: 24px;
     margin-top: 16px;
 }

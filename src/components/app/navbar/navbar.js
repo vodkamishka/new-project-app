@@ -14,7 +14,7 @@ export default function Navbar() {
                <div className = 'line'></div>
                <div className = 'line2'></div>
            </div>
-           <BottomElements />
+           <div className = 'sign-out'><img src='images/icons/sign-out.svg' alt='sign-out' /></div>
            
         </div>
     )

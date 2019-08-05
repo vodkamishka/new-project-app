@@ -6,6 +6,7 @@ import Table from './table/table';
 import WindowNewBudget from './window-new-budget/window-new-budget';
 import ViewSettingsWindow from './view-settings-window/view-settings-window';
 import FiltersWindow from './filters-window/filters-window';
+import DivTable from './table/div-table';
 
 class Budgets extends Component {
 
@@ -75,7 +76,7 @@ class Budgets extends Component {
             columnsNames={columnsNames}
             />
 
-            <Table 
+            <DivTable
             data = {data}
             columns = {columns}
             />

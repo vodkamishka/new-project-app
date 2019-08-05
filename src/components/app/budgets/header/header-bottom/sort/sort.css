@@ -3,7 +3,7 @@
     height: 44px;
     display: flex;
     align-items: center;
-   
+    
 }
 .sort-by {
     width: 58px;
@@ -24,11 +24,12 @@
     background: white;
     display: flex;
     align-items: center;
-}
-.created-at > select {
-    border: none;
-    margin-left: 12px;
+    border-radius: 5px;
 }
 .sort select {
     width: 116px;
+    border: 1px solid white;
+    margin-left: 12px;
+    outline: none;
+    
 }

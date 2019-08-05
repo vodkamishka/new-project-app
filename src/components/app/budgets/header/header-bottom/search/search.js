@@ -5,7 +5,7 @@ export default class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: 'Search in budgets...'
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -31,7 +31,7 @@ export default class Search extends Component {
                     type='search'
                     value={this.state.value}
                     onChange={this.handleChange}
-                    placeholder='Search in budgets...'
+                    
                 />
 
             </div>

@@ -18,7 +18,8 @@ export default function Header({newBudgetToggled, iconSettingsToggled, inBudgets
             columnsNames={columnsNames}
             />
             <div className = 'at-this-week'>
-                At this week
+                <div className = 'at-this-week_title'>At this week</div>
+                <div><img src='images/icons-png/shevron.png' alt='shevron' /></div> 
             </div>
         </div>
     )
