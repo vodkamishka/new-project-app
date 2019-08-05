@@ -22,6 +22,7 @@ const reducerDataLoaded = (state = initialState, action) => {
             }
         case 'SEARCH_IN_BUDGETS':
             let value = action.payload.toLowerCase();
+            console.log(value)
             if (value.length === 0) {
                 return {
                     ...state,
@@ -30,7 +31,7 @@ const reducerDataLoaded = (state = initialState, action) => {
             }
             return {
                 ...state,
-                termDataTable: [...state.termDataTable.filter(el => el.budgetName.toLowerCase().indexOf(value) > -1)]
+                termDataTable: [...state.termDataTable.filter(el => el.title.toLowerCase().indexOf(value) > -1)]
             }
         default: return state;
     }

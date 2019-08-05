@@ -7,7 +7,7 @@ import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded } from '.
 import { inBudgetsSeached } from '../../../actions/functional-actions';
 
 import withApiDataService from '../../hoc/withApiDataService';
-import { authAPI } from '../../../services/api/api';
+
 
 import Budgets from './budgets';
 
@@ -18,9 +18,9 @@ class BudgetsContainer extends Component {
         budgetsAPI.getBudgets()
         .then(data => dataBudgets = data.data[0])
         .then(() => console.log(dataBudgets))*/
-        this.props.dataBudgetsApiLoaded();
         
-        const { apiDataService, dataBudgetsLoaded, termDataTableUpdated} = this.props;
+        
+        const { apiDataService, dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded} = this.props;
         let budgets = apiDataService.getData();
         
         let promise = new Promise(resolve => {
@@ -28,8 +28,11 @@ class BudgetsContainer extends Component {
             resolve();
         })
         promise.then(() => {
+            
             termDataTableUpdated();
         })
+
+        /*dataBudgetsApiLoaded();*/
         
     }
 
@@ -39,7 +42,6 @@ class BudgetsContainer extends Component {
             inBudgetsSeached, termDataTableUpdated,
         } = this.props;
         const columnsNames = this.props.apiDataService.getColumnsNames();
-        
         return (
             <Budgets 
             data = {termDataTable}

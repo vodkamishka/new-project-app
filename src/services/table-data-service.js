@@ -14,12 +14,12 @@ export default class DataTableService {
     getData = () => {
         return [
             
-            { id: 1, budgetName: 'For transition operation', POnumber: '9846-12-3254', amountTotal: 1500.00, amountRemaining: 1487.00, createdAt: '10 jul 2019, 16:48', projects: [{id:345, name: 'Project 2345 - manual translation'},  {id: 346, name: 'Project 1128 - ubersetzung Projects ubermarginal'}] },
-            { id: 2, budgetName: 'New budgets for all primary ', POnumber: '6548947515', amountTotal: 20680.00, amountRemaining: 21946.65, createdAt: '8 mar 2018, 14:02', projects: [{id: 347, name: 'Project 295 - manual translation'}, {id: 348, name : 'Project 1504 - ubersetzung'}] },
-            { id: 3, budgetName: 'Documents and secure data ', POnumber: '9546877-3246', amountTotal: 9150.00, amountRemaining: 3546.33, createdAt: '12 apr 2019, 8:32', projects: [{id: 350, name: 'Project 1365 - manual translation'}] },
-            { id: 4, budgetName: 'Exelltable with marceting', POnumber: '234566-12-3254', amountTotal: 37890.00, amountRemaining: 15000.00, createdAt: '18 dec 1982, 01:48', projects: [{id:351, name: 'Project 1111 - manual translation'},  {id: 352, name: 'Project 1790 - der himel'}] },
-            { id: 5, budgetName: 'Plutarc pliniy mladshiy ', POnumber: '456677', amountTotal: 25180.00, amountRemaining: 111.60, createdAt: '18 may 2018, 02:01', projects: [{id: 353, name: 'Project 12 - manual transaction'}, {id: 354, name : 'Project 3333 - ahtung'}] },
-            { id: 6, budgetName: 'Documents abount ', POnumber: '906533222', amountTotal: 13000.00, amountRemaining: 33546.33, createdAt: '12 jun 1888, 18:55', projects: [{id: 355, name: 'Project 4567 - manual consultation'}, {id: 356, name: 'Project 14567767 - manual transcription'}, {id: 357, name: 'Project 4567566 - manual conversation'}] }
+            { id: 1, title: 'For transition operation', po_number: '9846-12-3254', amount: 1500.00, amount_remaining: 1487.00, created_at: '10 jul 2019, 16:48', projects: [{id:345, title: 'Project 2345 - manual translation'},  {id: 346, title: 'Project 1128 - ubersetzung Projects ubermarginal'}] },
+            { id: 2, title: 'New budgets for all primary ', po_number: '6548947515', amount: 20680.00, amount_remaining: 21946.65, created_at: '8 mar 2018, 14:02', projects: [{id: 347, title: 'Project 295 - manual translation'}, {id: 348, title : 'Project 1504 - ubersetzung'}] },
+            { id: 3, title: 'Documents and secure data ', po_number: '9546877-3246', amount: 9150.00, amount_remaining: 3546.33, created_at: '12 apr 2019, 8:32', projects: [{id: 350, title: 'Project 1365 - manual translation'}] },
+            { id: 4, title: 'Exelltable with marceting', po_number: '234566-12-3254', amount: 37890.00, amount_remaining: 15000.00, created_at: '18 dec 1982, 01:48', projects: [{id:351, title: 'Project 1111 - manual translation'},  {id: 352, title: 'Project 1790 - der himel'}] },
+            { id: 5, title: 'Plutarc pliniy mladshiy ', po_number: '456677', amount: 25180.00, amount_remaining: 111.60, created_at: '18 may 2018, 02:01', projects: [{id: 353, title: 'Project 12 - manual transaction'}, {id: 354, title : 'Project 3333 - ahtung'}] },
+            { id: 6, title: 'Documents abount ', po_number: '906533222', amount: 13000.00, amount_remaining: 33546.33, created_at: '12 jun 1888, 18:55', projects: [{id: 355, title: 'Project 4567 - manual consultation'}, {id: 356, title: 'Project 14567767 - manual transcription'}, {id: 357, title: 'Project 4567566 - manual conversation'}] }
             
         ]
     }

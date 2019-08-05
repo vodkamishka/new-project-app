@@ -21,12 +21,9 @@ export const budgetsAPI = {
 
      getBudgets () {
          let token =  JSON.parse(sessionStorage.getItem('tokenData'));
-         return axios.get(`${api}/budgets`, { headers: {"Authorization" : `Bearer ${token}`} })
-         .then(response => console.log(response.data.data[0]))
-         
-    
+         return axios.get(`${api}/budgets?expand=projects`, { headers: {"Authorization" : `Bearer ${token}`} })
      }
-
+    
 }
 
 

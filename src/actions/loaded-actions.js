@@ -20,12 +20,14 @@ const dataBudgetsApiLoaded = () => {
 
     return dispatch => {
         authAPI.getToken()
-        .then(() => {
-        budgetsAPI.getBudgets()
-        })
-    }
+        .then(() =>  budgetsAPI.getBudgets())
+        .then(response => {
+            console.log(response.data.data)
+            dispatch(dataBudgetsLoaded(response.data.data))})
+        .then(() => dispatch(termDataTableUpdated()))
+        
 }
-
+}
 export {
     dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded
 }
