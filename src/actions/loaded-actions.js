@@ -1,3 +1,5 @@
+import { authAPI, budgetsAPI } from "../services/api/api";
+
 const DATA_BUDGETS_FROM_API_LOADED = 'DATA_BUDGETS_FROM_API_LOADED';
 const TERM_DATA_TABLE_UPDATE = 'TERM_DATA_TABLE_UPDATE';
 
@@ -14,7 +16,16 @@ const termDataTableUpdated = () => {
     }
 }
 
+const dataBudgetsApiLoaded = () => {
+
+    return dispatch => {
+        authAPI.getToken()
+        .then(() => {
+        budgetsAPI.getBudgets()
+        })
+    }
+}
 
 export {
-    dataBudgetsLoaded, termDataTableUpdated
+    dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded
 }

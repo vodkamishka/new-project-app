@@ -5,12 +5,14 @@ import './budgets.css';
 import Table from './table/table';
 import WindowNewBudget from './window-new-budget/window-new-budget';
 import ViewSettingsWindow from './view-settings-window/view-settings-window';
+import FiltersWindow from './filters-window/filters-window';
 
 class Budgets extends Component {
 
     state = {
         showNewBudget: false,
         showIconViewSettingsWindow: false,
+        showFiltersWindow: false,
         columns: {
             col1: false,
             col2: false,
@@ -37,16 +39,23 @@ class Budgets extends Component {
             columns: columns
         })
     }
+    filtersWindowToggled = () => {
+        this.setState({
+            showFiltersWindow: !this.state.showFiltersWindow
+        })
+    }
     render() {
     const { data, 
         columnsNames,
         inBudgetsSeached, termDataTableUpdated
     } = this.props;
-    const { showNewBudget, showIconViewSettingsWindow, columns } = this.state;
+    const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow } = this.state;
     return (
         <div className='budgets'>
 
             {showNewBudget ? <WindowNewBudget newBudgetToggled={this.newBudgetToggled} /> : null}
+
+            {showFiltersWindow ? <FiltersWindow /> : null}
 
             {showIconViewSettingsWindow ?
                 <ViewSettingsWindow 
@@ -58,6 +67,7 @@ class Budgets extends Component {
             <Header 
             newBudgetToggled={this.newBudgetToggled} 
             iconSettingsToggled={this.iconSettingsToggled}
+            filtersWindowToggled={this.filtersWindowToggled}
 
             inBudgetsSeached = {inBudgetsSeached}
             termDataTableUpdated = {termDataTableUpdated}

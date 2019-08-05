@@ -3,17 +3,31 @@
     height: 44px;
     display: flex;
     align-items: center;
+   
 }
 .sort-by {
     width: 58px;
-    height: 19px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+.sort-by-title {
     color: #6d6f75;
+    width: 47px;
+    height: 19px;
+    white-space: nowrap;
 }
 .created-at {
-    color: #6d6f75;  
+    color: #6d6f75;
+    width: 134px;
+    height: 44px;
+    background: white;
+    display: flex;
+    align-items: center;
 }
 .created-at > select {
     border: none;
+    margin-left: 12px;
 }
 .sort select {
     width: 116px;

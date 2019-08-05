@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { dataBudgetsLoaded, termDataTableUpdated } from '../../../actions/loaded-actions';
+import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded } from '../../../actions/loaded-actions';
 import { inBudgetsSeached } from '../../../actions/functional-actions';
 
 import withApiDataService from '../../hoc/withApiDataService';
@@ -18,8 +18,8 @@ class BudgetsContainer extends Component {
         budgetsAPI.getBudgets()
         .then(data => dataBudgets = data.data[0])
         .then(() => console.log(dataBudgets))*/
-        let token = ''
-        authAPI.getToken(token)
+        this.props.dataBudgetsApiLoaded();
+        
         const { apiDataService, dataBudgetsLoaded, termDataTableUpdated} = this.props;
         let budgets = apiDataService.getData();
         
@@ -64,7 +64,8 @@ const mapStateToProps = ({data}) => {
 const mapDispatchToProps = {
     dataBudgetsLoaded,
     termDataTableUpdated,
-    inBudgetsSeached  
+    inBudgetsSeached,
+    dataBudgetsApiLoaded  
 }
 
 export default compose(

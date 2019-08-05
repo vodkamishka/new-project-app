@@ -1,0 +1,98 @@
+.app .filters-window {
+    width: 481px;
+    height: 550px;
+    position: absolute;
+    left: 1450px;
+    top: 185px;
+    border-radius: 10px;
+    background: #ffffff;
+    z-index: 2000;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.25);
+}
+.app .filters-window .filters-buttons {
+    display: flex;
+    margin: 14px 0 0 20px;
+    align-items: center;
+}
+.app .filters-window .filters-buttons > span {
+    font-size: 17px;
+    margin-right: 220px;
+}
+.app .filters-window .filters-buttons > .button {
+    border-radius: 5px;
+    background: #3798f3;
+    border: none;
+}
+.app .filters-window .filters-buttons > .clear {
+    height: 31px;
+    width: 70px;
+    margin-right: 12px;
+}
+.app .filters-window .filters-buttons > .apply {
+    height: 35px;
+    width: 83px;
+    color: white;
+}
+.filters-group {
+    margin-left: 26px;
+}
+
+.app .filters-group span {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+.app .filters-window input[type='datetime-local'], .app .filters-window select {
+    width: 423px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.25);
+    margin-bottom: 40px;
+}
+
+.app .filters-window .created-date {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 0;
+}
+.app .filters-group .amount-remaining-is {
+    margin-top: 80px;
+}
+.app .filters-group .amount-remaining-is .img-span {
+    display: flex;
+    margin-top: 16px;
+}
+.app .filters-group .amount-remaining-is  span {
+    font-size: 14px;
+}
+.app .filters-group .amount-remaining-is .img-span img {
+    margin-right: 12px;
+    
+}
+.app .filters-group .slider-container {
+    position: relative;
+}
+.app .filters-group .slider {
+    -webkit-appearance: none;
+    width: 400px;
+    height: 3px;
+    background: #3798f3;
+    outline: none;
+    position: absolute;
+    top: 10px;
+    
+}
+.app .filters-group .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #3798f3;
+    border-radius: 50%;
+    
+}
+
+.slider-observer {
+   position: absolute;
+   font-size: 14px;
+   top: 20px;
+}

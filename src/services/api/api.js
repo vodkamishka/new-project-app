@@ -9,26 +9,25 @@ const body_request = {
 
 export const authAPI = {
 
-    getToken (token) {  
+    getToken (token = '') {  
          return axios.post(`${api}/auth`, body_request)
         .then(res => token = res.data.data.access_token)
         .then(() => sessionStorage.setItem('tokenData', JSON.stringify(token)))
-        .then(() => token = JSON.parse(sessionStorage.getItem('tokenData')))
+        
     }   
 }
-/*
+
 export const budgetsAPI = {
 
-
-
      getBudgets () {
-        
+         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
          return axios.get(`${api}/budgets`, { headers: {"Authorization" : `Bearer ${token}`} })
-         .then(response => response.data)
+         .then(response => console.log(response.data))
+         
     
      }
 
 }
-*/
+
 
 

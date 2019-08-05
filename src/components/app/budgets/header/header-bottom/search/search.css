@@ -5,6 +5,7 @@
     color: #6d6f75;
     display: flex;
     position: absolute;
+    background: #ffffff;
 }
 .search-in-budgets > img {
     width: 18px;

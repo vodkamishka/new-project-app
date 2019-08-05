@@ -6,7 +6,7 @@ export default class Sort extends Component {
         const { columnsNames } = this.props;
         return (
             <div className='sort'>
-            <div className='sort-by'>Sort by:</div>
+            <div className='sort-by'><span className='sort-by-title'>Sort by:</span></div>
             <div className='created-at'>
                 <select>
                     {columnsNames.map(el => <option key  = {el.id}>{el.name}</option>)}

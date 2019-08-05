@@ -4,7 +4,7 @@
 }
 body {
     width: 1920px;
-    height: 1018px;
+    height: 100vh;
     font-family: 'Open Sans', sans-serif;
 }
 .app {
@@ -14,6 +14,7 @@ body {
         grid-template-areas: 
         'navbar budgets'
         'navbar budgets';
+        height: 100%;
 }
 button:hover {
     cursor: pointer;

@@ -6,7 +6,7 @@ import Search from './search/search';
 import Icons from './icons/icons';
 
 
-export default function HeaderBottom({iconSettingsToggled, inBudgetsSeached, termDataTableUpdated, columnsNames }) {
+export default function HeaderBottom({iconSettingsToggled, inBudgetsSeached, termDataTableUpdated, columnsNames, filtersWindowToggled }) {
     return (
         <div className = 'budgets__header_header-bottom'>
             <Sort 
@@ -16,7 +16,9 @@ export default function HeaderBottom({iconSettingsToggled, inBudgetsSeached, ter
             inBudgetsSeached = {inBudgetsSeached}
             termDataTableUpdated = {termDataTableUpdated}
             />
-            <Icons iconSettingsToggled={iconSettingsToggled}/>
+            <Icons iconSettingsToggled={iconSettingsToggled}
+            filtersWindowToggled={filtersWindowToggled}
+            />
         </div>
     )
 }
