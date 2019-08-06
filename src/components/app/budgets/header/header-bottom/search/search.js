@@ -22,6 +22,7 @@ export default class Search extends Component {
         .then(()=> this.props.termDataTableUpdated() )
     }
     clearInput () {
+        if (this.state.value === 'Search in budgets...')
         this.setState({
             value: ''
         })
@@ -37,9 +38,7 @@ export default class Search extends Component {
                     type='search'
                     value={this.state.value}
                     onChange={this.handleChange}
-                    onClick = { () => {
-                        if (this.state.value === 'Search in budgets...') this.clearInput();
-                    }}
+                    onClick = {this.clearInput}
                 />
 
             </div>

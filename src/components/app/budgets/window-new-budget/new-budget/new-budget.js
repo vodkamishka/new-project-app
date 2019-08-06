@@ -29,12 +29,11 @@ export default class NewBudget extends Component {
             acountValue: event.target.value
         })
     }
-    clearInput(event){
-        let stateValue = event.target.className;
-        this.setState({
-            [stateValue] : ''
-        })
+     clearInput () {
+        if (this.state.budgetValue === 'My new fav budget'){this.setState({value: ''})}
+        
     }
+
     render() {
         const { newBudgetToggled } = this.props;
         return (
@@ -42,12 +41,12 @@ export default class NewBudget extends Component {
                 <div className='new-budget-title'>New budget</div>
                 <form>
                     <div className='label label1'>Budget name</div>
-                    <div><input type='text' value={this.state.budgetValue} onChange={this.handleChangeBudget} onDoubleClick = {this.clearInput} className = 'budgetValue'/></div>
+                    <div><input type='text' value={this.state.budgetValue} onChange={this.handleChangeBudget}  className = 'budgetValue'/></div>
                     <div className='feel'  >Feel free to give a name for your budgets. Most important thing is to you will could easy search them in further</div>
                     <div className='label label2'>PO number</div>
-                    <div><input type='text' value={this.state.poValue} onChange={this.handleChangePo} onDoubleClick = {this.clearInput} className = 'poValue'/></div>
+                    <div><input type='text' value={this.state.poValue} onChange={this.handleChangePo} className = 'poValue'/></div>
                     <div className='label label3'>Amount total, $</div>
-                    <div><input type='text' value={this.state.acountValue} onChange={this.handleChangeAcount} onDoubleClick = {this.clearInput} className = 'acountValue'/></div>
+                    <div><input type='text' value={this.state.acountValue} onChange={this.handleChangeAcount}  className = 'acountValue'/></div>
 
                 </form>
                 <div className='new-budget_buttons'>

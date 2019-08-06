@@ -15,20 +15,13 @@ export default class Row extends Component {
         const { el, columns } = this.props;
         const { showProjets } = this.state;
         
-        const styleRow = { 
-            
-           
-            
-         };
-        const styleCol6 = { 
-            whiteSpace: showProjets ? 'normal' : 'nowrap',
-            textDecoration: showProjets ? 'underline' : 'none'
-        }
+        const styleImgage = { transform: showProjets ? 'rotate(270deg)' : 'rotate(90deg)'  };
+        const styleCol6 = { whiteSpace: showProjets ? 'normal' : 'nowrap'}
+        const styleSpan = {textDecoration: showProjets ? 'underline' : 'none'}
         return (
             <div
                 className='tr'
                 key={el.id}
-                style={styleRow}
             >
                 <div className={columns.col1 ? 'hide' : 'col1'}>
                     <div className='col-title'>Budget name</div>
@@ -57,17 +50,20 @@ export default class Row extends Component {
                     <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
                     <div
                    
-                    >{el.projects.map(element => <span key={element.id}> {element.title}</span>)}</div>
+                    >{el.projects.map(element => <span  style = {styleSpan} key={element.id}> {element.title} </span>)}</div>
                 </div>
 
                 <div className={columns.col7 ? 'hide' : 'col7'}>
                     <div className='budgets-table-projects'>
                         <div>{el.projects.length} {el.projects.length === 1 ? 'project' : 'projects'}</div>
-                        <div><img 
-                        src='images/icons-png/shevron.png' 
-                        alt='shevron' 
+                        <div>
+                        {el.projects.length > 2 ?
+                            <img 
+                        src='images/icons/shevron-left.svg' 
+                        alt='shevron'
+                        style = {styleImgage} 
                         onClick = {this.showProjectsTogled}
-                        /></div>
+                        /> : null } </div>
                     </div>
                 </div>
 
