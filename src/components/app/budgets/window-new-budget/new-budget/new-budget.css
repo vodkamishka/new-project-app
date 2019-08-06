@@ -1,10 +1,10 @@
 .new-budget {
     width: 480px;
     height: 405px;
-    border-radius: 10px;
+    border-radius: 12px;
     background: white;
     margin: 307px 0 0 672px;
-    font-size: 13px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.24)
 }
 .new-budget > form  {
     margin: 0 25px 0 24px;

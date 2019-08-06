@@ -14,7 +14,7 @@
     margin: 13px 11px;
 }
 .search-in-budgets > input {
-    width: 128px;
+    width: 400px;
     height: 19px;
     margin: 12px 0 13px 0px;
     color: #A4A4A4;
@@ -22,3 +22,5 @@
     border: none;
     outline: none;
 }
+
+ 

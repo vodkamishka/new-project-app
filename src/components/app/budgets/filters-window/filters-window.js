@@ -72,10 +72,11 @@ export default class FiltersWindow extends Component {
                         <span>Created date</span>
                         <input
                             type='datetime-local'
+                            className='datetime-local'
                             value={value}
                             onChange={this.handleChange}
                         />
-
+                        <div className = 'filters_line'></div>
                     </div>
 
                     {/* Related project*/}
@@ -83,14 +84,16 @@ export default class FiltersWindow extends Component {
                     <div className='related-project'>
                         <span>Related project</span>
                         <select
+                            className = 'filter_select'
                             value={project}
                             onChange={this.handleProjectChange}
                         >
                             <option value=''></option>
-                           {/*} {termDataTable.map(el => el.projects.map(element => <option key={element.id}>
+                            {/*{termDataTable.map(el => el.projects.map(element => <option key={element.id}>
                                 {element.name}</option>))}*/}
 
                         </select>
+                        <div className = 'filters_line'></div>
                     </div>
 
                     {/* Amount total range*/}
@@ -123,6 +126,7 @@ export default class FiltersWindow extends Component {
                                 style={styleRange}
                             >{range}</div>
                         </div>
+                        <div className = 'filters_line'></div>
                     </div>
 
 

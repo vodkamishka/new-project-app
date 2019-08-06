@@ -31,7 +31,7 @@ export default function DivTable({data, columns}) {
                                     <div>{el.created_at}</div>
                                 </div>
                                 <div className={columns.col6 ? 'hide' : 'col6'}>
-                                    <div className='col-title'>Projects</div>
+                                    <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
                                     <div>{el.projects.map(element => <span key={element.id}> {element.title}</span>)}</div>
                                 </div>
                                 <div className='col7'><Projects projectsCount = {el.projects.length} /></div>

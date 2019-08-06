@@ -8,6 +8,7 @@ export default class Search extends Component {
             value: 'Search in budgets...'
         }
         this.handleChange = this.handleChange.bind(this);
+        this.clearInput = this.clearInput.bind(this)
     }
     handleChange(event) {
         let promise = new Promise(resolve => {
@@ -20,6 +21,11 @@ export default class Search extends Component {
         .then(()=> this.props.inBudgetsSeached(this.state.value))
         .then(()=> this.props.termDataTableUpdated() )
     }
+    clearInput () {
+        this.setState({
+            value: ''
+        })
+    }
     render() {
         
         return (
@@ -27,11 +33,13 @@ export default class Search extends Component {
 
                <img src='images/icons/search.svg' alt='search'/>
 
-               <input
+               <input 
                     type='search'
                     value={this.state.value}
                     onChange={this.handleChange}
-                    
+                    onClick = { () => {
+                        if (this.state.value === 'Search in budgets...') this.clearInput();
+                    }}
                 />
 
             </div>

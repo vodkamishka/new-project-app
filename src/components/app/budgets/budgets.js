@@ -11,9 +11,9 @@ import DivTable from './table/div-table';
 class Budgets extends Component {
 
     state = {
-        showNewBudget: false,
+        showNewBudget: true,
         showIconViewSettingsWindow: false,
-        showFiltersWindow: false,
+        showFiltersWindow: true,
         columns: {
             col1: false,
             col2: false,
