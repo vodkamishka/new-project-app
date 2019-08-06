@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import Header from './header/header';
 import './budgets.css';
-import Table from './table/table';
 import WindowNewBudget from './window-new-budget/window-new-budget';
 import ViewSettingsWindow from './view-settings-window/view-settings-window';
 import FiltersWindow from './filters-window/filters-window';
@@ -11,9 +10,9 @@ import DivTable from './table/div-table';
 class Budgets extends Component {
 
     state = {
-        showNewBudget: true,
+        showNewBudget: false,
         showIconViewSettingsWindow: false,
-        showFiltersWindow: true,
+        showFiltersWindow: false,
         columns: {
             col1: false,
             col2: false,

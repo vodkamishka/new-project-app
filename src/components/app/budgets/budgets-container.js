@@ -23,16 +23,16 @@ class BudgetsContainer extends Component {
         const { apiDataService, dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded} = this.props;
         let budgets = apiDataService.getData();
         
-        let promise = new Promise(resolve => {
+        /*let promise = new Promise(resolve => {
             dataBudgetsLoaded(budgets);
             resolve();
         })
         promise.then(() => {
             
             termDataTableUpdated();
-        })
+        })*/
 
-        /*dataBudgetsApiLoaded();*/
+        dataBudgetsApiLoaded();
         
     }
 

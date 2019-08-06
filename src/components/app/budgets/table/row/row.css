@@ -1,17 +1,14 @@
-.budgets__table  .table {
-    font-size: 15px;
-    margin-top: 12px;
-    white-space: nowrap;
-}
 .budgets__table  .tr {
     box-shadow: 0 2px 4px rgba(0,0,0,0.16);
-    height: 72px;
     width: 1728px;
     margin-bottom: 6px;
     border-radius: 10px;
     background: #ffffff;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 15px;
+    padding-bottom: 17px;
+    min-height: 40px;
 }
 .budgets__table .col1 > div {
     width: 262px;
@@ -23,12 +20,14 @@
     padding-left: 20px;
     text-overflow: ellipsis; 
     overflow: hidden;  
+    white-space: nowrap; 
 }
 .budgets__table .col3 > div {
     width: 83px;
     text-align: right;
     padding-right: 10px;
-    padding-left: 20px; 
+    padding-left: 20px;
+    white-space: nowrap; 
 }
 .budgets__table .col4 > div{
     width: 118px;
@@ -45,11 +44,15 @@
 }
 .budgets__table .col6 > div {
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
-    width: 621px;
+    width: 512px;
     position: relative;
-    padding-left: 20px; 
+    padding-left: 20px;
+    padding-right: 109px; 
+
+}
+.budgets__table .col6 > div > span {
+    margin-bottom: 16px;
 }
 .budgets__table .col6 > div:after {
     content: '';
@@ -62,10 +65,13 @@
 }
 .budgets__table .col7 > div {
     width: 124px;
-    padding-left: 20px; 
+    padding-left: 20px;
+    margin-top: 12px;
+    
 }
 .budgets__table .col8 > div {
-    width: 40px;   
+    width: 40px;
+    margin-top: 12px;   
 }
 .col-title {
     font-size: 13px;
@@ -78,3 +84,7 @@
     display: none;
 }
 
+.budgets-table-projects {
+    display: flex;
+    color: #6D6F75;
+}

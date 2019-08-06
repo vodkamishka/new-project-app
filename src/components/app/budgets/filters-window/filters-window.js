@@ -39,7 +39,7 @@ export default class FiltersWindow extends Component {
         })
     }
     render() {
-      
+
         const { value, project, slider, range } = this.state;
         let styleSlider = {
             marginLeft: slider / 135 + 'px'
@@ -76,7 +76,7 @@ export default class FiltersWindow extends Component {
                             value={value}
                             onChange={this.handleChange}
                         />
-                        <div className = 'filters_line'></div>
+                        <div className='filters_line'></div>
                     </div>
 
                     {/* Related project*/}
@@ -84,7 +84,7 @@ export default class FiltersWindow extends Component {
                     <div className='related-project'>
                         <span>Related project</span>
                         <select
-                            className = 'filter_select'
+                            className='filter_select'
                             value={project}
                             onChange={this.handleProjectChange}
                         >
@@ -93,13 +93,17 @@ export default class FiltersWindow extends Component {
                                 {element.name}</option>))}*/}
 
                         </select>
-                        <div className = 'filters_line'></div>
+                        <div className='filters_line'></div>
                     </div>
 
                     {/* Amount total range*/}
 
                     <div className='amount-total-range'>
                         <span>Amount total range, $</span>
+                        <div className='filter-plus-minus twix1'>
+                            <div><img src='images/icons/plus.svg' alt='plus' /></div>
+                            <div><img src='images/icons/minus.svg' alt='minus' /></div>
+                        </div>
                         <div className='slider-container'>
 
                             <input
@@ -126,7 +130,11 @@ export default class FiltersWindow extends Component {
                                 style={styleRange}
                             >{range}</div>
                         </div>
-                        <div className = 'filters_line'></div>
+                        <div className='filters_line'></div>
+                        <div className='filter-plus-minus twix2'>
+                            <div><img src='images/icons/plus.svg' alt='plus' /></div>
+                            <div><img src='images/icons/minus.svg' alt='minus' /></div>
+                        </div>
                     </div>
 
 
@@ -135,15 +143,15 @@ export default class FiltersWindow extends Component {
                     <div className='amount-remaining-is'>
                         <span>Amount remaining is:</span>
                         <div className='img-span'><img
-                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png' 
+                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
                             alt='checkbox-applyed' /><span>Enough</span></div>
                         <div className='img-span'><img
-                            
+
                             src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
                             alt='checkbox-applyed' /><span>Exceeded</span></div>
                         <div className='img-span'><img
-                            
-                            src= 'https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png' 
+
+                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
                             alt='checkbox-applyed' /><span>Close to the end</span></div>
                     </div>
                 </div>

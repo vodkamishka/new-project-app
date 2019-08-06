@@ -125,6 +125,20 @@
     left: 29px;
     top: 20px;
 }
+.filter-plus-minus {
+    position:absolute;
+    top: 48px;
+}
+.filter-plus-minus > img{
+    width: 20px;
+    height: 20px;
+}
+.twix1 {
+    left: 29px;
+}
+.twix2 {
+    left: 432px;
+}
 
 /*Amount remaining */
 
