@@ -1,0 +1,45 @@
+.window-delete-budget {
+    position: absolute;
+    background: white;
+    width: 224px;
+    height: 153px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 2000;
+    right: 12px;
+    top: 0px;
+    font-size: 14px;
+}
+.window-delete-budget div {
+    cursor: pointer;
+}
+.delete-close-modal {
+    margin: 4px 0  0  196px;
+}
+.delete-close-modal  > img {
+    width: 24px;
+    height: 24px;
+}
+.delete-open {
+    width: 34px;
+    height: 19px;
+    margin: -4px 0 0 89px;
+    color: #6D6F75;
+}
+.delete-edit {
+    width: 160px;
+    height: 20px;
+    margin: 17px 0 0 34px;
+    color: #1C1A1A;
+    display: flex;
+}
+.delete-edit > div > span {
+    text-decoration: underline;
+    margin-right: 8px;
+}
+.delete-delete {
+    width: 40px;
+    height: 19px;
+    margin: 34px 0 0 86px;
+    color: #F30828
+}

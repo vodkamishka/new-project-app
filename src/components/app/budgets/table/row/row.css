@@ -76,7 +76,8 @@
 }
 .budgets__table .col8 > div {
     width: 40px;
-    margin-top: 12px;   
+    top: 12px;
+    position: relative;   
 }
 .col-title {
     font-size: 13px;

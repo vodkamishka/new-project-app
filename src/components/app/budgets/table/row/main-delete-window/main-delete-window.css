@@ -1,0 +1,9 @@
+.main-delete-window {
+    z-index: 10000;
+    position: absolute;
+    width: 1824px;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    right: 0;
+    top: 0;
+}

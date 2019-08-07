@@ -42,12 +42,12 @@ class BudgetsContainer extends Component {
     }
     
     render() {
-        let {
+        let {data,
             termDataTable,
             inBudgetsSeached, termDataTableUpdated, 
             createBudgets, deleteBudget
         } = this.props;
-        console.log(termDataTable)
+        
         const columnsNames = this.props.apiDataService.getColumnsNames();
         return (
             <Budgets 

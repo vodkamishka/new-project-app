@@ -41,7 +41,7 @@ const createBudgets = (title, po_number, amount) => {
 
 const deleteBudget = id => {
     return dispatch => {
-        budgetsAPI.deleteBudget(id)    
+        budgetsAPI.deleteBudget(id)  
     }
 }
 

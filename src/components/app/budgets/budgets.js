@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 
 import Header from './header/header';
 import './budgets.css';
-import WindowNewBudget from './window-new-budget/window-new-budget';
-import ViewSettingsWindow from './view-settings-window/view-settings-window';
-import FiltersWindow from './filters-window/filters-window';
+import WindowNewBudget from './windows/window-new-budget/window-new-budget';
+import ViewSettingsWindow from './windows/view-settings-window/view-settings-window';
+import FiltersWindow from './windows/filters-window/filters-window';
+
 import DivTable from './table/div-table';
+
 
 class Budgets extends Component {
 
@@ -44,16 +46,17 @@ class Budgets extends Component {
             showFiltersWindow: !this.state.showFiltersWindow
         })
     }
+   
     render() {
     const { data, 
         columnsNames,
         inBudgetsSeached, termDataTableUpdated,
         createBudgets, deleteBudget
     } = this.props;
-    const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow } = this.state;
+    const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow, showMainDeleteWindow } = this.state;
     return (
         <div className='budgets'>
-
+            
             {showNewBudget ? <WindowNewBudget 
             newBudgetToggled={this.newBudgetToggled} 
             createBudgets={createBudgets}
@@ -84,6 +87,7 @@ class Budgets extends Component {
             data = {data}
             columns = {columns}
             deleteBudget={deleteBudget}
+            mainDeleteWindowToggle = {this.mainDeleteWindowToggle }
             />
 
         </div>
