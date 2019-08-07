@@ -35,7 +35,8 @@ export default class NewBudget extends Component {
     }
 
     render() {
-        const { newBudgetToggled } = this.props;
+        const { newBudgetToggled, createBudgets, termDataTableUpdated } = this.props;
+        const { budgetValue, poValue, acountValue } = this.state;
         return (
             <div className='new-budget'>
                 <div className='new-budget-title'>New budget</div>
@@ -51,7 +52,12 @@ export default class NewBudget extends Component {
                 </form>
                 <div className='new-budget_buttons'>
                     <button onClick={newBudgetToggled}><span className='btn text1'>Cancel</span></button>
-                    <button><span className='btn text2'>Create budget</span></button>
+                    <button
+                    onClick = {() => {
+                            createBudgets(budgetValue, poValue, acountValue)
+                            newBudgetToggled()
+                    }}
+                    ><span className='btn text2'>Create budget</span></button>
                 </div>
             </div>
         )

@@ -3,15 +3,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded } from '../../../actions/loaded-actions';
+import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget } from '../../../actions/loaded-actions';
 import { inBudgetsSeached } from '../../../actions/functional-actions';
 
 import withApiDataService from '../../hoc/withApiDataService';
 
 
 import Budgets from './budgets';
+import { budgetsAPI } from '../../../services/api/api';
 
 class BudgetsContainer extends Component {
+
+    
 
     componentDidMount () {
         /*let dataBudgets;
@@ -31,16 +34,20 @@ class BudgetsContainer extends Component {
             
             termDataTableUpdated();
         })*/
-
-        dataBudgetsApiLoaded();
+       
+        dataBudgetsApiLoaded()
+       
+       
         
     }
-
+    
     render() {
         let {
-            termDataTable, 
-            inBudgetsSeached, termDataTableUpdated,
+            termDataTable,
+            inBudgetsSeached, termDataTableUpdated, 
+            createBudgets, deleteBudget
         } = this.props;
+        console.log(termDataTable)
         const columnsNames = this.props.apiDataService.getColumnsNames();
         return (
             <Budgets 
@@ -50,6 +57,9 @@ class BudgetsContainer extends Component {
           
             inBudgetsSeached = {inBudgetsSeached}
             termDataTableUpdated = {termDataTableUpdated}
+
+            createBudgets={createBudgets}
+            deleteBudget={deleteBudget}
             />
         )
     }
@@ -67,7 +77,9 @@ const mapDispatchToProps = {
     dataBudgetsLoaded,
     termDataTableUpdated,
     inBudgetsSeached,
-    dataBudgetsApiLoaded  
+    dataBudgetsApiLoaded,
+    createBudgets,
+    deleteBudget
 }
 
 export default compose(

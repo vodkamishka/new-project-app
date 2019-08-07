@@ -47,13 +47,18 @@ class Budgets extends Component {
     render() {
     const { data, 
         columnsNames,
-        inBudgetsSeached, termDataTableUpdated
+        inBudgetsSeached, termDataTableUpdated,
+        createBudgets, deleteBudget
     } = this.props;
     const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow } = this.state;
     return (
         <div className='budgets'>
 
-            {showNewBudget ? <WindowNewBudget newBudgetToggled={this.newBudgetToggled} /> : null}
+            {showNewBudget ? <WindowNewBudget 
+            newBudgetToggled={this.newBudgetToggled} 
+            createBudgets={createBudgets}
+          
+            /> : null}
 
             {showFiltersWindow ? <FiltersWindow /> : null}
 
@@ -78,6 +83,7 @@ class Budgets extends Component {
             <DivTable
             data = {data}
             columns = {columns}
+            deleteBudget={deleteBudget}
             />
 
         </div>

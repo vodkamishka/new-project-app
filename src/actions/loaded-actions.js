@@ -22,12 +22,29 @@ const dataBudgetsApiLoaded = () => {
         authAPI.getToken()
         .then(() =>  budgetsAPI.getBudgets())
         .then(response => {
-            console.log(response.data.data)
             dispatch(dataBudgetsLoaded(response.data.data))})
         .then(() => dispatch(termDataTableUpdated()))
         
 }
 }
+
+const createBudgets = (title, po_number, amount) => {
+    return dispatch => {
+        budgetsAPI.createBudget(title, po_number, amount)
+        .then(() =>  budgetsAPI.getBudgets())
+        .then(response => {
+            console.log(response.data.data)
+            dispatch(dataBudgetsLoaded(response.data.data))})
+        .then(() => dispatch(termDataTableUpdated()))
+    }
+}
+
+const deleteBudget = id => {
+    return dispatch => {
+        budgetsAPI.deleteBudget(id)    
+    }
+}
+
 export {
-    dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded
+    dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget
 }

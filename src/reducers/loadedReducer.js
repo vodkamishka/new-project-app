@@ -13,6 +13,7 @@ const reducerDataLoaded = (state = initialState, action) => {
                 data: action.payload
             }
         case 'TERM_DATA_TABLE_UPDATE':
+                
             let termDataTable = [...state.termDataTable];
             if (termDataTable.length === 0) { termDataTable = [...state.data] }
 
@@ -21,8 +22,9 @@ const reducerDataLoaded = (state = initialState, action) => {
                 termDataTable: termDataTable
             }
         case 'SEARCH_IN_BUDGETS':
+                console.log(state)
             let value = action.payload.toLowerCase();
-            console.log(value)
+            
             if (value.length === 0) {
                 return {
                     ...state,

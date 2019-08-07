@@ -2,7 +2,7 @@ import React from 'react';
 
 import Row from './row/row';
 
-export default function DivTable({data, columns}) {
+export default function DivTable({data, columns, deleteBudget}) {
     return (
         <div className='budgets__table'>
             <div className ='table'>
@@ -10,6 +10,7 @@ export default function DivTable({data, columns}) {
                     key = {el.id}
                     el = {el}
                     columns = {columns}
+                    deleteBudget ={deleteBudget}
                     />)}
                 
             </div>
