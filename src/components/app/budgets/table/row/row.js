@@ -9,7 +9,7 @@ export default class Row extends Component {
         showProjets: false,
         showWindowDeleteBudget: false,
         showMainDeleteWindow: false,
-        selectId: 4
+        selectId: null
     }
     showProjectsTogled = () => {
         this.setState({
@@ -31,7 +31,9 @@ export default class Row extends Component {
             selectId: id
         })
     }
+    
     render() {
+        
         const { el, columns, deleteBudget } = this.props;
         const { showProjets, showWindowDeleteBudget, showMainDeleteWindow, selectId } = this.state;
 
@@ -48,6 +50,7 @@ export default class Row extends Component {
                     mainDeleteWindowToggle={this.mainDeleteWindowToggle}
                     selectId={selectId}
                     deleteBudget={deleteBudget}
+                    idSelected={this.idSelected}
                 /> : null}
                 <div
                     className='tr'
@@ -108,9 +111,9 @@ export default class Row extends Component {
                                 src='images/icons/line-menu.svg'
                                 alt='menu-secondary'
                                 onClick={
-                                    () => {
-                                        this.idSelected(el.id)
-                                        this.showWindowDeleteToggle();
+                                    () => {          
+                                            
+                                            this.showWindowDeleteToggle();
                                     }
                                 }
                             />

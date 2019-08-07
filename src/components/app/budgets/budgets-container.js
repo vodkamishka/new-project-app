@@ -47,11 +47,11 @@ class BudgetsContainer extends Component {
             inBudgetsSeached, termDataTableUpdated, 
             createBudgets, deleteBudget
         } = this.props;
-        
+       
         const columnsNames = this.props.apiDataService.getColumnsNames();
         return (
             <Budgets 
-            data = {termDataTable}
+            data = {data}
             
             columnsNames = {columnsNames}
           
