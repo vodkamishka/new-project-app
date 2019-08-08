@@ -17,7 +17,10 @@ export default function WindowDeleteBudget ({showWindowDeleteToggle, mainDeleteW
                 <div><img src='images/icons/request.svg' alt='close-modals'/></div>
                 </div>
             <div 
-            onClick = {mainDeleteWindowToggle}
+            onClick = { () => {
+                mainDeleteWindowToggle()
+                
+            }}
             className = ' delete-delete'>Delete</div>
         </div>
     )

@@ -30,13 +30,14 @@ export default class Row extends Component {
         this.setState({
             selectId: id
         })
+        
     }
     
     render() {
         
         const { el, columns, deleteBudget } = this.props;
         const { showProjets, showWindowDeleteBudget, showMainDeleteWindow, selectId } = this.state;
-
+           
 
         const styleImgage = { transform: showProjets ? 'rotate(270deg)' : 'rotate(90deg)' };
         const styleCol6 = {
@@ -106,14 +107,16 @@ export default class Row extends Component {
                             {showWindowDeleteBudget ? <WindowDeleteBudget
                                 showWindowDeleteToggle={this.showWindowDeleteToggle}
                                 mainDeleteWindowToggle={this.mainDeleteWindowToggle}
+                                idSelected={this.idSelected}
+                                id={el.id}
                             /> : null}
                             <img
                                 src='images/icons/line-menu.svg'
                                 alt='menu-secondary'
                                 onClick={
                                     () => {          
-                                            
                                             this.showWindowDeleteToggle();
+                                            this.idSelected(el.id)
                                     }
                                 }
                             />

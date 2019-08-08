@@ -26,12 +26,15 @@ class Budgets extends Component {
     }
     newBudgetToggled = () => {
         this.setState({
-            showNewBudget: !this.state.showNewBudget   
+            showNewBudget: !this.state.showNewBudget,
+            showIconViewSettingsWindow: false, 
+            showFiltersWindow: false  
         })
     }
     iconSettingsToggled = () => {
         this.setState({
-            showIconViewSettingsWindow: !this.state.showIconViewSettingsWindow   
+            showIconViewSettingsWindow: !this.state.showIconViewSettingsWindow,
+            showFiltersWindow: false   
         })
     }
     showHideColumnToggled = id => {
@@ -43,7 +46,8 @@ class Budgets extends Component {
     }
     filtersWindowToggled = () => {
         this.setState({
-            showFiltersWindow: !this.state.showFiltersWindow
+            showFiltersWindow: !this.state.showFiltersWindow,
+            showIconViewSettingsWindow: false
         })
     }
    

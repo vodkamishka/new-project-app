@@ -2,7 +2,7 @@ import React from 'react';
 import './warning.css';
 
 export default function Warning ({mainDeleteWindowToggle, selectId, deleteBudget }) {
-    
+    console.log(selectId)
     return (
         <div className = 'warning'>
             <div className = 'red-warning'>Warning</div>
