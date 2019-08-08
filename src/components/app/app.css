@@ -22,3 +22,12 @@ button:hover {
 img, select {
     cursor: pointer;
 }
+.hide {
+    display: none;
+}
+.red {
+    color: #F30828;
+}
+.orange {
+    color: #F68631;
+}

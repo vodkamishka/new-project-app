@@ -22,7 +22,9 @@ const dataBudgetsApiLoaded = () => {
         authAPI.getToken()
         .then(() =>  budgetsAPI.getBudgets())
         .then(response => {
-            dispatch(dataBudgetsLoaded(response.data.data))})     
+           
+            dispatch(dataBudgetsLoaded(response.data.data))})
+                
 }
 }
 
@@ -31,8 +33,7 @@ const createBudgets = (title, po_number, amount) => {
         budgetsAPI.createBudget(title, po_number, amount)
         .then(() =>  budgetsAPI.getBudgets())
         .then(response => {
-            console.log(response.data.data)
-            dispatch(dataBudgetsLoaded(response.data.data))})
+            dispatch(dataBudgetsLoaded(response.data.data))})   
     }
 }
 
@@ -40,13 +41,27 @@ const deleteBudget = id => {
     return dispatch => {
         budgetsAPI.deleteBudget(id)
         .then(() =>  budgetsAPI.getBudgets())
+        
         .then(response => {
-          
+            
             dispatch(dataBudgetsLoaded(response.data.data))})
+    }
+}
+
+const budgetsSorted = key => {
+    
+   return dispatch => {
+        budgetsAPI.getSortBudgets(key)
+        .then(() =>  budgetsAPI.getBudgets())
+        .then(response => {
+            console.log(response.data.data)
+            dispatch(dataBudgetsLoaded(response.data.data))
+        })
        
     }
 }
 
+
 export {
-    dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget
+    dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget, budgetsSorted
 }

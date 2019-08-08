@@ -35,7 +35,7 @@ export default class Row extends Component {
     
     render() {
         
-        const { el, columns, deleteBudget } = this.props;
+        const { el, columns, deleteBudget} = this.props;
         const { showProjets, showWindowDeleteBudget, showMainDeleteWindow, selectId } = this.state;
            
 
@@ -52,33 +52,34 @@ export default class Row extends Component {
                     selectId={selectId}
                     deleteBudget={deleteBudget}
                     idSelected={this.idSelected}
+                    
                 /> : null}
                 <div
                     className='tr'
                     key={el.id}
                 >
-                    <div className={columns.col1 ? 'hide' : 'col1'}>
+                    <div className={columns[0]['col1'] ? 'hide' : 'col1'}>
                         <div className='col-title'>Budget name</div>
                         <div className='underline'>{el.title}</div>
                     </div>
-                    <div className={columns.col2 ? 'hide' : 'col2'}>
+                    <div className={columns[1]['col2'] ? 'hide' : 'col2'}>
                         <div className='col-title'>PO number</div>
                         <div>{el.po_number}</div>
                     </div>
-                    <div className={columns.col3 ? 'hide' : 'col3'}>
+                    <div className={columns[2]['col3'] ? 'hide' : 'col3'}>
                         <div className='col-title title3'>Amount total</div>
                         <div>$ {el.amount}</div>
                     </div>
-                    <div className={columns.col4 ? 'hide' : 'col4'}>
+                    <div className={columns[3]['col4'] ? 'hide' : el.amount_remaining > el.amount ? 'col4 red' :  el.amount_remaining > 0.8*el.amount ? 'col4 orange' : 'col4'}>
                         <div className='col-title'>Amount remaining</div>
                         <div>$ {el.amount_remaining}</div>
                     </div>
-                    <div className={columns.col5 ? 'hide' : 'col5'}>
+                    <div className={columns[4]['col5'] ? 'hide' : 'col5'}>
                         <div className='col-title'>Created date</div>
                         <div>{new Date(el.created_at).toDateString()}</div>
                     </div>
 
-                    <div className={columns.col6 ? 'hide' : 'col6'}
+                    <div className={columns[5]['col6'] ? 'hide' : 'col6'}
                         style={styleCol6}
                     >
                         <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
@@ -114,9 +115,10 @@ export default class Row extends Component {
                                 src='images/icons/line-menu.svg'
                                 alt='menu-secondary'
                                 onClick={
-                                    () => {          
-                                            this.showWindowDeleteToggle();
-                                            this.idSelected(el.id)
+                                    () => { 
+                                                this.idSelected(el.id)
+                                           
+                                           this.showWindowDeleteToggle()
                                     }
                                 }
                             />

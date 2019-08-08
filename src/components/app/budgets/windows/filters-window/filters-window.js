@@ -17,6 +17,8 @@ export default class FiltersWindow extends Component {
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleRangeChange = this.handleRangeChange.bind(this);
         this.clear = this.clear.bind(this);
+        this.changeRangeRight= this.changeRangeRight.bind(this);
+        this.changeRangeLeft= this.changeRangeLeft.bind(this);
     }
     handleChange(event) {
         this.setState({ value: event.target.value });
@@ -30,6 +32,18 @@ export default class FiltersWindow extends Component {
     handleRangeChange(event) {
         this.setState({ range: event.target.value })
     }
+    changeRangeRight() {
+        if (this.state.range < 50000) {
+        this.setState({
+            range: this.state.range + 1000
+        })}
+    }
+    changeRangeLeft() {
+        if (this.state.range > 0) {
+        this.setState({
+            range: this.state.range - 1000
+        })}
+    }
     clear() {
         this.setState({
             value: '',
@@ -39,13 +53,14 @@ export default class FiltersWindow extends Component {
         })
     }
     render() {
-
+        
         const { value, project, slider, range } = this.state;
+        console.log(value, project, slider, range)
         let styleSlider = {
-            marginLeft: slider / 135 + 'px'
+            marginLeft: slider / 147 + 'px'
         }
         let styleRange = {
-            marginLeft: range / 135 + 'px'
+            marginLeft: range / 147 + 'px'
         }
         return (
             <div className='filters-window'>
@@ -89,8 +104,8 @@ export default class FiltersWindow extends Component {
                             onChange={this.handleProjectChange}
                         >
                             <option value=''></option>
-                            {/*{termDataTable.map(el => el.projects.map(element => <option key={element.id}>
-                                {element.name}</option>))}*/}
+                            {this.props.data.map(el => el.projects.map(element => <option key={element.id}>
+                                {element.title}</option>))}
 
                         </select>
                         <div className='filters_line'></div>
@@ -132,8 +147,15 @@ export default class FiltersWindow extends Component {
                         </div>
                         <div className='filters_line'></div>
                         <div className='filter-plus-minus twix2'>
-                            <div><img src='images/icons/plus.svg' alt='plus' /></div>
-                            <div><img src='images/icons/minus.svg' alt='minus' /></div>
+                            <div><img 
+                             src='images/icons/plus.svg'
+                             alt='plus'
+                             onClick={this.changeRangeRight}
+                             /></div>
+                            <div><img src='images/icons/minus.svg' 
+                            alt='minus'
+                            onClick={this.changeRangeLeft}
+                            /></div>
                         </div>
                     </div>
 
@@ -142,16 +164,16 @@ export default class FiltersWindow extends Component {
 
                     <div className='amount-remaining-is'>
                         <span>Amount remaining is:</span>
-                        <div className='img-span'><img
-                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
+                        <div className='img-span-span1'><img
+                            src='images/icons-png/checkbox-applyed.png'
                             alt='checkbox-applyed' /><span>Enough</span></div>
-                        <div className='img-span'><img
+                        <div className='img-span-span2'><img
 
-                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
+                            src='images/icons-png/checkbox-applyed.png'
                             alt='checkbox-applyed' /><span>Exceeded</span></div>
-                        <div className='img-span'><img
+                        <div className='img-span-span3'><img
 
-                            src='https://vodkamishka.github.io/janus-test-app/images/icons-png/checkbox-enable.png'
+                            src='images/icons-png/checkbox-applyed.png'
                             alt='checkbox-applyed' /><span>Close to the end</span></div>
                     </div>
                 </div>

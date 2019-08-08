@@ -6,8 +6,13 @@ export default class ViewSettingsWindow extends Component {
         count: 0
     }
     countColumns () {
-       let count = this.state.count;
-       
+         let count = this.state.count;
+         let columns = this.props.columns;
+         columns.forEach(el => {
+             if (el['col' + el.id] === true) count+=1
+            
+         });
+         return count;
     }
     render() {
         const { columnsNames, showHideColumnToggled, columns } = this.props;
@@ -23,9 +28,12 @@ export default class ViewSettingsWindow extends Component {
                         >
                             <img
                                 onClick={() => {
+                                    let count = this.countColumns();
+                                    if (count === 4 && columns[el.id-1]['col' + el.id] === false)  return;
                                     showHideColumnToggled(el.id)
+                                    
                                 }}
-                                src={columns['col' + el.id] ? 
+                                src={columns[el.id-1]['col' + el.id] ? 
                                 'images/icons-png/checkbox-enable.png' : 
                                 'images/icons-png/checkbox-applyed.png'}
                                 alt='checkbox-applyed' />

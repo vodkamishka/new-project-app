@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget } from '../../../actions/loaded-actions';
+import { dataBudgetsLoaded, termDataTableUpdated, dataBudgetsApiLoaded, createBudgets, deleteBudget, budgetsSorted } from '../../../actions/loaded-actions';
 import { inBudgetsSeached } from '../../../actions/functional-actions';
 
 import withApiDataService from '../../hoc/withApiDataService';
@@ -45,7 +45,7 @@ class BudgetsContainer extends Component {
         let {data,
             termDataTable,
             inBudgetsSeached, termDataTableUpdated, 
-            createBudgets, deleteBudget
+            createBudgets, deleteBudget, budgetSorted, dataBudgetsApiLoaded 
         } = this.props;
        
         const columnsNames = this.props.apiDataService.getColumnsNames();
@@ -60,6 +60,8 @@ class BudgetsContainer extends Component {
 
             createBudgets={createBudgets}
             deleteBudget={deleteBudget}
+            budgetsSorted={budgetsSorted}
+            dataBudgetsApiLoaded ={dataBudgetsApiLoaded }
             />
         )
     }
@@ -79,7 +81,8 @@ const mapDispatchToProps = {
     inBudgetsSeached,
     dataBudgetsApiLoaded,
     createBudgets,
-    deleteBudget
+    deleteBudget,
+    budgetsSorted
 }
 
 export default compose(

@@ -12,7 +12,7 @@ const reducerDataLoaded = (state = initialState, action) => {
                 ...state,
                 data: action.payload
             }
-        case 'TERM_DATA_TABLE_UPDATE':
+        /*case 'TERM_DATA_TABLE_UPDATE':
               
             let termDataTable = [...state.termDataTable];
             if (termDataTable.length === 0) { termDataTable = [...state.data] }
@@ -20,8 +20,8 @@ const reducerDataLoaded = (state = initialState, action) => {
             return {
                 ...state,
                 termDataTable: termDataTable
-            }
-        case 'SEARCH_IN_BUDGETS':
+            }*/
+        /*case 'SEARCH_IN_BUDGETS':
                 
             let value = action.payload.toLowerCase();
             
@@ -34,7 +34,7 @@ const reducerDataLoaded = (state = initialState, action) => {
             return {
                 ...state,
                 termDataTable: [...state.termDataTable.filter(el => el.title.toLowerCase().indexOf(value) > -1)]
-            }
+            }*/
         default: return state;
     }
 }
