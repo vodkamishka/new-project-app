@@ -30,7 +30,7 @@ export default class Row extends Component {
         const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows, rowDeleted} = this.props;
         const { showProjets,  showMainDeleteWindow, selectId } = this.state;
            
-
+        const styleGradient = {zIndex: showProjets ? '0' : '500'}
         const styleImgage = { transform: showProjets ? 'rotate(90deg)' : 'rotate(270deg)' };
         const styleCol6 = {
             whiteSpace: showProjets ? 'normal' : 'nowrap',
@@ -74,7 +74,11 @@ export default class Row extends Component {
 
                     <div className={columns[5]['col6'] ? 'hide' : 'col6'}
                         style={styleCol6}
-                    >
+                    >   
+                        <div 
+                        className = 'col6-gradient'
+                        style = {styleGradient}
+                        ></div>
                         <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
                         <div
 
