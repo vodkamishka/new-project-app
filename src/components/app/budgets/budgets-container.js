@@ -37,15 +37,13 @@ class BudgetsContainer extends Component {
        
         dataBudgetsApiLoaded()
        
-       
-        
     }
     
     render() {
         let {data,
             termDataTable,
             inBudgetsSeached, termDataTableUpdated, 
-            createBudgets, deleteBudget, budgetSorted, dataBudgetsApiLoaded 
+            createBudgets, deleteBudget, budgetsSorted, dataBudgetsApiLoaded 
         } = this.props;
        
         const columnsNames = this.props.apiDataService.getColumnsNames();

@@ -26,7 +26,7 @@ export default class Sort extends Component {
             if ( key === 'Created at' ) { key = 'created_at' }
             if ( key === 'Projects' ) { key = 'projects' }
             
-            this.props.budgetsSorted()
+            this.props.budgetsSorted(key)
             
          
         })

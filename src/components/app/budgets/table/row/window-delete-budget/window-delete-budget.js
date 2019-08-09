@@ -2,9 +2,10 @@ import React from 'react';
 import './window-delete-budget.css';
 
 
-export default function WindowDeleteBudget ({showWindowDeleteToggle, mainDeleteWindowToggle }) {
+export default function WindowDeleteBudget ({showWindowDeleteToggle, mainDeleteWindowToggle, showDeleteWindows, id }) {
+    console.log(showDeleteWindows, id)
     return (
-        <div className='window-delete-budget'>
+        <div className={showDeleteWindows === id ? 'window-delete-budget': 'window-delete-budget hide'}>
             <div className ='delete-close-modal'>
                 <img 
             onClick = {showWindowDeleteToggle}
@@ -19,7 +20,6 @@ export default function WindowDeleteBudget ({showWindowDeleteToggle, mainDeleteW
             <div 
             onClick = { () => {
                 mainDeleteWindowToggle()
-                
             }}
             className = ' delete-delete'>Delete</div>
         </div>

@@ -23,10 +23,7 @@ export const budgetsAPI = {
          
          return axios.get(`${api}/budgets?expand=projects`, { headers: {"Authorization" : `Bearer ${token}`} })
      },
-     getShortBudget () {
-        let token =  JSON.parse(sessionStorage.getItem('tokenData'));
-        return axios.get(`${api}/budgets`, { headers: {"Authorization" : `Bearer ${token}`} })
-     },
+    
      createBudget (title, po_number, amount) {
 
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
@@ -37,16 +34,15 @@ export const budgetsAPI = {
              "po_number": `${po_number}`,
              "amount": `${amount}`
             } 
-          return axios.post(`${api}/budgets`, body_request, { headers: {"Authorization" : `Bearer ${token}`} })
+          return axios.post(`${api}/budgets?expand=projects`, body_request, { headers: {"Authorization" : `Bearer ${token}`} })
      },
      deleteBudget (id) {
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
         return axios.delete(`${api}/budgets/${id}`, { headers: {"Authorization" : `Bearer ${token}`} } )
      },
-     getSortBudgets (title="amount") {
+     getSortBudgets (key) {
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
-        console.log(token)
-        return axios.get(`${api}/budgets?sort=amount`, { headers: {"Authorization" : `Bearer ${token}`} })
+        return axios.get(`${api}/budgets?expand=projects&sort=${key}`, { headers: {"Authorization" : `Bearer ${token}`} })
      }
     
 }

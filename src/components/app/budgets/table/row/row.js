@@ -7,8 +7,6 @@ import MainDeleteWindow from './main-delete-window/main-delete-window';
 export default class Row extends Component {
     state = {
         showProjets: false,
-        showWindowDeleteBudget: false,
-        showMainDeleteWindow: false,
         selectId: null
     }
     showProjectsTogled = () => {
@@ -16,27 +14,16 @@ export default class Row extends Component {
             showProjets: !this.state.showProjets
         })
     }
-    showWindowDeleteToggle = () => {
-        this.setState({
-            showWindowDeleteBudget: !this.state.showWindowDeleteBudget
-        })
-    }
-    mainDeleteWindowToggle = () => {
-        this.setState({
-            showMainDeleteWindow: !this.state.showMainDeleteWindow
-        })
-    }
     idSelected = id => {
         this.setState({
             selectId: id
         })
-        
     }
     
     render() {
         
-        const { el, columns, deleteBudget} = this.props;
-        const { showProjets, showWindowDeleteBudget, showMainDeleteWindow, selectId } = this.state;
+        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows} = this.props;
+        const { showProjets,  showMainDeleteWindow, selectId } = this.state;
            
 
         const styleImgage = { transform: showProjets ? 'rotate(270deg)' : 'rotate(90deg)' };
@@ -105,20 +92,20 @@ export default class Row extends Component {
                     <div className='col8'>
                         <div>
                             
-                            {showWindowDeleteBudget ? <WindowDeleteBudget
+                            <WindowDeleteBudget
                                 showWindowDeleteToggle={this.showWindowDeleteToggle}
                                 mainDeleteWindowToggle={this.mainDeleteWindowToggle}
                                 idSelected={this.idSelected}
                                 id={el.id}
-                            /> : null}
+                                showDeleteWindows={showDeleteWindows}
+                            /> 
                             <img
                                 src='images/icons/line-menu.svg'
                                 alt='menu-secondary'
                                 onClick={
                                     () => { 
                                                 this.idSelected(el.id)
-                                           
-                                           this.showWindowDeleteToggle()
+                                                deleteWindowsToggled(el.id)
                                     }
                                 }
                             />

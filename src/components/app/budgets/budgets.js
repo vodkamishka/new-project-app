@@ -22,20 +22,23 @@ class Budgets extends Component {
             {col4: false, id: 4},
             {col5: false, id: 5},
             {col6: false, id: 6}
-        ]
+        ],
+        showDeleteWindows: -1
     }
     
     newBudgetToggled = () => {
         this.setState({
             showNewBudget: !this.state.showNewBudget,
             showIconViewSettingsWindow: false, 
-            showFiltersWindow: false  
+            showFiltersWindow: false,
+            showDeleteWindows: -1  
         })
     }
     iconSettingsToggled = () => {
         this.setState({
             showIconViewSettingsWindow: !this.state.showIconViewSettingsWindow,
-            showFiltersWindow: false   
+            showFiltersWindow: false,
+            showDeleteWindows: -1   
         })
     }
     showHideColumnToggled = id => {
@@ -48,17 +51,24 @@ class Budgets extends Component {
     filtersWindowToggled = () => {
         this.setState({
             showFiltersWindow: !this.state.showFiltersWindow,
-            showIconViewSettingsWindow: false
+            showIconViewSettingsWindow: false,
+            showDeleteWindows: -1
         })
     }
-   
+    deleteWindowsToggled = id => {
+        
+        this.setState({
+            showDeleteWindows: this.state.showDeleteWindows === id ? -1 : id 
+        })
+    
+    }
     render() {
     const { data, 
         columnsNames,
         inBudgetsSeached, termDataTableUpdated,
         createBudgets, deleteBudget, budgetsSorted, dataBudgetsApiLoaded, 
     } = this.props;
-    const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow, showMainDeleteWindow } = this.state;
+    const { showNewBudget, showIconViewSettingsWindow, columns, showFiltersWindow, showDeleteWindows } = this.state;
     
     return (
         <div className='budgets'>
@@ -91,10 +101,14 @@ class Budgets extends Component {
             />
             
             <DivTable
+
             data = {data}
             columns = {columns}
             deleteBudget={deleteBudget}
             mainDeleteWindowToggle = {this.mainDeleteWindowToggle }
+
+            deleteWindowsToggled={this.deleteWindowsToggled}
+            showDeleteWindows={showDeleteWindows}
             />
 
         </div>
