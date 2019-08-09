@@ -7,7 +7,8 @@ import MainDeleteWindow from './main-delete-window/main-delete-window';
 export default class Row extends Component {
     state = {
         showProjets: false,
-        selectId: null
+        selectId: null,
+        showMainDeleteWindow: false
     }
     showProjectsTogled = () => {
         this.setState({
@@ -19,14 +20,18 @@ export default class Row extends Component {
             selectId: id
         })
     }
-    
+    mainDeleteWindowToggle = () => {
+        this.setState({
+            showMainDeleteWindow: !this.state.showMainDeleteWindow
+        })
+    }
     render() {
         
-        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows} = this.props;
+        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows, rowDeleted} = this.props;
         const { showProjets,  showMainDeleteWindow, selectId } = this.state;
            
 
-        const styleImgage = { transform: showProjets ? 'rotate(270deg)' : 'rotate(90deg)' };
+        const styleImgage = { transform: showProjets ? 'rotate(90deg)' : 'rotate(270deg)' };
         const styleCol6 = {
             whiteSpace: showProjets ? 'normal' : 'nowrap',
             cursor: showProjets ? 'pointer' : 'default'
@@ -39,6 +44,7 @@ export default class Row extends Component {
                     selectId={selectId}
                     deleteBudget={deleteBudget}
                     idSelected={this.idSelected}
+                    rowDeleted={rowDeleted}
                     
                 /> : null}
                 <div
@@ -57,7 +63,7 @@ export default class Row extends Component {
                         <div className='col-title title3'>Amount total</div>
                         <div>$ {el.amount}</div>
                     </div>
-                    <div className={columns[3]['col4'] ? 'hide' : el.amount_remaining > el.amount ? 'col4 red' :  el.amount_remaining > 0.8*el.amount ? 'col4 orange' : 'col4'}>
+                    <div className={columns[3]['col4'] ? 'hide' : el.amount_remaining < el.amount ? 'col4 red' :  el.amount_remaining > 0.8*el.amount ? 'col4 orange' : 'col4'}>
                         <div className='col-title'>Amount remaining</div>
                         <div>$ {el.amount_remaining}</div>
                     </div>
@@ -98,6 +104,7 @@ export default class Row extends Component {
                                 idSelected={this.idSelected}
                                 id={el.id}
                                 showDeleteWindows={showDeleteWindows}
+                                deleteWindowsToggled={deleteWindowsToggled}
                             /> 
                             <img
                                 src='images/icons/line-menu.svg'

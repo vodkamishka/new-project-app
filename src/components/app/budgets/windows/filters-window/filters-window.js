@@ -54,8 +54,8 @@ export default class FiltersWindow extends Component {
     }
     render() {
         
-        const { value, project, slider, range } = this.state;
-        console.log(value, project, slider, range)
+        const { value, project, range, slider } = this.state;
+        const { budgetsFiltered } = this.props;
         let styleSlider = {
             marginLeft: slider / 147 + 'px'
         }
@@ -74,8 +74,9 @@ export default class FiltersWindow extends Component {
                             this.clear()
                         }}
                     >Clear</button>
-                    <button
-                        className='button apply'
+                    <button 
+                    className='button apply'
+                    onClick = {() => budgetsFiltered(value, project, range)}
                     >Apply</button>
                 </div>
 
@@ -86,7 +87,7 @@ export default class FiltersWindow extends Component {
                     <div className='created-date'>
                         <span>Created date</span>
                         <input
-                            type='datetime-local'
+                            type='date'
                             className='datetime-local'
                             value={value}
                             onChange={this.handleChange}

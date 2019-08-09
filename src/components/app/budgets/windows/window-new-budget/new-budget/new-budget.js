@@ -42,7 +42,7 @@ export default class NewBudget extends Component {
     }
 
     render() {
-        const { newBudgetToggled, createBudgets, termDataTableUpdated } = this.props;
+        const { newBudgetToggled, createBudget} = this.props;
         const { budgetValue, poValue, acountValue } = this.state;
         
        
@@ -64,7 +64,7 @@ export default class NewBudget extends Component {
                     disabled = {budgetValue === '' || poValue === '' || acountValue === '' || budgetValue === 'My new fav budget' && poValue === 'Placeholder text' && acountValue === 'Placeholder text' 
                      ? true : false}
                     onClick = {() => {
-                            createBudgets(budgetValue, poValue, acountValue)
+                            createBudget(budgetValue, poValue, acountValue)
                             newBudgetToggled()
                     }}
                     ><span>Create budget</span></button>

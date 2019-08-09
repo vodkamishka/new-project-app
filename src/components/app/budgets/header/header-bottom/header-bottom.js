@@ -6,19 +6,18 @@ import Search from './search/search';
 import Icons from './icons/icons';
 
 
-export default function HeaderBottom({iconSettingsToggled, inBudgetsSeached, termDataTableUpdated, columnsNames, filtersWindowToggled, budgetsSorted }) {
+export default function HeaderBottom({iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched }) {
     return (
         <div className = 'budgets__header_header-bottom'>
             <Sort 
-            columnsNames={columnsNames}
-            budgetsSorted={budgetsSorted}
+            columnsNames = {columnsNames}
+            budgetsSorted = {budgetsSorted}
             />
             <Search 
-            inBudgetsSeached = {inBudgetsSeached}
-            termDataTableUpdated = {termDataTableUpdated}
+            budgetsSearched = {budgetsSearched}
             />
-            <Icons iconSettingsToggled={iconSettingsToggled}
-            filtersWindowToggled={filtersWindowToggled}
+            <Icons iconSettingsToggled = {iconSettingsToggled}
+            filtersWindowToggled = {filtersWindowToggled}
             />
         </div>
     )

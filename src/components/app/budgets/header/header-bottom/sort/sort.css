@@ -1,5 +1,5 @@
 .sort {
-    width: 192px;
+    width: 233px;
     height: 44px;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 .created-at {
     color: #6d6f75;
-    width: 134px;
+    width: 175px;
     height: 44px;
     background: white;
     display: flex;
@@ -27,9 +27,13 @@
     border-radius: 5px;
 }
 .sort select {
-    width: 116px;
+    width: 157px;
     border: 1px solid white;
     margin-left: 12px;
     outline: none;
-    
+    font-size: 14px;
+}
+.sort select option {
+    width: 173px;
+    height: 36px;
 }

@@ -3,25 +3,25 @@ import './header.css';
 import HeaderUp from './header-up/header-up';
 import HeaderBottom from './header-bottom/header-bottom';
 
-export default function Header({newBudgetToggled, iconSettingsToggled, inBudgetsSeached, termDataTableUpdated, columnsNames, filtersWindowToggled,  budgetsSorted }) {
+export default function Header({ newBudgetToggled, iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched}) {
     return (
-        <div className = 'budgets__header'>
-            <HeaderUp newBudgetToggled  = {newBudgetToggled }/>
-            <HeaderBottom 
-            iconSettingsToggled = {iconSettingsToggled}
+        <div className='budgets__header'>
 
-            inBudgetsSeached = {inBudgetsSeached}
-            termDataTableUpdated = {termDataTableUpdated}
-
-            filtersWindowToggled = {filtersWindowToggled}
-
-            columnsNames={columnsNames}
-
-            budgetsSorted = {budgetsSorted}
+            <HeaderUp
+                newBudgetToggled = {newBudgetToggled}
             />
-            <div className = 'at-this-week'>
-                <div className = 'at-this-week_title'>At this week</div>
-                <div><img src='images/icons-png/shevron.png' alt='shevron' /></div> 
+
+            <HeaderBottom
+                iconSettingsToggled = {iconSettingsToggled}
+                filtersWindowToggled = {filtersWindowToggled}
+                columnsNames = {columnsNames}
+
+                budgetsSorted = {budgetsSorted}
+                budgetsSearched = {budgetsSearched}
+            />
+            <div className='at-this-week'>
+                <div className='at-this-week_title'>At this week</div>
+                <div><img src='images/icons-png/shevron.png' alt='shevron' /></div>
             </div>
         </div>
     )

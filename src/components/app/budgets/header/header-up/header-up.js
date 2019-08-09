@@ -1,7 +1,7 @@
 import React from 'react';
 import './header-up.css';
 
-export default function HeaderUp({ newBudgetToggled }) {
+export default function HeaderUp({ newBudgetToggled}) {
     return (
         <div className='budgets__header_header-up'>
             <div className='title-budgets'>Budgets</div>

@@ -69,15 +69,20 @@
 .budgets__table .col7 > div {
     width: 124px;
     padding-left: 20px;
-    margin-top: 12px;
+    margin-top: 9px;
 }
 .col7 img {
     margin-left: 4px;
 }
 .budgets__table .col8 > div {
-    width: 40px;
-    top: 12px;
-    position: relative;   
+    width: 40px; 
+}
+.budgets__table .col8 {
+    margin-top: 9px;
+}
+.budgets__table .col8 img {
+    width: 24px;
+    height: 24px;
 }
 .col-title {
     font-size: 13px;

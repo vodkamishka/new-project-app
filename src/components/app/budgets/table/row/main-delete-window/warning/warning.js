@@ -1,7 +1,7 @@
 import React from 'react';
 import './warning.css';
 
-export default function Warning ({mainDeleteWindowToggle, selectId, deleteBudget }) {
+export default function Warning ({mainDeleteWindowToggle, selectId, deleteBudget, rowDeleted }) {
     
     return (
         <div className = 'warning'>
@@ -13,6 +13,7 @@ export default function Warning ({mainDeleteWindowToggle, selectId, deleteBudget
             onClick={()=>{
                 deleteBudget(selectId)
                 mainDeleteWindowToggle()
+                rowDeleted(selectId)
             }}
             >Delete project</button>
             <button 
