@@ -22,6 +22,10 @@ button:hover {
 img, select {
     cursor: pointer;
 }
+img {
+    width:24px; 
+    height: 24px;
+}
 .hide {
     display: none;
 }
@@ -31,3 +35,17 @@ img, select {
 .orange {
     color: #F68631;
 }
+.underline {
+    text-decoration: underline;
+}
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+Input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration { display: none; }

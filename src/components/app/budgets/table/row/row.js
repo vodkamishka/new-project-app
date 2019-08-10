@@ -88,7 +88,7 @@ export default class Row extends Component {
                     <div className={columns.col7 ? 'hide' : 'col7'}>
                         <div className='budgets-table-projects'>
                             <div>{el.projects.length} {el.projects.length === 1 ? 'project' : 'projects'}</div>
-                            <div>
+                            <div className = 'img-container'>
                                 {el.projects.length > 2 ?
                                     <img
                                         src='images/icons/shevron-left.svg'

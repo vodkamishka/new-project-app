@@ -20,6 +20,7 @@ const dataBudgetsApiLoaded = () => {
         authAPI.getToken()
             .then(() => budgetsAPI.getBudgets())
             .then(response => {
+                console.log(response.data.data)
                 dispatch(dataBudgetsLoaded(response.data.data))
             })
     }

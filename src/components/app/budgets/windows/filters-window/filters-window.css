@@ -59,10 +59,7 @@
 }
 
 /*filters group */
-.created-date {
-    height: 102px;
-    position: relative;
-}
+
 .datetime-local, .filter_select{
     width: 413px;
     height: 36px;
@@ -71,11 +68,14 @@
     margin-left: 28px;
     outline: none;
     padding-left: 11px;
-    color: #A4A4A4;
 }
 
 /* Created date */
 
+.created-date {
+    height: 102px;
+    position: relative;
+}
 .app .filters-window .created-date {
     display: flex;
     flex-direction: column;
@@ -93,6 +93,9 @@
     width: 424px;
     height: 2px;
     background: #ECECEC;
+}
+input::-webkit-datetime-edit-fields-wrapper {
+    color:#A4A4A4;
 }
 
 /*related project */

@@ -10,7 +10,6 @@ export default class ViewSettingsWindow extends Component {
          let columns = this.props.columns;
          columns.forEach(el => {
              if (el['col' + el.id] === true) count+=1
-            
          });
          return count;
     }
