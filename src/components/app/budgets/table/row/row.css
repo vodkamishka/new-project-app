@@ -1,3 +1,6 @@
+.budgets__table .table {
+    margin-bottom: 50px;
+}
 .budgets__table  .tr {
     box-shadow: 0 2px 4px rgba(0,0,0,0.16);
     margin-bottom: 6px;
@@ -8,34 +11,36 @@
     padding-top: 15px;
     padding-bottom: 17px;
     min-height: 72px;
+    max-width: 1728px;
 }
-.budgets__table .col1 > div {
-    width: 282px;
+.budgets__table .col1  {
+    flex-basis: 282px;
     padding-left: 20px;
     cursor: pointer; 
 }
-.budgets__table .col2 > div {
-    width: 175px;
+.budgets__table .col2  {
+    flex-basis: 175px;
     padding-left: 20px;
     text-overflow: ellipsis; 
     overflow: hidden;  
     white-space: nowrap; 
 }
-.budgets__table .col3 > div {
-    width: 113px;
+.budgets__table .col3  {
+    width: 133px;
     text-align: right;
     padding-right: 10px;
     padding-left: 20px;
-    white-space: nowrap; 
+    white-space: nowrap;  
 }
-.budgets__table .col4 > div{
-    width: 166px;
+.budgets__table .col4 {
+    flex-basis: 166px;
     text-align: right;
     padding-right: 28px;
-    padding-left: 20px; 
+    padding-left: 20px;
+    white-space: nowrap;  
 }
-.budgets__table .col5 > div{
-    width: 167px;
+.budgets__table .col5 {
+    flex-basis: 167px;
     text-align: right;
     padding-right: 16px;
     padding-left: 20px;
@@ -47,29 +52,31 @@
 .budgets__table .col6 > div {
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 641px;
+    width: 561px;
     position: relative;
     padding-left: 20px;
-    padding-right: 109px;
+    padding-right: 99px;
 }
 .budgets__table .col6 > div > span{
     margin-bottom: 16px;
 }
 .budgets__table .col6 > .col6-gradient {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     height: 100%;
-    width: 480px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 410px, #fff 490px);
+    width: 140px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 80px, #fff 60px);
 }
 .budgets__table .col6 > div > span {
     margin-right: 26px;
     cursor: pointer;
 }
-.budgets__table .col7 > div {
-    width: 144px;
+.budgets__table .col7 {
+    flex-basis: 224px;
     margin-top: 9px;
+    white-space: nowrap;
+    text-align: right;
 }
 .col7 img {
     margin-left: 4px;
@@ -83,9 +90,14 @@
   width: 28px;
   margin-right:28px;
 }
+.budgets__table .col8 {
+    flex-basis: 40px;
+    padding-right: 0.92%; /*16px */
+    
+}
 .budgets__table .col8 > div {
-    width: 40px;
     position: relative; 
+    
 }
 .budgets__table .col8 {
     margin-top: 9px;

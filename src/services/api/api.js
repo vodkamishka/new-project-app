@@ -46,15 +46,30 @@ export const budgetsAPI = {
      },
      getSearch (text) {
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
-        console.log(token)
+        
         if (text.length < 1) { return axios.get(`${api}/budgets?expand=projects`, { headers: {"Authorization" : `Bearer ${token}`} })}
         else {return axios.get(`${api}/budgets?expand=projects&filter[title][like]=${text}`, { headers: {"Authorization" : `Bearer ${token}`} })}
      },
      getFilter (date, project, amount) {
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
         return axios.get(`${api}/budgets?expand=projects&filter[amount][gte]=30000`, { headers: {"Authorization" : `Bearer ${token}`} })
-     }
+     },
+     getBudgetId (id) {
+      let token =  JSON.parse(sessionStorage.getItem('tokenData'));
+      return axios.get(`${api}/budgets/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+     },
+     editBudget (title, po_number, amount, id) {
+
+      let token =  JSON.parse(sessionStorage.getItem('tokenData'));
+       
+       let body_request = { 
+           
+          "title": `${title}` ,
+           "po_number": `${po_number}`,
+           "amount": `${amount}`
+          } 
+        return axios.put(`${api}/budgets/${id}`, body_request, { headers: {"Authorization" : `Bearer ${token}`} })
+         }
 }
 
 
-/*https://test-gtp.janusww.com/ang/budgets?expand=projects&filter[amount][ite]=30000*/

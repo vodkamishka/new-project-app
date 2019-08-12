@@ -1,7 +1,7 @@
 .search-in-budgets {
     width: 480px;
     height: 44px;
-    left: 672px;
+    left: 38.88%; /*672px*/
     display: flex;
     position: absolute;
     background: #ffffff;

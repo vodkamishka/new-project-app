@@ -26,17 +26,7 @@
     margin: -4px 0 0 89px;
     color: #6D6F75;
 }
-.delete-edit {
-    width: 160px;
-    height: 20px;
-    margin: 17px 0 0 34px;
-    color: #1C1A1A;
-    display: flex;
-}
-.delete-edit > div > span {
-    text-decoration: underline;
-    margin-right: 8px;
-}
+
 .delete-delete {
     width: 40px;
     height: 19px;

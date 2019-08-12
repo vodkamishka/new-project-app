@@ -1,6 +1,7 @@
 .budgets {
-    padding-left: 48px;
+    padding-left: 2.5%; /*48px*/
     height: 100vh;
     position: relative;
     margin-left: 96px;
+    padding-right: 2.5%;
 }

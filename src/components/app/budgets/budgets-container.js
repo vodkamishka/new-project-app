@@ -3,21 +3,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted} from '../../../actions/actions';
+import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted, idBudgetGetted, idBudgetEdit } from '../../../actions/actions';
 import withApiDataService from '../../hoc/withApiDataService';
 
 import Budgets from './budgets';
 
 class BudgetsContainer extends Component {
     componentDidMount () {
-        this.props.dataBudgetsApiLoaded()   
+        this.props.dataBudgetsApiLoaded()
+        
     }
     render() {
         let {data,
-            budgetsSearched, budgetsFiltered, rowDeleted,
-            createBudget, deleteBudget, budgetsSorted, dataBudgetsApiLoaded 
+            budgetsSearched, budgetsFiltered, rowDeleted, idBudgetEdit,
+            createBudget, deleteBudget, budgetsSorted, dataBudgetsApiLoaded, idBudgetGetted, editData  
         } = this.props;
-       
+        
         const columnsNames = this.props.apiDataService.getColumnsNames();
         return (
 
@@ -35,7 +36,9 @@ class BudgetsContainer extends Component {
             budgetsFiltered = {budgetsFiltered}
 
             rowDeleted={rowDeleted}
-    
+            idBudgetGetted ={idBudgetGetted}
+            editData={editData}
+            idBudgetEdit={idBudgetEdit}
             />
 
         )
@@ -46,6 +49,7 @@ const mapStateToProps = ({data}) => {
     return {
         data: data.data,
         termDataTable: data.termDataTable,
+        editData: data.editData
     }
 }
 const mapDispatchToProps = {
@@ -56,7 +60,9 @@ const mapDispatchToProps = {
     budgetsSorted,
     budgetsSearched,
     budgetsFiltered,
-    rowDeleted
+    rowDeleted,
+    idBudgetGetted,
+    idBudgetEdit 
 }
 export default compose(
     withApiDataService(),

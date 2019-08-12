@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import './row.css';
-import WindowDeleteBudget from './window-delete-budget/window-delete-budget';
-import MainDeleteWindow from './main-delete-window/main-delete-window';
+import WindowDeleteBudget from './row-windows/window-delete-budget/window-delete-budget';
+import MainDeleteWindow from './row-windows/main-delete-window/main-delete-window';
 
 export default class Row extends Component {
     state = {
@@ -25,18 +25,28 @@ export default class Row extends Component {
             showMainDeleteWindow: !this.state.showMainDeleteWindow
         })
     }
+    returnLengthLetersprojects = (projects) => {
+        let length = 0;
+        projects.forEach(el => {
+          length += el.title.length
+        })
+        return length
+    }
     render() {
         
-        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows, rowDeleted} = this.props;
+        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows, rowDeleted,  editWindowToggled, budgetIdSetted} = this.props;
         const { showProjets,  showMainDeleteWindow, selectId } = this.state;
-           
+        let lettersLength = this.returnLengthLetersprojects(el.projects)
+        
         const styleGradient = {zIndex: showProjets ? '0' : '500'}
         const styleImgage = { transform: showProjets ? 'rotate(90deg)' : 'rotate(270deg)' };
         const styleCol6 = {
             whiteSpace: showProjets ? 'normal' : 'nowrap',
             cursor: showProjets ? 'pointer' : 'default'
         }
-        const styleSpan = { textDecoration: showProjets ? 'underline' : 'none' }
+        const styleSpan = { textDecoration: lettersLength < 40 ? 'underline' : showProjets ? 'underline' : 'none',
+        cursor: lettersLength < 40 ? 'pointer' : showProjets ? 'pointer' : 'default'
+     }
         return (
             <>
                 {showMainDeleteWindow ? <MainDeleteWindow
@@ -53,7 +63,12 @@ export default class Row extends Component {
                 >
                     <div className={columns[0]['col1'] ? 'hide' : 'col1'}>
                         <div className='col-title'>Budget name</div>
-                        <div className='underline'>{el.title}</div>
+                        <div className='underline'
+                        onClick = {() => {
+                            editWindowToggled()
+                            budgetIdSetted(el.id)
+                        }}
+                        >{el.title}</div>
                     </div>
                     <div className={columns[1]['col2'] ? 'hide' : 'col2'}>
                         <div className='col-title'>PO number</div>
@@ -89,7 +104,7 @@ export default class Row extends Component {
                         <div className='budgets-table-projects'>
                             <div>{el.projects.length} {el.projects.length === 1 ? 'project' : 'projects'}</div>
                             <div className = 'img-container'>
-                                {el.projects.length > 2 ?
+                                {lettersLength  > 45 ?
                                     <img
                                         src='images/icons/shevron-left.svg'
                                         alt='shevron'
@@ -109,6 +124,8 @@ export default class Row extends Component {
                                 id={el.id}
                                 showDeleteWindows={showDeleteWindows}
                                 deleteWindowsToggled={deleteWindowsToggled}
+                                editWindowToggled={editWindowToggled}
+                                budgetIdSetted={budgetIdSetted}
                             /> 
                             <img
                                 src='images/icons/line-menu.svg'

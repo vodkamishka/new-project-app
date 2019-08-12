@@ -2,9 +2,7 @@
     position: fixed;
     height: 100vh;
     background: white;
-    width: 5.1285%; /*96px*/
-    display: flex;
-    align-items: center;
+    width: 5%; /*96px*/
 }
 
 .lines {

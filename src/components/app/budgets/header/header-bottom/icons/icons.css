@@ -1,7 +1,7 @@
 .icons {
     display: flex;
     position: absolute;
-    left: 1632px;
+    right: 0;
 }
 .filters {
     margin-right: 8px;

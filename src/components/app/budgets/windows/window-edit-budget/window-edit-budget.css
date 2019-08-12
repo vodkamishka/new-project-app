@@ -1,10 +1,8 @@
 .window-new-budget {
     background: rgba(0,0,0,0.5);
+    width: 1824px;
+    height: 1018px;
     position: absolute;
-    
     z-index: 10000;
     left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
 }
