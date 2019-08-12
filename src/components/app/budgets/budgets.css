@@ -1,6 +1,6 @@
 .budgets {
-    grid-area: budgets;
     padding-left: 48px;
     height: 100vh;
     position: relative;
+    margin-left: 96px;
 }

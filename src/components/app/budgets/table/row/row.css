@@ -1,6 +1,5 @@
 .budgets__table  .tr {
     box-shadow: 0 2px 4px rgba(0,0,0,0.16);
-    width: 1728px;
     margin-bottom: 6px;
     border-radius: 10px;
     background: #ffffff;
@@ -8,35 +7,35 @@
     align-items: flex-start;
     padding-top: 15px;
     padding-bottom: 17px;
-    min-height: 40px;
+    min-height: 72px;
 }
 .budgets__table .col1 > div {
-    width: 262px;
+    width: 282px;
     padding-left: 20px;
     cursor: pointer; 
 }
 .budgets__table .col2 > div {
-    width: 155px;
+    width: 175px;
     padding-left: 20px;
     text-overflow: ellipsis; 
     overflow: hidden;  
     white-space: nowrap; 
 }
 .budgets__table .col3 > div {
-    width: 83px;
+    width: 113px;
     text-align: right;
     padding-right: 10px;
     padding-left: 20px;
     white-space: nowrap; 
 }
 .budgets__table .col4 > div{
-    width: 118px;
+    width: 166px;
     text-align: right;
     padding-right: 28px;
     padding-left: 20px; 
 }
 .budgets__table .col5 > div{
-    width: 131px;
+    width: 167px;
     text-align: right;
     padding-right: 16px;
     padding-left: 20px;
@@ -48,7 +47,7 @@
 .budgets__table .col6 > div {
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 512px;
+    width: 641px;
     position: relative;
     padding-left: 20px;
     padding-right: 109px;
