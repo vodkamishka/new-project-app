@@ -25,12 +25,13 @@
 }
 .new-budget > div > input {
     border: 1px solid #A4A4A4;
-    width: 416px;
+    width: 432px;
     height: 36px;
     margin-left: 24px;
     border-radius: 8px;
     margin-top: 5px;
     padding-left: 16px;
+    
 }
 .new-budget .label {
     height: 17px;

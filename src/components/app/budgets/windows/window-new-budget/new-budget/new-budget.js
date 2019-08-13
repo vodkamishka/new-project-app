@@ -31,7 +31,6 @@ export default class NewBudget extends Component {
     render() {
         const { newBudgetToggled, createBudget} = this.props;
         const { budgetValue, poValue, acountValue } = this.state;
-        
         return (
             <div className='new-budget'>
                 <div className='new-budget-title'>New budget</div>

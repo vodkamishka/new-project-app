@@ -49,8 +49,8 @@ export default class EditBudget extends Component {
         const { budgetValue, poValue, acountValue } = this.state;
         
         return (
-            <div className='new-budget'>
-                <div className='new-budget-title'>Edit budget</div>
+            <div className='edit-budget'>
+                <div className='edit-budget-title'>Edit budget</div>
                
                     <div className='label label1'>Budget name</div>
                     <div><input type='text' value={this.state.budgetValue} onChange={this.handleChangeBudget} className = 'budgetValue' /></div>
@@ -60,8 +60,8 @@ export default class EditBudget extends Component {
                     <div className='label label3'>Amount total, $</div>
                     <div><input type='text' value={this.state.acountValue} onChange={this.handleChangeAcount} className = 'acountValue' /></div>
 
-                    <button className = 'cancel-new-budget-btn' onClick={editWindowToggled}><span>Cancel</span></button>
-                    <button className = 'create-new-budget-btn'
+                    <button className = 'cancel-edit-budget-btn' onClick={editWindowToggled}><span>Cancel</span></button>
+                    <button className = 'create-edit-budget-btn'
                     disabled = {budgetValue === '' || poValue === '' || acountValue === '' 
                      ? true : false}
                      onClick = {() => {

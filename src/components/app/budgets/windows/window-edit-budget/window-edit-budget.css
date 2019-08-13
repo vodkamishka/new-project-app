@@ -1,8 +1,8 @@
-.window-new-budget {
-    background: rgba(0,0,0,0.5);
-    width: 1824px;
-    height: 1018px;
+.window-edit-budget {
+    background: rgba(28,26,26,0.4);
     position: absolute;
     z-index: 10000;
     left: 0;
+    top: 0;  
+    right: 0;
 }

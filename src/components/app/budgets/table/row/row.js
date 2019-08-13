@@ -34,7 +34,9 @@ export default class Row extends Component {
     }
     render() {
         
-        const { el, columns, deleteBudget, deleteWindowsToggled, showDeleteWindows, rowDeleted,  editWindowToggled, budgetIdSetted} = this.props;
+        const { el, columns, deleteBudget, deleteWindowsToggled, 
+            showDeleteWindows, rowDeleted,  editWindowToggled, 
+            budgetIdSetted, cannotEditDeleteToggled} = this.props;
         const { showProjets,  showMainDeleteWindow, selectId } = this.state;
         let lettersLength = this.returnLengthLetersprojects(el.projects)
         
@@ -66,7 +68,8 @@ export default class Row extends Component {
                         <div className='underline'
                         onClick = {() => {
                             editWindowToggled()
-                            budgetIdSetted(el.id)
+                            budgetIdSetted(el.id, el.projects.length)
+                            cannotEditDeleteToggled()
                         }}
                         >{el.title}</div>
                     </div>
@@ -125,7 +128,6 @@ export default class Row extends Component {
                                 showDeleteWindows={showDeleteWindows}
                                 deleteWindowsToggled={deleteWindowsToggled}
                                 editWindowToggled={editWindowToggled}
-                                budgetIdSetted={budgetIdSetted}
                             /> 
                             <img
                                 src='images/icons/line-menu.svg'
@@ -133,7 +135,9 @@ export default class Row extends Component {
                                 onClick={
                                     () => { 
                                                 this.idSelected(el.id)
-                                                deleteWindowsToggled(el.id)
+                                                if (el.projects.length < 1 ) {deleteWindowsToggled(el.id)}
+                                                budgetIdSetted(el.id, el.projects.length)
+                                                cannotEditDeleteToggled()
                                     }
                                 }
                             />

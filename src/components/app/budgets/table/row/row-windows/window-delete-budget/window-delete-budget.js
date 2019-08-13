@@ -2,7 +2,7 @@ import React from 'react';
 import './window-delete-budget.css';
 
 
-export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWindowToggle, showDeleteWindows, id, editWindowToggled, budgetIdSetted }) {
+export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWindowToggle, showDeleteWindows, id, editWindowToggled}) {
     
     return (
         <div className={showDeleteWindows === id ? 'window-delete-budget': 'window-delete-budget hide'}>
@@ -15,14 +15,13 @@ export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWin
             <div className='delete-open'
             onClick = { () => {
                 editWindowToggled()
-                budgetIdSetted(id)
             }}
             >Open</div>
             <div 
             onClick = { () => {
                 mainDeleteWindowToggle()
             }}
-            className = ' delete-delete'>Delete</div>
+            className = ' delete-delete red'>Delete</div>
         </div>
     )
         
