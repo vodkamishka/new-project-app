@@ -55,7 +55,7 @@ export default class FiltersWindow extends Component {
     render() {
         
         const { value, project, range, slider } = this.state;
-        const { budgetsFiltered } = this.props;
+        const { budgetsFiltered, filtersWindowToggled} = this.props;
         let styleSlider = {
             marginLeft: slider / 147 + 'px'
         }
@@ -76,7 +76,10 @@ export default class FiltersWindow extends Component {
                     >Clear</button>
                     <button 
                     className='button apply'
-                    onClick = {() => budgetsFiltered(value, project, range)}
+                    onClick = {() => {
+                        budgetsFiltered(value, project, range);
+                        filtersWindowToggled()
+                    }}
                     >Apply</button>
                 </div>
 
@@ -166,15 +169,15 @@ export default class FiltersWindow extends Component {
                     <div className='amount-remaining-is'>
                         <span>Amount remaining is:</span>
                         <div className='img-span-span1'><img
-                            src='images/icons-png/checkbox-applyed.png'
+                            src='images/icons/check-box-checked.svg'
                             alt='checkbox-applyed' /><span>Enough</span></div>
                         <div className='img-span-span2'><img
 
-                            src='images/icons-png/checkbox-applyed.png'
+                            src='images/icons/check-box-checked.svg'
                             alt='checkbox-applyed' /><span>Exceeded</span></div>
                         <div className='img-span-span3'><img
 
-                            src='images/icons-png/checkbox-applyed.png'
+                            src='images/icons/check-box-checked.svg'
                             alt='checkbox-applyed' /><span>Close to the end</span></div>
                     </div>
                 </div>

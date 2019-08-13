@@ -2,7 +2,7 @@
     display: flex;
     height: 132px;
 }
-.title-budgets {
+.budgets__header_header-up .title-budgets {
     font-size: 23px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -10,17 +10,27 @@
     width: 93px;
     height: 32px;
 }
-.new-budgets {
+.budgets__header_header-up .new-budgets {
     width: 144px;
     height: 44px;
-    color: white;
     background: #3798f3;
     border: none;
     border-radius: 10px;
     font-size: 14px;
     margin-top: 40px;
+}
+.budgets__header_header-up .button_plus {
+    margin-left: 13px;
     display: flex;
 }
-.button_plus {
-    margin: 0 16px;
+.budgets__header_header-up .button_plus > div >img {
+    width: 18px;
+    height: 18px;
+}
+.budgets__header_header-up .button_plus > div:nth-child(2) {
+    color: white;
+    margin-left: 10px;
+    width: 76px;
+    font-size: 15px;
+    white-space: nowrap;
 }

@@ -33,8 +33,8 @@ export default class ViewSettingsWindow extends Component {
                                     
                                 }}
                                 src={columns[el.id-1]['col' + el.id] ? 
-                                'images/icons-png/checkbox-enable.png' : 
-                                'images/icons-png/checkbox-applyed.png'}
+                                'images/icons/check-box-empty.svg' : 
+                                'images/icons/check-box-checked.svg'}
                                 alt='checkbox-applyed' />
                             <span>{el.name}</span>
 

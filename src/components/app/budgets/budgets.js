@@ -109,8 +109,8 @@ class Budgets extends Component {
             columnsNames, rowDeleted,
             createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, idBudgetGetted, editData, idBudgetEdit
         } = this.props;
-        const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
-            showFiltersWindow, showDeleteWindows, showEditBudget,
+        const { showNewBudget, showIconViewSettingsWindow, columns, selectId, 
+            showFiltersWindow, showDeleteWindows, showEditBudget, 
             budgetId, projectsNumber, cannotEditDelete, showMainDeleteWindow } = this.state;
         return (
             <div className='budgets'>
@@ -147,6 +147,7 @@ class Budgets extends Component {
                 {showFiltersWindow ? <FiltersWindow
                     data={data}
                     budgetsFiltered={budgetsFiltered}
+                    filtersWindowToggled={this.filtersWindowToggled}
                 /> : null}
 
                 {showIconViewSettingsWindow ?
@@ -164,6 +165,9 @@ class Budgets extends Component {
                     columnsNames={columnsNames}
                     budgetsSorted={budgetsSorted}
                     budgetsSearched={budgetsSearched}
+
+                    showFiltersWindow={showFiltersWindow}
+                    showIconViewSettingsWindow={showIconViewSettingsWindow}
                 />
 
                 <DivTable

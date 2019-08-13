@@ -12,8 +12,10 @@ export default function HeaderUp({ newBudgetToggled}) {
                     newBudgetToggled ()
                 }} 
                 >
-                    <span className='button_plus'>+</span>
-                    <span>New budget</span>
+                    <div className='button_plus'>
+                    <div><img src='images/icons/plus.svg' alt='plus' /></div>
+                    <div>New budget</div>
+                    </div>
                 </button>
             </div>
         </div>

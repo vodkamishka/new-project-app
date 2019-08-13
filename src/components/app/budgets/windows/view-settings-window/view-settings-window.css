@@ -28,7 +28,6 @@
     list-style-type: none;
     display: flex;
     margin-bottom: 20px;
-    align-items: center;
 }
 .budgets .view-settings-window span {
     margin-left: 12px;

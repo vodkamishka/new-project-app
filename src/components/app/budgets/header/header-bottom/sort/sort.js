@@ -7,7 +7,8 @@ export default class Sort extends Component {
         this.state = {
             value: 'Created at'
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.closeWindows = this.closeWindows.bind(this);
     }
     handleChange(event) {
         let promise = new Promise (resolve => {
@@ -28,10 +29,14 @@ export default class Sort extends Component {
             
             this.props.budgetsSorted(key)
             
-         
         })
     }
-    
+    closeWindows () {
+        const {showFiltersWindow, filtersWindowToggled, showIconViewSettingsWindow, iconSettingsToggled} = this.props;
+            if (showFiltersWindow === true) {filtersWindowToggled()}
+            if (showIconViewSettingsWindow === true) {iconSettingsToggled()}
+    }
+    rende
     render() {
         const { columnsNames } = this.props;
        
@@ -42,7 +47,8 @@ export default class Sort extends Component {
                 <div className='created-at'>
                     <select
                     value={this.state.value}
-                    onChange={ this.handleChange}
+                    onChange={this.handleChange}
+                    onClick={this.closeWindows}
                     >
                         {columnsNames.map(el => <option key={el.id}>{el.name}</option>)}
                     </select>

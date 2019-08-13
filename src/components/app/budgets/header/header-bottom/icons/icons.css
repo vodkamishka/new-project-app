@@ -1,15 +1,16 @@
-.icons {
+.budgets__header_header-bottom .icons {
     display: flex;
     position: absolute;
     right: 0;
 }
-.filters {
+.budgets__header_header-bottom .filters {
     margin-right: 8px;
 }
-.icons img {
+.budgets__header_header-bottom .icons img {
     padding: 10px;
     width: 44px;
     height: 44px;
     background: white;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }

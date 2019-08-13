@@ -6,6 +6,7 @@
     position: absolute;
     background: #ffffff;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
 .search-in-budgets > img {
     width: 18px;
@@ -16,9 +17,10 @@
     width: 400px;
     height: 19px;
     margin: 12px 0 13px 0px;
-    font-weight: 14px;
+    font-size: 14px;
     border: none;
     outline: none;
+    color: #A4A4A4;
 }
 
  

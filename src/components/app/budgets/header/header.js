@@ -3,7 +3,7 @@ import './header.css';
 import HeaderUp from './header-up/header-up';
 import HeaderBottom from './header-bottom/header-bottom';
 
-export default function Header({ newBudgetToggled, iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched}) {
+export default function Header({ newBudgetToggled, iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched, showIconViewSettingsWindow, showFiltersWindow}) {
     return (
         <div className='budgets__header'>
 
@@ -18,6 +18,9 @@ export default function Header({ newBudgetToggled, iconSettingsToggled, columnsN
 
                 budgetsSorted = {budgetsSorted}
                 budgetsSearched = {budgetsSearched}
+
+                showFiltersWindow={showFiltersWindow}
+                showIconViewSettingsWindow={showIconViewSettingsWindow}
             />
             <div className='at-this-week'>
                 <div className='at-this-week_title'>At this week</div>
