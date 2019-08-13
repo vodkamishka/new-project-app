@@ -8,6 +8,7 @@ import FiltersWindow from './windows/filters-window/filters-window';
 import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
 import WindowCannotBudget from './windows/window-cannot/window-cannot-budget';
+import MainDeleteWindow from './windows/main-delete-window/main-delete-window';
 
 
 class Budgets extends Component {
@@ -20,6 +21,7 @@ class Budgets extends Component {
         showEditBudget: false,
         projectsNumber: -1,
         cannotEditDelete: false,
+        showMainDeleteWindow: false,
         columns: [
             { col1: false, id: 1 },
             { col2: false, id: 2 },
@@ -28,7 +30,8 @@ class Budgets extends Component {
             { col5: false, id: 5 },
             { col6: false, id: 6 }
         ],
-        budgetId: null
+        budgetId: null,
+        selectId: null
     }
     newBudgetToggled = () => {
         this.setState({
@@ -90,20 +93,40 @@ class Budgets extends Component {
             projectsNumber: projectsLength
         })
     }
+    mainDeleteWindowToggle = () => {
+        this.setState({
+            showMainDeleteWindow: !this.state.showMainDeleteWindow,
+            showDeleteWindows: -1
+        })
+    }
+    idSelected = id => {
+        this.setState({
+            selectId: id
+        })
+    }
     render() {
         const { data,
             columnsNames, rowDeleted,
             createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, idBudgetGetted, editData, idBudgetEdit
         } = this.props;
-        const { showNewBudget, showIconViewSettingsWindow, columns, 
-            showFiltersWindow, showDeleteWindows, showEditBudget, 
-            budgetId, projectsNumber, cannotEditDelete } = this.state;
+        const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
+            showFiltersWindow, showDeleteWindows, showEditBudget,
+            budgetId, projectsNumber, cannotEditDelete, showMainDeleteWindow } = this.state;
         return (
             <div className='budgets'>
 
-                {cannotEditDelete && projectsNumber > 0 ? <WindowCannotBudget 
-                length={data.length}
-                cannotEditDeleteToggled={this.cannotEditDeleteToggled}
+                {showMainDeleteWindow ? <MainDeleteWindow
+                    mainDeleteWindowToggle={this.mainDeleteWindowToggle}
+                    selectId={selectId}
+                    deleteBudget={deleteBudget}
+                    rowDeleted={rowDeleted}
+                    length={data.length}
+
+                /> : null}
+
+                {cannotEditDelete && projectsNumber > 0 ? <WindowCannotBudget
+                    length={data.length}
+                    cannotEditDeleteToggled={this.cannotEditDeleteToggled}
                 /> : null}
 
                 {showNewBudget ? <WindowNewBudget
@@ -157,6 +180,8 @@ class Budgets extends Component {
                     editWindowToggled={this.editWindowToggled}
                     budgetIdSetted={this.budgetIdSetted}
                     cannotEditDeleteToggled={this.cannotEditDeleteToggled}
+
+                    idSelected={this.idSelected}
                 />
 
             </div>
