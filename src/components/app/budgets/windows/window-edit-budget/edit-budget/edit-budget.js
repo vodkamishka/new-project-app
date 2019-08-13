@@ -6,9 +6,9 @@ export default class EditBudget extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            budgetValue: this.props.editData.title,
-            poValue: this.props.editData.po_number,
-            acountValue: this.props.editData.amount
+            budgetValue: '',
+            poValue: '',
+            acountValue: ''
         };
         this.handleChangeBudget = this.handleChangeBudget.bind(this);
         this.handleChangePo = this.handleChangePo.bind(this);

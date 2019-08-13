@@ -28,7 +28,23 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 editData: action.payload
             }
-
+        case 'CHANGE_ROW': {
+            const {title, po_number, amount, id} = action.payload;
+            let index = state.data.findIndex(el => el.id === id)
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, index),
+                    {
+                        ...state.data[index],
+                        title,
+                        po_number,
+                        amount 
+                    },
+                    ...state.data.slice(index + 1)
+                ]
+            }
+        }
         default: return state;
     }
 }

@@ -3,6 +3,7 @@ import { authAPI, budgetsAPI } from "../services/api/api";
 const DATA_BUDGETS_FROM_API_LOADED = 'DATA_BUDGETS_FROM_API_LOADED';
 const DELETE_ROW = 'DELETE_ROW';
 const EDIT_DATA = 'EDIT_DATA';
+const CHANGE_ROW = 'CHANGE_ROW';
 
 const dataBudgetsLoaded = data => {
     return {
@@ -20,6 +21,13 @@ const dataEdited = (title, po_number, amount) => {
     return {
         type: EDIT_DATA,
         payload: {title, po_number, amount}
+    }
+}
+
+const rowChanged = (title, po_number, amount, id) => {
+    return {
+        type: CHANGE_ROW,
+        payload: {title, po_number, amount, id}
     }
 }
 
@@ -86,12 +94,10 @@ const idBudgetGetted = id => {
 
 const idBudgetEdit = (title, po_number, amount, id) => {
     return dispatch => {
-        budgetsAPI.getBudgetId(title, po_number, amount, id)
+        budgetsAPI.editBudget(title, po_number, amount, id)
         .then(response => {
-            console.log(response.data.data)
-            /*const {title, po_number, amount} = response.data.data;
-            
-            dispatch(dataEdited(title, po_number, amount))*/
+            const {title, po_number, amount, id} = response.data.data;
+            dispatch(rowChanged(title, po_number, amount, id))
         })
     }
 }

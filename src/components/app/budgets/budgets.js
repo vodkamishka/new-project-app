@@ -98,7 +98,6 @@ class Budgets extends Component {
         const { showNewBudget, showIconViewSettingsWindow, columns, 
             showFiltersWindow, showDeleteWindows, showEditBudget, 
             budgetId, projectsNumber, cannotEditDelete } = this.state;
-            console.log(projectsNumber)
         return (
             <div className='budgets'>
 

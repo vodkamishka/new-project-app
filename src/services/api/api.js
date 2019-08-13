@@ -59,9 +59,9 @@ export const budgetsAPI = {
       return axios.get(`${api}/budgets/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
      },
      editBudget (title, po_number, amount, id) {
-
-      let token =  JSON.parse(sessionStorage.getItem('tokenData'));
        
+      let token =  JSON.parse(sessionStorage.getItem('tokenData'));
+      
        let body_request = { 
            
           "title": `${title}` ,
