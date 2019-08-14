@@ -9,8 +9,8 @@ export default class FiltersWindow extends Component {
         this.state = {
             value: '',
             project: '',
-            slider: 100,
-            range: 30000
+            slider: 0,
+            range: 50000
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleProjectChange = this.handleProjectChange.bind(this);
@@ -46,7 +46,7 @@ export default class FiltersWindow extends Component {
     }
     clear() {
         this.setState({
-            value: '',
+            value: '2018-11-05',
             project: '',
             slider: 0,
             range: 50000
@@ -55,13 +55,19 @@ export default class FiltersWindow extends Component {
     render() {
         
         const { value, project, range, slider } = this.state;
-        const { budgetsFiltered, filtersWindowToggled} = this.props;
+        const { budgetsFiltered, filtersWindowToggled, data} = this.props;
         let styleSlider = {
             marginLeft: slider / 147 + 'px'
         }
         let styleRange = {
             marginLeft: range / 147 + 'px'
         }
+
+        let projectId  = null;
+        data.forEach(el => {el.projects.forEach(element => {
+            if (element.title === project) projectId = element.id
+        })
+        });
         return (
             <div className='filters-window'>
 
@@ -77,7 +83,7 @@ export default class FiltersWindow extends Component {
                     <button 
                     className='button apply'
                     onClick = {() => {
-                        budgetsFiltered(value, project, range);
+                        budgetsFiltered(value, projectId, range);
                         filtersWindowToggled()
                     }}
                     >Apply</button>
@@ -108,7 +114,7 @@ export default class FiltersWindow extends Component {
                             onChange={this.handleProjectChange}
                         >
                             <option value=''></option>
-                            {this.props.data.map(el => el.projects.map(element => <option key={element.id}>
+                            {data.map(el => el.projects.map(element => <option key={element.id}>
                                 {element.title}</option>))}
 
                         </select>
@@ -120,7 +126,7 @@ export default class FiltersWindow extends Component {
                     <div className='amount-total-range'>
                         <span>Amount total range, $</span>
                         <div className='filter-plus-minus twix1'>
-                            <div><img src='images/icons/plus.svg' alt='plus' /></div>
+                            <div><img src='images/icons/plus-black.svg' alt='plus' /></div>
                             <div><img src='images/icons/minus.svg' alt='minus' /></div>
                         </div>
                         <div className='slider-container'>
@@ -152,7 +158,7 @@ export default class FiltersWindow extends Component {
                         <div className='filters_line'></div>
                         <div className='filter-plus-minus twix2'>
                             <div><img 
-                             src='images/icons/plus.svg'
+                             src='images/icons/plus-black.svg'
                              alt='plus'
                              onClick={this.changeRangeRight}
                              /></div>

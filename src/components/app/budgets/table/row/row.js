@@ -19,6 +19,7 @@ export default class Row extends Component {
         })
         return length
     }
+   
     render() {
 
         const { el, columns, deleteWindowsToggled, mainDeleteWindowToggle,
@@ -66,7 +67,7 @@ export default class Row extends Component {
                 </div>
                 <div className={columns[4]['col5'] ? 'hide' : 'col5'}>
                     <div className='col-title'>Created date</div>
-                    <div>{new Date(el.created_at).toDateString()}</div>
+                    <div>{el.created_at}</div>
                 </div>
 
                 <div className={columns[5]['col6'] ? 'hide' : 'col6'}

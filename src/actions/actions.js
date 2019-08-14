@@ -46,7 +46,6 @@ const createBudget = (title, po_number, amount) => {
         budgetsAPI.createBudget(title, po_number, amount)
             .then(() => budgetsAPI.getBudgets())
             .then(response => {
-                console.log(response.data.data)
                 dispatch(dataBudgetsLoaded(response.data.data))
             })
     }
@@ -72,10 +71,9 @@ const budgetsSearched = title => {
             })
     }
 }
-const budgetsFiltered = (date, project, amount) => {
-    console.log(date, project, amount)
+const budgetsFiltered = (date, projectId, amount) => {
     return dispatch => {
-        budgetsAPI.getSearch(date, project, amount)
+        budgetsAPI.getFilter(date, projectId, amount)
         .then(response => {
             console.log(response.data.data)
         })
