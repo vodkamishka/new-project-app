@@ -8,6 +8,7 @@ export default class Sort extends Component {
             value: 'Created at'
         }
         this.handleChange = this.handleChange.bind(this);
+        this.closeWindows = this.closeWindows.bind(this);
     }
     handleChange(event) {
         let promise = new Promise (resolve => {
@@ -37,7 +38,7 @@ export default class Sort extends Component {
     }
     rende
     render() {
-        const { columnsNames, closeMainWindows } = this.props;
+        const { columnsNames } = this.props;
        
         return (
             <div className='sort'>
@@ -47,7 +48,7 @@ export default class Sort extends Component {
                     <select
                     value={this.state.value}
                     onChange={this.handleChange}
-                    onClick={closeMainWindows}
+                    onClick={this.closeWindows}
                     >
                         {columnsNames.map(el => <option key={el.id}>{el.name}</option>)}
                     </select>

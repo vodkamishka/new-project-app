@@ -8,23 +8,33 @@
 
 .lines {
     position: absolute;
-    top: 27.6%;
+    top: 281px;
 }
 .line {
     width: 6px;
     background: #3798f3;
-    height: 44px;
+    height: 36px;
+    position: absolute;
+    top: 6px;
 }
 .line1 {
-    height: 2px;
-    width: 6px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
     background: #3798f3;
+    position: absolute;
+    left: -6px;
 }
 .line2 {
-    height: 2px;
-    width: 6px;
-    background: #3798f3;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background:#3798f3;
+    position: absolute;
+    top:36px;
+    left: -6px;
 }
+
 .sign-out {
     position: absolute;
     top: 92%;
