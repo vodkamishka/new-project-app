@@ -73,7 +73,6 @@ class Budgets extends Component {
     editWindowToggled = () => {
         this.setState({
             showEditBudget: !this.state.showEditBudget,
-            showNewBudget: false,
             showIconViewSettingsWindow: false,
             showFiltersWindow: false,
             showDeleteWindows: -1,
@@ -103,6 +102,12 @@ class Budgets extends Component {
         this.setState({
             selectId: id
         })
+    }
+    closeMainWindows = () => {
+        const {showIconViewSettingsWindow, showFiltersWindow, showDeleteWindows} = this.state;
+        if (showIconViewSettingsWindow === true){this.iconSettingsToggled()}
+        if (showFiltersWindow === true){this.filtersWindowToggled()}
+        if (showDeleteWindows !== -1){this.deleteWindowsToggled()} 
     }
     render() {
         const { data,
@@ -168,6 +173,7 @@ class Budgets extends Component {
 
                     showFiltersWindow={showFiltersWindow}
                     showIconViewSettingsWindow={showIconViewSettingsWindow}
+                    closeMainWindows={this.closeMainWindows}
                 />
 
                 <DivTable

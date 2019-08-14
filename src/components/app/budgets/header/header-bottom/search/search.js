@@ -8,7 +8,6 @@ export default class Search extends Component {
             value: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        this.closeWindows = this.closeWindows.bind(this);
     }
     handleChange(event) {
         let p = new Promise(resolve => {
@@ -22,12 +21,8 @@ export default class Search extends Component {
             this.props.budgetsSearched(this.state.value)
         })  
     }
-    closeWindows () {
-        const {showFiltersWindow, filtersWindowToggled, showIconViewSettingsWindow, iconSettingsToggled} = this.props;
-            if (showFiltersWindow === true) {filtersWindowToggled()}
-            if (showIconViewSettingsWindow === true) {iconSettingsToggled()}
-    }
     render() {
+        const {closeMainWindows} = this.props;
         return (
             <div className='search-in-budgets'>
 
@@ -38,7 +33,7 @@ export default class Search extends Component {
                     value = {this.state.value}
                     onChange = {this.handleChange}
                     placeholder = 'Search in budgets...'
-                    onClick = {this.closeWindows}
+                    onClick = {closeMainWindows}
                 />
 
             </div>

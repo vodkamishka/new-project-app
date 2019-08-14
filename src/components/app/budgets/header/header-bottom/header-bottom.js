@@ -6,25 +6,17 @@ import Search from './search/search';
 import Icons from './icons/icons';
 
 
-export default function HeaderBottom({iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched, showFiltersWindow, showIconViewSettingsWindow}) {
+export default function HeaderBottom({iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched, closeMainWindows}) {
     return (
         <div className = 'budgets__header_header-bottom'>
             <Sort 
             columnsNames = {columnsNames}
             budgetsSorted = {budgetsSorted}
-
-            showFiltersWindow={showFiltersWindow}
-            showIconViewSettingsWindow={showIconViewSettingsWindow}
-            iconSettingsToggled={iconSettingsToggled}
-            filtersWindowToggled={filtersWindowToggled}
+            closeMainWindows = {closeMainWindows}
             />
             <Search 
             budgetsSearched = {budgetsSearched}
-
-            showFiltersWindow={showFiltersWindow}
-            showIconViewSettingsWindow={showIconViewSettingsWindow}
-            iconSettingsToggled={iconSettingsToggled}
-            filtersWindowToggled={filtersWindowToggled}
+            closeMainWindows = {closeMainWindows}
 
             />
             <Icons iconSettingsToggled = {iconSettingsToggled}
