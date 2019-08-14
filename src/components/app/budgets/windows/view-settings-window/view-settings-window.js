@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import './view-settings-window.css';
+import ReactModal from 'react-modal';
 
-export default class ViewSettingsWindow extends Component {
+ReactModal.setAppElement('#root');
+
+
+export default class ViewSettingsWindowModal extends Component {
     state = {
         count: 0
     }

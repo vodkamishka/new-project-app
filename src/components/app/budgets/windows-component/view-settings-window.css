@@ -1,0 +1,40 @@
+.budgets .view-settings-window {
+    width: 227px;
+    height: 260px;
+    position: absolute;
+    right: 48px;
+    top: 190px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+    display: flex;
+    z-index: 2000;
+    font-size: 14px;  
+}
+.view-settings-window:after {
+    content: '';
+    position: absolute;
+    top: -26.5px;
+    left: 191px;
+    border-bottom:  16px solid white;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 16px solid transparent;
+}
+.budgets .view-settings-window ul {
+    margin: 20px 0 0 28px;  
+}
+.budgets .view-settings-window li {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 20px;
+}
+.budgets .view-settings-window span {
+    margin-left: 12px;
+    width: 137px;
+    white-space: nowrap;
+}
+.view-settings-window img{
+    width: 20px;
+    height: 20px;
+}
