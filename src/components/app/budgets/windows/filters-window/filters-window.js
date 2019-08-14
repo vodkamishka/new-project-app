@@ -46,7 +46,7 @@ export default class FiltersWindow extends Component {
     }
     clear() {
         this.setState({
-            value: '2018-11-05',
+            value: '',
             project: '',
             slider: 0,
             range: 50000

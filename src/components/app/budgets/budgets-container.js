@@ -11,7 +11,9 @@ import Budgets from './budgets';
 class BudgetsContainer extends Component {
     componentDidMount () {
         this.props.dataBudgetsApiLoaded()
-        
+        window.addEventListener('click', () => {
+            console.log(1)
+        })
     }
     render() {
         let {data,
