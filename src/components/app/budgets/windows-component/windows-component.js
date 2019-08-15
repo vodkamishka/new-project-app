@@ -26,7 +26,16 @@ export default class WindowsComponent extends Component {
              style = {{
                 overlay: {
                     width: '227px',
-                    height: '260px',  
+                    height: '260px', 
+                    position: 'absolute',
+                right: '48px',
+                top: '190px',
+                borderRadius: '10px',
+                background: 'white',
+                boxShadow: '0 1px 5px rgba(0,0,0,0.25)',
+                display: 'flex',
+                zIndex: '2000',
+                fontSize: '14px'  
                 },
                 content: {
                     width: '227px',

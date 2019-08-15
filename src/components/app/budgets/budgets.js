@@ -9,6 +9,7 @@ import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
 import WindowCannotBudget from './windows/window-cannot/window-cannot-budget';
 import MainDeleteWindow from './windows/main-delete-window/main-delete-window';
+import WindowsComponent from './windows-component/windows-component';
 
 
 class Budgets extends Component {
@@ -160,7 +161,7 @@ class Budgets extends Component {
                         columnsNames={columnsNames}
                         showHideColumnToggled={this.showHideColumnToggled}
                         columns={columns}
-                    /> : null}
+                /> : null}
 
                 <Header
                     newBudgetToggled={this.newBudgetToggled}
