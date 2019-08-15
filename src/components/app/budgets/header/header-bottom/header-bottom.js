@@ -1,9 +1,11 @@
 import React from 'react';
 import './header-bottom.css';
 
-import Sort from './sort/sort';
+import Sort from './sort/sort-select';
 import Search from './search/search';
 import Icons from './icons/icons';
+
+
 
 
 export default function HeaderBottom({iconSettingsToggled, columnsNames, filtersWindowToggled, budgetsSorted, budgetsSearched, closeMainWindows}) {
