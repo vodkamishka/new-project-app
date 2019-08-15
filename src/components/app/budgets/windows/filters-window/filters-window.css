@@ -115,8 +115,43 @@ input::-webkit-datetime-edit-fields-wrapper {
 }
 .related-project .filter_select {
     position: absolute;
-    top: 42px;  
+    top: 42px;   
 }
+.related-project .filter {
+    cursor: pointer;
+    width: 400px;
+}
+.related-project .css-e56m7-control {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+.related-project .css-lvbcir-control {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none;
+}
+.related-project .css-1hwfws3 {
+    cursor: pointer;
+    font-size: 14px;
+}
+.css-1wa3eu0-placeholder {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Amount total range*/
 

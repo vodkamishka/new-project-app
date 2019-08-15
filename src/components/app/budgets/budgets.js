@@ -4,7 +4,7 @@ import Header from './header/header';
 import './budgets.css';
 import WindowNewBudget from './windows/window-new-budget/window-new-budget';
 import ViewSettingsWindow from './windows/view-settings-window/view-settings-window';
-import FiltersWindow from './windows/filters-window/filters-window';
+import FiltersWindow from './windows/filters-window/filters-window-select';
 import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
 import WindowCannotBudget from './windows/window-cannot/window-cannot-budget';

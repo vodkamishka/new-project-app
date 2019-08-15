@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import './sort.css';
 import Select from 'react-select';
 
-
+const options = [
+  {value: 'Budget name', label: 'title' },
+  {value: 'PO number', label: 'po_number' },
+  {value: 'Amount total, $', label: 'amount' },
+  {value: 'Amount remaining, $', label: 'amount_remaining' },
+  {value: 'Created at', label: 'created_at' },
+  {value: 'Projects', label: 'projects' }
+   ]
 
 export default class Sort extends Component {
     constructor(props) {
@@ -17,51 +24,20 @@ export default class Sort extends Component {
         let promise = new Promise(resolve => {
             this.setState({
                 selectedOption
-
             });
             resolve();
         })
         promise.then(() => {
-            let key = this.state.selectedOption.value;
-            if (key === 'Budget name') { key = 'title' }
-            if (key === 'PO number') { key = 'po_number' }
-            if (key === 'Amount total, $') { key = 'amount' }
-            if (key === 'Amount remaining, $') { key = 'amount_remaining' }
-            if (key === 'Created at') { key = 'created_at' }
-            if (key === 'Projects') { key = 'projects' }
-
+            let key = this.state.selectedOption.label;
             this.props.budgetsSorted(key)
 
         })
     }
     render() {
-        const { columnsNames, closeMainWindows } = this.props;
+        const {closeMainWindows} = this.props;
         const {selectedOption} = this.state;
         const value  = selectedOption && selectedOption.value;
-        const customStyles = {
-            container: (base, state) => ({
-              ...base,
-              border: state.isFocused ? null : null,
-              transition:
-                "border-color 0.2s ease, box-shadow 0.2s ease, padding 0.2s ease",
-              "&:hover": {
-                boxShadow: "0 2px 4px 0 rgba(41, 56, 78, 0.1)"
-              }
-            }),
-            control: (base, state) => ({
-              ...base,
-              background: "#bada55"
-            }),
-            valueContainer: (base, state) => ({
-              ...base,
-              background: "pink"
-            }),
-            multiValue: (base, state) => ({
-              ...base,
-              background: "lightYellow",
-              maxWidth: "100px"
-            })
-          };
+        
         return (
             <div className='sort'>
 
@@ -71,15 +47,7 @@ export default class Sort extends Component {
                         value={value}
                         onChange={this.handleChange}
                         onClick={closeMainWindows}
-                        style={customStyles}
-                        options={[
-                            {value: 'Budget name', label: 'Budget name' },
-                            {value: 'PO number', label: 'PO number' },
-                            {value: 'Amount total, $', label: 'Amount total, $' },
-                            {value: 'Amount remaining, $', label: 'Amount remaining, $' },
-                            {value: 'Created at', label: 'Created at' },
-                            {value: 'Projects', label: 'Projects' }
-                             ]}
+                        options={options}
                          theme={theme => ({
                                 ...theme,
                                 borderRadius: 0,
