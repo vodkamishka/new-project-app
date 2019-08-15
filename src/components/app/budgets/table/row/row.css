@@ -16,8 +16,10 @@
 .budgets__table .col1  {
     flex-basis: 282px;
     padding-left: 20px;
-    cursor: pointer; 
+    cursor: pointer;
+  
 }
+
 .budgets__table .col2  {
     flex-basis: 175px;
     padding-left: 20px;

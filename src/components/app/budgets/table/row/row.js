@@ -23,7 +23,7 @@ export default class Row extends Component {
     render() {
 
         const { el, columns, deleteWindowsToggled, mainDeleteWindowToggle,
-            showDeleteWindows, editWindowToggled, idSelected,
+            showDeleteWindows, editWindowToggled, idSelected, closeMainWindows,
             budgetIdSetted, cannotEditDeleteToggled } = this.props;
         const { showProjets} = this.state;
         let lettersLength = this.returnLengthLetersprojects(el.projects)
@@ -86,7 +86,9 @@ export default class Row extends Component {
                 <div className={columns.col7 ? 'hide' : 'col7'}>
                     <div className='budgets-table-projects'>
                         <div>{el.projects.length} {el.projects.length === 1 ? 'project' : 'projects'}</div>
-                        <div className='img-container'>
+                        <div className='img-container'
+                        onClick={closeMainWindows}
+                        >
                             {lettersLength > 45 ?
                                 <img
                                     src='images/icons/shevron-left.svg'

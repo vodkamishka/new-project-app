@@ -27,9 +27,7 @@
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    
 }
-
 
 .css-2b097c-container  {
     width: 175px; 
@@ -46,7 +44,4 @@
 }
 .css-1okebmr-indicatorSeparator {
     background-color: hsl(0, 100%, 100%) !important;
-}
-.css-tlfecz-indicatorContainer {
-    
 }

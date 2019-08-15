@@ -39,14 +39,15 @@ export default class Sort extends Component {
         const value  = selectedOption && selectedOption.value;
         
         return (
-            <div className='sort'>
+            <div className='sort'
+            onClick={closeMainWindows}
+            >
 
                 <div className='sort-by'><span className='sort-by-title'>Sort by:</span></div>
                 <div className='created-at'>
                     <Select
                         value={value}
                         onChange={this.handleChange}
-                        onClick={closeMainWindows}
                         options={options}
                          theme={theme => ({
                                 ...theme,

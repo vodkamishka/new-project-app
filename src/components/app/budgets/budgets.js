@@ -9,6 +9,7 @@ import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
 import WindowCannotBudget from './windows/window-cannot/window-cannot-budget';
 import MainDeleteWindow from './windows/main-delete-window/main-delete-window';
+import Overlay from './windows/overlay/overlay';
 
 
 class Budgets extends Component {
@@ -62,7 +63,7 @@ class Budgets extends Component {
             showDeleteWindows: -1
         })
     }
-    deleteWindowsToggled = id => {
+    deleteWindowsToggled = (id=-1) => {
         if (id === this.state.showDeleteWindows) id = -1
         this.setState({
             showDeleteWindows: id,
@@ -117,8 +118,11 @@ class Budgets extends Component {
         const { showNewBudget, showIconViewSettingsWindow, columns, selectId, 
             showFiltersWindow, showDeleteWindows, showEditBudget, 
             budgetId, projectsNumber, cannotEditDelete, showMainDeleteWindow } = this.state;
+            console.log(showDeleteWindows)
         return (
             <div className='budgets'>
+
+               {showFiltersWindow || showIconViewSettingsWindow || showDeleteWindows !== -1 ? <Overlay length={data.length} closeMainWindows={this.closeMainWindows}/> : null}
 
                 {showMainDeleteWindow ? <MainDeleteWindow
                     mainDeleteWindowToggle={this.mainDeleteWindowToggle}
@@ -192,6 +196,7 @@ class Budgets extends Component {
                     cannotEditDeleteToggled={this.cannotEditDeleteToggled}
 
                     idSelected={this.idSelected}
+                    closeMainWindows={this.closeMainWindows}
                 />
 
             </div>
