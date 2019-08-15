@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <Navbar />
       {/*<Route path='/' exact component={BudgetsContainer}/>*/}
-      <BudgetsContainer />
+      <BudgetsContainer />git status
     </div>
     </Router>
   )

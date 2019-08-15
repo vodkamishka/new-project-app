@@ -50,9 +50,8 @@ export const budgetsAPI = {
         if (text.length < 1) { return axios.get(`${api}/budgets?expand=projects`, { headers: {"Authorization" : `Bearer ${token}`} })}
         else {return axios.get(`${api}/budgets?expand=projects&filter[title][like]=${text}`, { headers: {"Authorization" : `Bearer ${token}`} })}
      },
-     getFilter (date, projectId, amount) {
+     getFilter (date, projectId, amount=50000) {
         let token =  JSON.parse(sessionStorage.getItem('tokenData'));
-        
         if (date === '' && projectId) {return axios.get(`${api}/budgets?expand=projects&filter[amount][lte]=${amount}&filter[project][eq]=${projectId}`, { headers: {"Authorization" : `Bearer ${token}`} })}
         if (projectId === null && date) {return axios.get(`${api}/budgets?expand=projects&filter[created_at][eq]=${date}&filter[amount][lte]=${amount}`, { headers: {"Authorization" : `Bearer ${token}`} })}
         if (date === '' && projectId === null) {return axios.get(`${api}/budgets?expand=projects&filter[amount][lte]=${amount}`, { headers: {"Authorization" : `Bearer ${token}`} })}

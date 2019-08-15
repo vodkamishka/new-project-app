@@ -75,6 +75,7 @@ const budgetsFiltered = (date, projectId, amount) => {
     return dispatch => {
         budgetsAPI.getFilter(date, projectId, amount)
         .then(response => {
+            console.log(response.data.data)
             dispatch(dataBudgetsLoaded(response.data.data))
         })
     }
