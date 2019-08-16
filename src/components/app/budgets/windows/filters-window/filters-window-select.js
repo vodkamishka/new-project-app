@@ -73,7 +73,7 @@ export default class FiltersWindow extends Component {
         array.map(el => {
             options = [...options,...el]
         })
-       
+        console.log(selectedOption.id)
            
         return (
             <div className='filters-window'>
@@ -118,9 +118,9 @@ export default class FiltersWindow extends Component {
                         <div className='filter_select'>
                         <Select
                             className='filter'
-                            value={selectedOption.value}
                             onChange={this.handleProjectChange}
                             options={options}
+                            placeholder='Placeholder text'
                             theme={theme => ({
                                 ...theme,
                                 borderRadius: 0,

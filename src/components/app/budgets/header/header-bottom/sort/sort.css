@@ -29,19 +29,22 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
 
-.css-2b097c-container  {
+.created-at .css-2b097c-container  {
     width: 175px; 
     cursor: pointer;
 }
-.css-e56m7-control {
+.created-at .css-e56m7-control {
     border-color: hsl(0, 100%, 100%) !important;
 }
-.css-1hwfws3 {
+.created-at .css-lvbcir-control {
+    white-space: nowrap;
+}
+.created-at .css-1hwfws3 {
     cursor: pointer;
     font-size: 14px;
     width: 132px;
     height: 36px;
 }
-.css-1okebmr-indicatorSeparator {
+.created-at .css-1okebmr-indicatorSeparator {
     background-color: hsl(0, 100%, 100%) !important;
 }

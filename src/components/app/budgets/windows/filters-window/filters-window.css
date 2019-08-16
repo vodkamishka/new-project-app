@@ -132,11 +132,10 @@ input::-webkit-datetime-edit-fields-wrapper {
 }
 .related-project .css-1hwfws3 {
     cursor: pointer;
-    font-size: 14px;
-    
+    font-size: 14px;  
 }
-.css-1wa3eu0-placeholder {
-    display: none !important;
+.related-project .css-1okebmr-indicatorSeparator {
+    background-color: hsl(0, 100%, 100%) !important;
 }
 
 
