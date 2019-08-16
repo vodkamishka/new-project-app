@@ -22,7 +22,7 @@
 .budgets__header_header-up .button_plus {
     margin-left: 13px;
     display: flex;
-    align-items: center;
+    
 }
 .budgets__header_header-up .button_plus > div >img {
     width: 18px;

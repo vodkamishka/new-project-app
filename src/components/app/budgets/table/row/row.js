@@ -34,9 +34,9 @@ export default class Row extends Component {
             whiteSpace: showProjets ? 'normal' : 'nowrap',
             cursor: showProjets ? 'pointer' : 'default'
         }
-        const styleSpan = {
+        const styleDiv = {
             textDecoration: lettersLength < 40 ? 'underline' : showProjets ? 'underline' : 'none',
-            cursor: lettersLength < 40 ? 'pointer' : showProjets ? 'pointer' : 'default'
+            cursor: lettersLength < 40 ? 'pointer' : showProjets ? 'pointer' : 'default',
         }
         return (
 
@@ -67,7 +67,7 @@ export default class Row extends Component {
                 </div>
                 <div className={columns[4]['col5'] ? 'hide' : 'col5'}>
                     <div className='col-title'>Created date</div>
-                    <div>{(el.created_at)}</div>
+                    <div>{(el.created_at).slice(0, 16)}</div>
                 </div>
 
                 <div className={columns[5]['col6'] ? 'hide' : 'col6'}
@@ -80,7 +80,7 @@ export default class Row extends Component {
                     <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
                     <div
 
-                    >{el.projects.map(element => <span style={styleSpan} key={element.id}> {element.title} </span>)}</div>
+                    >{el.projects.map(element => <div style={styleDiv} key={element.id}> {element.title} </div>)}</div>
                 </div>
 
                 <div className={columns.col7 ? 'hide' : 'col7'}>

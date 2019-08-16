@@ -7,10 +7,10 @@ export default function CannotBudget ({cannotEditDeleteToggled}) {
     return (
         <div className='cannot-budget'>
             <div className='cannot-budget-title'>
-              Excuse me.
+              Excuse me
             </div>
             <div className='cannot-budget-text'>
-            You cannot edit or delete this budget line, because it contains projects.
+            You cannot edit or delete this budget line, because it contains projects
             </div>
 
             <button className='cannot-thank-btn'

@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import './view-settings-window.css';
-import ReactModal from 'react-modal';
 
-ReactModal.setAppElement('#root');
-
-
-export default class ViewSettingsWindowModal extends Component {
+export default class ViewSettingsWindow extends Component {
     state = {
         count: 0
     }
@@ -21,36 +17,26 @@ export default class ViewSettingsWindowModal extends Component {
         const { columnsNames, showHideColumnToggled, columns } = this.props;
     return (
         <div className='view-settings-window'>
-
             <ul>
                 {columnsNames.map(el => {
-
                     return (
-                        <li
-                            key={el.id}
-                        >
+                        <li key={el.id}>
                             <img
                                 onClick={() => {
                                     let count = this.countColumns();
                                     if (count === 4 && columns[el.id-1]['col' + el.id] === false)  return;
                                     showHideColumnToggled(el.id)
-                                    
                                 }}
                                 src={columns[el.id-1]['col' + el.id] ? 
                                 'images/icons/check-box-empty.svg' : 
                                 'images/icons/check-box-checked.svg'}
                                 alt='checkbox-applyed' />
                             <span>{el.name}</span>
-
-
                         </li>
-
                     )
                 }
-
                 )}
             </ul>
-
         </div>
     )
 }

@@ -9,7 +9,7 @@
     display: flex;
     align-items: flex-start;
     padding-top: 15px;
-    padding-bottom: 17px;
+    padding-bottom: 1px;
     min-height: 72px;
     max-width: 1728px;
 }
@@ -73,9 +73,11 @@
     width: 140px;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 80px, #fff 60px);
 }
-.budgets__table .col6 > div > span {
+.budgets__table .col6 > div > div {
     margin-right: 26px;
     cursor: pointer;
+    display: inline-block;
+    margin-bottom: 16px;
 }
 .budgets__table .col7 {
     flex-basis: 224px;
