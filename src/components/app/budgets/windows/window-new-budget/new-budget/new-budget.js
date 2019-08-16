@@ -19,11 +19,13 @@ export default class NewBudget extends Component {
         })
     }
     handleChangePo(event) {
+        if (event.target.value.match(/^[A-Za-z]+$/) !== null ) return;
         this.setState({
             poValue: event.target.value
         })
     }
     handleChangeAcount(event) {
+        if (event.target.value.match(/^[A-Za-z]+$/) !== null ) return;
         this.setState({
             acountValue: event.target.value
         })
@@ -31,10 +33,9 @@ export default class NewBudget extends Component {
     render() {
         const { newBudgetToggled, createBudget} = this.props;
         const { budgetValue, poValue, acountValue } = this.state;
-        const letters = /^[A-Za-z]+$/;
         const style = {
-            background: budgetValue === '' || poValue === '' || acountValue === '' || poValue.match(letters) !== null || acountValue.match(letters) !== null ? '#ECECEC' : '#3798F3',
-            color:  budgetValue === '' || poValue === '' || acountValue === '' || poValue.match(letters) !== null || acountValue.match(letters) !== null ? ' #00000' : '#FFFFFF'
+            background: budgetValue === '' || poValue === '' || acountValue === '' ? '#ECECEC' : '#3798F3',
+            color:  budgetValue === '' || poValue === '' || acountValue === ''  ? ' #00000' : '#FFFFFF'
         }
         
         return (
@@ -52,7 +53,7 @@ export default class NewBudget extends Component {
                     <button className = 'cancel-new-budget-btn' onClick={newBudgetToggled}><span>Cancel</span></button>
                     <button className = 'create-new-budget-btn'
                     style = {style}
-                    disabled = {budgetValue === '' || poValue === '' || acountValue === '' ||  poValue.match(letters) !== null|| acountValue.match(letters) !== null 
+                    disabled = {budgetValue === '' || poValue === '' || acountValue === '' 
                      ? true : false}
                     onClick = {() => {
                             createBudget(budgetValue, poValue, acountValue)

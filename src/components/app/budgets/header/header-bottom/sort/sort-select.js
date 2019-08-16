@@ -52,8 +52,8 @@ export default class Sort extends Component {
                         
                         onChange={this.handleChange}
                         options={options}
-                        labelKey="label"
                         placeholder='created at'
+
 
                         theme={theme => ({
                                 ...theme,

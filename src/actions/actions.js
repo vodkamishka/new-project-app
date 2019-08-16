@@ -52,7 +52,10 @@ const createBudget = (title, po_number, amount) => {
 }
 const deleteBudget = id => {
     return dispatch => {
-        budgetsAPI.deleteBudget(id)
+        budgetsAPI.deleteBudget(id).
+        then(response => {
+            if (response.data.data === undefined) dispatch(rowDeleted(id))
+        })
     }
 }
 const budgetsSorted = key => {
@@ -75,7 +78,6 @@ const budgetsFiltered = (date, projectId, amount) => {
     return dispatch => {
         budgetsAPI.getFilter(date, projectId, amount)
         .then(response => {
-            console.log(response.data.data)
             dispatch(dataBudgetsLoaded(response.data.data))
         })
     }
@@ -92,7 +94,9 @@ const idBudgetGetted = id => {
 }
 
 const idBudgetEdit = (title, po_number, amount, id) => {
+  
     return dispatch => {
+        console.log(title, po_number, amount, id)
         budgetsAPI.editBudget(title, po_number, amount, id)
         .then(response => {
             const {title, po_number, amount, id} = response.data.data;

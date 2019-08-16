@@ -13,7 +13,7 @@ export default function Warning ({mainDeleteWindowToggle, selectId, deleteBudget
             onClick={()=>{
                 deleteBudget(selectId)
                 mainDeleteWindowToggle()
-                rowDeleted(selectId)
+                /*rowDeleted(selectId)*/
             }}
             >Delete project</button>
             <button 
