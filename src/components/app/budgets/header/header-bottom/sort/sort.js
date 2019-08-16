@@ -1,73 +1,52 @@
 import React, { Component } from 'react';
 import './sort.css';
-import Select from 'react-select';
-
-const options = [
-  {value: 'Budget name', label: 'budget name' },
-  {value: 'PO number', label: 'po number' },
-  {value: 'Amount total, $', label: 'amount total, $' },
-  {value: 'Amount remaining, $', label: 'amount remaining, $' },
-  {value: 'Created at', label: 'created at' },
-  {value: 'Projects', label: 'projects' }
-   ]
 
 export default class Sort extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedOption: ''
+            value: 'Created at'
         }
         this.handleChange = this.handleChange.bind(this);
     }
-    handleChange(selectedOption) {
-       
-        let promise = new Promise(resolve => {
+    handleChange(event) {
+        let promise = new Promise (resolve => {
             this.setState({
-                selectedOption: selectedOption
+                value: event.target.value
+            
             });
             resolve();
         })
-        promise.then(() => {
-            let key = this.state.selectedOption.value;
+        promise.then(()=> {
+            let key = this.state.value;
             if ( key === 'Budget name' ) { key = 'title' }
             if ( key === 'PO number' ) { key = 'po_number' }
             if ( key === 'Amount total, $' ) { key = 'amount' }
             if ( key === 'Amount remaining, $' ) { key = 'amount_remaining' }
             if ( key === 'Created at' ) { key = 'created_at' }
             if ( key === 'Projects' ) { key = 'projects' }
+            
             this.props.budgetsSorted(key)
-
+            
         })
     }
     render() {
-        const {closeMainWindows} = this.props;
-        
+        const { columnsNames,  closeMainWindows } = this.props;
+       
         return (
-            <div className='sort'
-            onClick={closeMainWindows}
-            >
+            <div className='sort'>
+               
                 <div className='sort-by'><span className='sort-by-title'>Sort by:</span></div>
                 <div className='created-at'>
-                    <Select
-                        
-                        onChange={this.handleChange}
-                        options={options}
-                        labelKey="label"
-                        
-
-                        theme={theme => ({
-                                ...theme,
-                                borderRadius: 0,
-                                colors: {
-                                  ...theme.colors,
-                                  primary25: '#ECECEC',
-                                  primary: 'white',
-                                },
-                              })}
-                             />
+                    <select
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    onClick={closeMainWindows}
+                    >
+                        {columnsNames.map(el => <option key={el.id}>{el.name}</option>)}
+                    </select>
                 </div>
             </div>
         )
     }
 }
-

@@ -61,13 +61,13 @@ export default class Row extends Component {
                     <div className='col-title title3'>Amount total</div>
                     <div>$ {el.amount}</div>
                 </div>
-                <div className={columns[3]['col4'] ? 'hide' : el.amount_remaining < el.amount ? 'col4 red' : el.amount_remaining > 0.8 * el.amount ? 'col4 orange' : 'col4'}>
+                <div className={columns[3]['col4'] ? 'hide' : el.amount_remaining >= el.amount ? 'col4 red' : el.amount_remaining > 0.8 * el.amount && el.amount_remaining < el.amount ? 'col4 orange' : 'col4'}>
                     <div className='col-title'>Amount remaining</div>
                     <div>$ {el.amount_remaining}</div>
                 </div>
                 <div className={columns[4]['col5'] ? 'hide' : 'col5'}>
                     <div className='col-title'>Created date</div>
-                    <div>{el.created_at}</div>
+                    <div>{(el.created_at)}</div>
                 </div>
 
                 <div className={columns[5]['col6'] ? 'hide' : 'col6'}

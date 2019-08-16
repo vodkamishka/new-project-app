@@ -13,7 +13,7 @@
     font-size: 19px;
     font-weight: bold;
     margin-left: 24px;
-    padding-top: 19px;
+    margin-top: 19px;
 }
 .feel {
     color: #6D6F75;
@@ -61,7 +61,8 @@
     width: 140px;
     height: 36px;
     border-radius: 8px;
-    background: #ECECEC;
     margin-left: 12px;
+    background: #3798F3;
+    color: white;
     border: none;
 }

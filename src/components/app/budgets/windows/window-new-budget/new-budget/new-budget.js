@@ -31,6 +31,11 @@ export default class NewBudget extends Component {
     render() {
         const { newBudgetToggled, createBudget} = this.props;
         const { budgetValue, poValue, acountValue } = this.state;
+        const style = {
+            background: budgetValue === '' || poValue === '' || acountValue === '' ? ' #ECECEC' : '#3798F3',
+            color:  budgetValue === '' || poValue === '' || acountValue === '' ? ' #00000' : '#FFFFFF'
+        }
+        
         return (
             <div className='new-budget'>
                 <div className='new-budget-title'>New budget</div>
@@ -45,7 +50,8 @@ export default class NewBudget extends Component {
 
                     <button className = 'cancel-new-budget-btn' onClick={newBudgetToggled}><span>Cancel</span></button>
                     <button className = 'create-new-budget-btn'
-                    disabled = {budgetValue === '' || poValue === '' || acountValue === '' 
+                    style = {style}
+                    disabled = {budgetValue === '' || poValue === '' || acountValue === ''
                      ? true : false}
                     onClick = {() => {
                             createBudget(budgetValue, poValue, acountValue)
