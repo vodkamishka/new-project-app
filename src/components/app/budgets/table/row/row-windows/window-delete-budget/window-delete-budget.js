@@ -2,8 +2,9 @@ import React from 'react';
 import './window-delete-budget.css';
 
 
-export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWindowToggle, showDeleteWindows, id, editWindowToggled}) {
+export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWindowToggle, showDeleteWindows, id, editWindowToggled, projectsQuantity}) {
     
+    const style = {cursor: projectsQuantity > 0 ? 'default' : 'pointer'}
     return (
         <div className={showDeleteWindows === id ? 'window-delete-budget': 'window-delete-budget hide'}>
             <div className ='delete-close-modal'>
@@ -18,10 +19,11 @@ export default function WindowDeleteBudget ({deleteWindowsToggled, mainDeleteWin
             }}
             >Open</div>
             <div 
+            style={style}
             onClick = { () => {
-                mainDeleteWindowToggle()
+                if (projectsQuantity === 0) mainDeleteWindowToggle()
             }}
-            className = ' delete-delete red'>Delete</div>
+            className ={projectsQuantity > 0 ? 'delete-delete pale' : 'delete-delete red'}>Delete</div>
         </div>
     )
         

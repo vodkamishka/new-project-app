@@ -7,7 +7,6 @@ import ViewSettingsWindow from './windows/view-settings-window/view-settings-win
 import FiltersWindow from './windows/filters-window/filters-window-select';
 import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
-import WindowCannotBudget from './windows/window-cannot/window-cannot-budget';
 import MainDeleteWindow from './windows/main-delete-window/main-delete-window';
 import Overlay from './windows/overlay/overlay';
 
@@ -20,7 +19,6 @@ class Budgets extends Component {
         showFiltersWindow: false,
         showDeleteWindows: -1,
         showEditBudget: false,
-        projectsNumber: -1,
         cannotEditDelete: false,
         showMainDeleteWindow: false,
         columns: [
@@ -117,7 +115,7 @@ class Budgets extends Component {
         } = this.props;
         const { showNewBudget, showIconViewSettingsWindow, columns, selectId, 
             showFiltersWindow, showDeleteWindows, showEditBudget, 
-            budgetId, projectsNumber, cannotEditDelete, showMainDeleteWindow } = this.state;
+            budgetId, showMainDeleteWindow } = this.state;
         return (
             <div className='budgets'>
 
@@ -132,24 +130,20 @@ class Budgets extends Component {
 
                 /> : null}
 
-                {cannotEditDelete && projectsNumber > 0 ? <WindowCannotBudget
-                    length={data.length}
-                    cannotEditDeleteToggled={this.cannotEditDeleteToggled}
-                /> : null}
-
                 {showNewBudget ? <WindowNewBudget
                     newBudgetToggled={this.newBudgetToggled}
                     createBudget={createBudget}
                     length={data.length}
 
                 /> : null}
-                {showEditBudget && projectsNumber < 1 ? <WindowEditBudget
+                {showEditBudget ? <WindowEditBudget
                     editWindowToggled={this.editWindowToggled}
                     idBudgetGetted={idBudgetGetted}
                     budgetId={budgetId}
                     editData={editData}
                     idBudgetEdit={idBudgetEdit}
                     length={data.length}
+                    data={data}
                 /> : null}
 
                 {showFiltersWindow ? <FiltersWindow
@@ -192,7 +186,6 @@ class Budgets extends Component {
                     showEditBudget={showEditBudget}
                     editWindowToggled={this.editWindowToggled}
                     budgetIdSetted={this.budgetIdSetted}
-                    cannotEditDeleteToggled={this.cannotEditDeleteToggled}
 
                     idSelected={this.idSelected}
                     closeMainWindows={this.closeMainWindows}

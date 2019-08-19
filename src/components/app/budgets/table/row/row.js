@@ -24,7 +24,7 @@ export default class Row extends Component {
 
         const { el, columns, deleteWindowsToggled, mainDeleteWindowToggle,
             showDeleteWindows, editWindowToggled, idSelected, closeMainWindows,
-            budgetIdSetted, cannotEditDeleteToggled } = this.props;
+            budgetIdSetted} = this.props;
         const { showProjets} = this.state;
         let lettersLength = this.returnLengthLetersprojects(el.projects)
 
@@ -49,7 +49,6 @@ export default class Row extends Component {
                         onClick={() => {
                             editWindowToggled()
                             budgetIdSetted(el.id, el.projects.length)
-                            cannotEditDeleteToggled()
                         }}
                     >{el.title}</div>
                 </div>
@@ -77,10 +76,10 @@ export default class Row extends Component {
                         className='col6-gradient'
                         style={styleGradient}
                     ></div>
-                    <div className='col-title'>{el.projects.length === 0 ? '' : 'Projects'}</div>
+                    <div className='col-title'>Projects</div>
                     <div
 
-                    >{el.projects.map(element => <div style={styleDiv} key={element.id}> {element.title} </div>)}</div>
+                    >  {el.projects.length === 0 ? 'No projects applied to with budget now.' : el.projects.map(element => <div style={styleDiv} key={element.id}> {element.title} </div>)}</div>
                 </div>
 
                 <div className={columns.col7 ? 'hide' : 'col7'}>
@@ -109,18 +108,16 @@ export default class Row extends Component {
                             showDeleteWindows={showDeleteWindows}
                             deleteWindowsToggled={deleteWindowsToggled}
                             editWindowToggled={editWindowToggled}
+                            projectsQuantity={el.projects.length}
                         />
                         <img
                             src='images/icons/line-menu.svg'
                             alt='menu-secondary'
                             onClick={
                                 () => {
-                                    
-                                    if (el.projects.length < 1) { 
                                         idSelected(el.id)
-                                        deleteWindowsToggled(el.id) }
-                                    budgetIdSetted(el.id, el.projects.length)
-                                    cannotEditDeleteToggled()
+                                        deleteWindowsToggled(el.id) 
+                                        budgetIdSetted(el.id, el.projects.length)
                                 }
                             }
                         />

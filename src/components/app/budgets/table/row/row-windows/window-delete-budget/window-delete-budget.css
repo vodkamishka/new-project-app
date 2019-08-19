@@ -26,9 +26,12 @@
     margin: -4px 0 0 89px;
     color: #6D6F75;
 }
-
 .delete-delete {
     width: 40px;
     height: 19px;
     margin: 34px 0 0 86px;
+}
+.pale {
+    color: red;
+    opacity: 0.4;
 }

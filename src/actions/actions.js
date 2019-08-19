@@ -96,9 +96,10 @@ const idBudgetGetted = id => {
 const idBudgetEdit = (title, po_number, amount, id) => {
   
     return dispatch => {
-        console.log(title, po_number, amount, id)
+        
         budgetsAPI.editBudget(title, po_number, amount, id)
         .then(response => {
+            console.log(response.data.data)
             const {title, po_number, amount, id} = response.data.data;
             dispatch(rowChanged(title, po_number, amount, id))
         })

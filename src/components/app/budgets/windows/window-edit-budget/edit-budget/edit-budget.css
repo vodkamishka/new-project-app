@@ -8,14 +8,23 @@
     position: fixed;
 }
 .edit-budget > .edit-budget-title {
-    width: 111px;
-    height: 26px;
-    font-size: 19px;
-    font-weight: bold;
     margin-left: 24px;
     margin-top: 19px;
+    display: flex;
 }
-.feel {
+.edit-budget-title > .edit-budget-title-budget {
+    height: 26px;
+    width: 60px;
+    font-size: 19px;
+    font-weight: bold;
+}
+ .edit-budget-title > .edit-budget-title-readonly {
+    color: #1C1A1A;
+    margin-left: 273px;
+    display: flex; 
+    align-items: center; 
+}
+.edit-budget .feel {
     color: #6D6F75;
     width: 431px;
     height: 36px;

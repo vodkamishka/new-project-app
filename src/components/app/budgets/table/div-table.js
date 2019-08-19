@@ -2,7 +2,7 @@ import React from 'react';
 
 import Row from './row/row';
 
-export default function DivTable({data, columns, deleteBudget, mainDeleteWindowToggle, deleteWindowsToggled, showDeleteWindows, rowDeleted,  editWindowToggled, budgetIdSetted, cannotEditDeleteToggled, idSelected, closeMainWindows}) {
+export default function DivTable({data, columns, deleteBudget, mainDeleteWindowToggle, deleteWindowsToggled, showDeleteWindows, rowDeleted,  editWindowToggled, budgetIdSetted, idSelected, closeMainWindows}) {
     return (
         <div className='budgets__table'>
             <div className ='table'>
@@ -19,7 +19,6 @@ export default function DivTable({data, columns, deleteBudget, mainDeleteWindowT
                     showDeleteWindows = {showDeleteWindows}
                     editWindowToggled = {editWindowToggled}
                     budgetIdSetted = {budgetIdSetted}
-                    cannotEditDeleteToggled = {cannotEditDeleteToggled}
                    
                     idSelected={idSelected}
                     closeMainWindows={closeMainWindows}

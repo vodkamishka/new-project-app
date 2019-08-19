@@ -48,24 +48,14 @@ export default class Sort extends Component {
             >
                 <div className='sort-by'><span className='sort-by-title'>Sort by:</span></div>
                 <div className='created-at'>
-                    <Select
+                <select class="selectpicker">
+  <option title="Combo 1">Hot Dog, Fries and a Soda</option>
+  <option title="Combo 2">Burger, Shake and a Smile</option>
+  <option title="Combo 3">Sugar, Spice and all things nice</option>
+</select>
+
                         
-                        onChange={this.handleChange}
-                        options={options}
-                        placeholder='created at'
-
-
-                        theme={theme => ({
-                                ...theme,
-                                borderRadius: 0,
-                                colors: {
-                                  ...theme.colors,
-                                  primary25: '#ECECEC',
-                                  primary: 'white',
-                                 
-                                },
-                              })}
-                             />
+                        
                 </div>
             </div>
         )
