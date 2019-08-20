@@ -8,6 +8,7 @@
     "chroma-js": "^2.0.4",
     "fetch": "^1.1.0",
     "react": "^16.8.6",
+    "react-compound-slider": "^2.2.0",
     "react-dom": "^16.8.6",
     "react-modal": "^3.9.1",
     "react-redux": "^7.1.0",

@@ -150,6 +150,7 @@ class Budgets extends Component {
                     data={data}
                     budgetsFiltered={budgetsFiltered}
                     filtersWindowToggled={this.filtersWindowToggled}
+                    data={data}
                 /> : null}
 
                 {showIconViewSettingsWindow ?

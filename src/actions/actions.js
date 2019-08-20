@@ -75,6 +75,7 @@ const budgetsSearched = title => {
     }
 }
 const budgetsFiltered = (date, projectId, amount) => {
+    
     return dispatch => {
         budgetsAPI.getFilter(date, projectId, amount)
         .then(response => {

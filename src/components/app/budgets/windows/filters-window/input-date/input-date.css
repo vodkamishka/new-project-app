@@ -1,0 +1,25 @@
+.created-date {
+    height: 102px;
+    position: relative;
+}
+.app .filters-window .created-date {
+    display: flex;
+    flex-direction: column;
+}
+.created-date > span {
+    width: 74px;
+    height: 17px;
+    margin: 24px 0 5px 29px;
+    font-size: 13px;
+}
+.filters_line {
+    position: absolute;
+    bottom: 0;
+    left: 28px;
+    width: 424px;
+    height: 2px;
+    background: #ECECEC;
+}
+input::-webkit-datetime-edit-fields-wrapper {
+    color:#A4A4A4;
+}
