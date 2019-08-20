@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import './input-project.css';
-import { NONAME } from 'dns';
+
 
 
 const customStyles = {
@@ -68,11 +68,12 @@ const customStyles = {
 
 export default class InputProject extends Component {
     render() {
-        const { data, handleProjectChange } = this.props;
+        const { data, handleProjectChange, projectName } = this.props;
         const array = data.map(el => el.projects.map(element => {
             return ({ 'value': element.title, 'label': element.title, 'id': element.id })
         }
         ))
+        console.log(projectName)
         let options = []
 
         array.map(el => {
@@ -85,8 +86,9 @@ export default class InputProject extends Component {
                     <Select
                         onChange={handleProjectChange}
                         options={options}
-                        placeholder='Placeholder text'
+                        placeholder={projectName ? projectName : 'Placeholder text'}
                         styles={customStyles}
+                        
                     />
                 </div>
                 <div className='filters_line'></div>

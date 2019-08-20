@@ -20,6 +20,7 @@ export default class SliderComponent extends Component {
       }
       onChange = values => {
         this.setState({ values })
+        this.props.handleValuesChange(values)
       }
   render() {
       const {values} = this.state

@@ -11,6 +11,7 @@ export default class FiltersWindow extends Component {
         super();
         this.state = {
             value: '',
+            values: '',
             selectedOption: '',
             slider: 0,
             range: 50000,
@@ -18,21 +19,20 @@ export default class FiltersWindow extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleProjectChange = this.handleProjectChange.bind(this);
-
+        this.handleValuesChange  = this.handleValuesChange.bind(this);
         this.clear = this.clear.bind(this);
         this.changeRangeRight= this.changeRangeRight.bind(this);
         this.changeRangeLeft= this.changeRangeLeft.bind(this);
-        
-       
     }
-   
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
     handleProjectChange(selectedOption) {
         this.setState({ selectedOption})
     }
-    
+    handleValuesChange (values) {
+        this.setState({values})
+    }
     changeRangeRight() {
         if (this.state.range < 50000) {
         this.setState({
@@ -58,7 +58,7 @@ export default class FiltersWindow extends Component {
         const { value, selectedOption, range, slider, values } = this.state;
         const { budgetsFiltered, filtersWindowToggled, data} = this.props;
         console.log(values)
-           
+        
         return (
             <div className='filters-window'>
 
@@ -98,6 +98,7 @@ export default class FiltersWindow extends Component {
                     <InputProject 
                     data={data}
                     handleProjectChange={this.handleProjectChange}
+                    projectName={selectedOption.value}
                     />
 
                     {/* Amount total range*/}
