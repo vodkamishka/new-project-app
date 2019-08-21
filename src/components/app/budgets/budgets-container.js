@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted, idBudgetGetted, idBudgetEdit } from '../../../actions/actions';
+import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted, idBudgetGetted, idBudgetEdit, budgetsAmounted  } from '../../../actions/actions';
 import withApiDataService from '../../hoc/withApiDataService';
 
 import Budgets from './budgets';
@@ -11,46 +11,22 @@ import Budgets from './budgets';
 class BudgetsContainer extends Component {
     componentDidMount () {
         this.props.dataBudgetsApiLoaded()
+        this.props.budgetsAmounted() 
         window.addEventListener('click', () => {
         })
     }
     render() {
-        let {data,
-            budgetsSearched, budgetsFiltered, rowDeleted, idBudgetEdit,
-            createBudget, deleteBudget, budgetsSorted, dataBudgetsApiLoaded, idBudgetGetted, editData  
-        } = this.props;
-        
         const columnsNames = this.props.apiDataService.getColumnsNames();
-        return (
-
-            <Budgets 
-
-            data = {data}
-            
-            columnsNames = {columnsNames}
-
-            createBudget = {createBudget}
-            deleteBudget = {deleteBudget}
-            budgetsSorted = {budgetsSorted}
-            dataBudgetsApiLoaded = {dataBudgetsApiLoaded}
-            budgetsSearched = {budgetsSearched}
-            budgetsFiltered = {budgetsFiltered}
-
-            rowDeleted={rowDeleted}
-            idBudgetGetted ={idBudgetGetted}
-            editData={editData}
-            idBudgetEdit={idBudgetEdit}
-            />
-
-        )
+       
+        return <Budgets {...this.props} columnsNames={columnsNames}/>
     }
-
 }
 const mapStateToProps = ({data}) => {
     return {
         data: data.data,
         termDataTable: data.termDataTable,
-        editData: data.editData
+        editData: data.editData, 
+        amount: data.amount
     }
 }
 const mapDispatchToProps = {
@@ -63,7 +39,8 @@ const mapDispatchToProps = {
     budgetsFiltered,
     rowDeleted,
     idBudgetGetted,
-    idBudgetEdit 
+    idBudgetEdit,
+    budgetsAmounted  
 }
 export default compose(
     withApiDataService(),

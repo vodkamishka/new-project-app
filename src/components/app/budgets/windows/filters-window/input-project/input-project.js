@@ -67,28 +67,29 @@ const customStyles = {
 }
 
 export default class InputProject extends Component {
+    
     render() {
-        const { data, handleProjectChange, projectName } = this.props;
+        const { data, handleProjectChange,  selectedOption } = this.props;
         const array = data.map(el => el.projects.map(element => {
             return ({ 'value': element.title, 'label': element.title, 'id': element.id })
         }
         ))
-        console.log(projectName)
+        
         let options = []
 
         array.map(el => {
             options = [...options, ...el]
         })
         return (
+            
             <div className='related-project'>
                 <span>Related project</span>
                 <div className='filter_select'>
                     <Select
                         onChange={handleProjectChange}
                         options={options}
-                        placeholder={projectName ? projectName : 'Placeholder text'}
+                        placeholder={selectedOption ? selectedOption.value : 'Placeholder text'}
                         styles={customStyles}
-                        
                     />
                 </div>
                 <div className='filters_line'></div>

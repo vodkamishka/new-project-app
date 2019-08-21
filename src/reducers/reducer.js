@@ -2,7 +2,8 @@
 const initialState = {
     data: [],
     termDataTable: [],
-    editData: {}
+    editData: {},
+    amount: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,8 +29,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 editData: action.payload
             }
+        case 'LOAD_AMOUNT':
+            return {
+                ...state,
+                amount: action.payload
+            }
         case 'CHANGE_ROW': {
-            const {title, po_number, amount, id} = action.payload;
+            const { title, po_number, amount, id } = action.payload;
             let index = state.data.findIndex(el => el.id === id)
             return {
                 ...state,
@@ -39,7 +45,7 @@ const reducer = (state = initialState, action) => {
                         ...state.data[index],
                         title,
                         po_number,
-                        amount 
+                        amount
                     },
                     ...state.data.slice(index + 1)
                 ]

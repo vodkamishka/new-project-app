@@ -4,7 +4,7 @@ import Header from './header/header';
 import './budgets.css';
 import WindowNewBudget from './windows/window-new-budget/window-new-budget';
 import ViewSettingsWindow from './windows/view-settings-window/view-settings-window';
-import FiltersWindow from './windows/filters-window/filters-window-select';
+import FiltersWindow from './windows/filters-window/filters-window';
 import WindowEditBudget from './windows/window-edit-budget/window-edit-budget';
 import DivTable from './table/div-table';
 import MainDeleteWindow from './windows/main-delete-window/main-delete-window';
@@ -21,6 +21,7 @@ class Budgets extends Component {
         showEditBudget: false,
         cannotEditDelete: false,
         showMainDeleteWindow: false,
+        selectedOption: '',
         columns: [
             { col1: false, id: 1 },
             { col2: false, id: 2 },
@@ -30,7 +31,17 @@ class Budgets extends Component {
             { col6: false, id: 6 }
         ],
         budgetId: null,
-        selectId: null
+        selectId: null,
+        values: [0, 1],
+        domain: [0, 1],
+        date: ''
+    }
+    componentDidUpdate (prevProps) {
+        if (prevProps.amount !== this.props.amount)
+        this.setState({
+            values: [this.props.amount.min, this.props.amount.max],
+            domain: [this.props.amount.min, this.props.amount.max]
+        })
     }
     newBudgetToggled = () => {
         this.setState({
@@ -61,7 +72,7 @@ class Budgets extends Component {
             showDeleteWindows: -1
         })
     }
-    deleteWindowsToggled = (id=-1) => {
+    deleteWindowsToggled = (id = -1) => {
         if (id === this.state.showDeleteWindows) id = -1
         this.setState({
             showDeleteWindows: id,
@@ -102,99 +113,106 @@ class Budgets extends Component {
             selectId: id
         })
     }
+    handleProjectChange = (selectedOption) => {
+        this.setState({ selectedOption })
+    }
     closeMainWindows = () => {
-        const {showIconViewSettingsWindow, showFiltersWindow, showDeleteWindows} = this.state;
-        if (showIconViewSettingsWindow === true){this.iconSettingsToggled()}
-        if (showFiltersWindow === true){this.filtersWindowToggled()}
-        if (showDeleteWindows !== -1){this.deleteWindowsToggled()} 
+        const { showIconViewSettingsWindow, showFiltersWindow, showDeleteWindows } = this.state;
+        if (showIconViewSettingsWindow === true) { this.iconSettingsToggled() }
+        if (showFiltersWindow === true) { this.filtersWindowToggled() }
+        if (showDeleteWindows !== -1) { this.deleteWindowsToggled() }
+    }
+    filterCleared = () => {
+        this.setState({
+            selectedOption: '',
+            values: [this.props.amount.min, this.props.amount.max],
+            domain: [this.props.amount.min, this.props.amount.max],
+            date: ''
+        })
+    }
+    onChange = values => {
+        this.setState({ values })
+    }
+    handleDateChange = (event) => {
+        this.setState({ date: event.target.value });
+    }
+    shiftRightButtons = number => {
+        if (this.state.values[1] <= this.state.domain[1])
+        this.setState({
+            values: [this.state.values[0], this.state.values[1] + number]
+        })
+    }
+    shiftLeftButtons = number => {
+        if (this.state.values[0] >= this.state.domain[0])
+        this.setState({
+            values: [this.state.values[0] + number, this.state.values[1]]
+        })
     }
     render() {
-        const { data,
-            columnsNames, rowDeleted,
-            createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, idBudgetGetted, editData, idBudgetEdit
-        } = this.props;
-        const { showNewBudget, showIconViewSettingsWindow, columns, selectId, 
-            showFiltersWindow, showDeleteWindows, showEditBudget, 
-            budgetId, showMainDeleteWindow } = this.state;
+        const { data, columnsNames, createBudget } = this.props;
+        const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
+            showFiltersWindow, showDeleteWindows, showEditBudget, selectedOption,
+            budgetId, showMainDeleteWindow, values, domain, date } = this.state;
+           
         return (
             <div className='budgets'>
 
-               {showFiltersWindow || showIconViewSettingsWindow || showDeleteWindows !== -1 ? <Overlay length={data.length} closeMainWindows={this.closeMainWindows}/> : null}
+        {showFiltersWindow || showIconViewSettingsWindow || showDeleteWindows !== -1 ? 
+        <Overlay length={data.length} closeMainWindows={this.closeMainWindows} /> : null}
 
-                {showMainDeleteWindow ? <MainDeleteWindow
-                    mainDeleteWindowToggle={this.mainDeleteWindowToggle}
-                    selectId={selectId}
-                    deleteBudget={deleteBudget}
-                    rowDeleted={rowDeleted}
-                    length={data.length}
+        {showMainDeleteWindow ? <MainDeleteWindow 
+        mainDeleteWindowToggle={this.mainDeleteWindowToggle} selectId={selectId} length={data.length} {...this.props} /> : null}
 
-                /> : null}
+        {showNewBudget ? <WindowNewBudget 
+        newBudgetToggled={this.newBudgetToggled} createBudget={createBudget} length={data.length} /> : null}
 
-                {showNewBudget ? <WindowNewBudget
-                    newBudgetToggled={this.newBudgetToggled}
-                    createBudget={createBudget}
-                    length={data.length}
+        {showEditBudget ? <WindowEditBudget 
+        editWindowToggled={this.editWindowToggled} budgetId={budgetId} length={data.length} {...this.props} /> : null}
 
-                /> : null}
-                {showEditBudget ? <WindowEditBudget
-                    editWindowToggled={this.editWindowToggled}
-                    idBudgetGetted={idBudgetGetted}
-                    budgetId={budgetId}
-                    editData={editData}
-                    idBudgetEdit={idBudgetEdit}
-                    length={data.length}
-                    data={data}
-                /> : null}
+        {showFiltersWindow ? <FiltersWindow 
+        filtersWindowToggled={this.filtersWindowToggled} 
+        handleProjectChange={this.handleProjectChange} 
+        selectedOption={selectedOption} 
+        filterCleared={this.filterCleared} 
+        onChange={this.onChange}
+        values={values}
+        domain={domain}
+        date={date}
+        handleDateChange={this.handleDateChange}
+        shiftRightButtons={this.shiftRightButtons}
+        shiftLeftButtons={this.shiftLeftButtons}
+        {...this.props}
+        /> : null}
 
-                {showFiltersWindow ? <FiltersWindow
-                    data={data}
-                    budgetsFiltered={budgetsFiltered}
+        {showIconViewSettingsWindow ? <ViewSettingsWindow 
+        columnsNames={columnsNames} showHideColumnToggled={this.showHideColumnToggled} columns={columns} /> : null}
+
+                <Header 
+                    newBudgetToggled={this.newBudgetToggled} 
+                    iconSettingsToggled={this.iconSettingsToggled} 
                     filtersWindowToggled={this.filtersWindowToggled}
-                    data={data}
-                /> : null}
-
-                {showIconViewSettingsWindow ?
-                    <ViewSettingsWindow
-                        columnsNames={columnsNames}
-                        showHideColumnToggled={this.showHideColumnToggled}
-                        columns={columns}
-                /> : null}
-
-                <Header
-                    newBudgetToggled={this.newBudgetToggled}
-                    iconSettingsToggled={this.iconSettingsToggled}
-                    filtersWindowToggled={this.filtersWindowToggled}
-
-                    columnsNames={columnsNames}
-                    budgetsSorted={budgetsSorted}
-                    budgetsSearched={budgetsSearched}
-
                     showFiltersWindow={showFiltersWindow}
                     showIconViewSettingsWindow={showIconViewSettingsWindow}
                     closeMainWindows={this.closeMainWindows}
+                    {...this.props}
                 />
 
                 <DivTable
 
-                    data={data}
                     columns={columns}
-                    deleteBudget={deleteBudget}
-                    rowDeleted={rowDeleted}
                     mainDeleteWindowToggle={this.mainDeleteWindowToggle}
-
                     deleteWindowsToggled={this.deleteWindowsToggled}
                     showDeleteWindows={showDeleteWindows}
                     showEditBudget={showEditBudget}
                     editWindowToggled={this.editWindowToggled}
                     budgetIdSetted={this.budgetIdSetted}
-
                     idSelected={this.idSelected}
                     closeMainWindows={this.closeMainWindows}
+                    {...this.props}
                 />
 
             </div>
         )
-
     }
 }
 export default Budgets;

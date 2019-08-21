@@ -1,30 +1,16 @@
 import React, { Component } from "react";
 import { Slider, Rail, Handles, Tracks} from "react-compound-slider";
-import { SliderRail, Handle, Track} from "./slider-components"; // example render components - source below
+import { SliderRail, Handle, Track} from "./slider-components"; 
 
 const sliderStyle = {
   position: "relative",
   width: "100%"
 };
 
-const domain = [0, 50000];
-const defaultValues = [0, 50000];
-  
-
 export default class SliderComponent extends Component {
-    state = {
-        domain: [200, 500],
-        values: defaultValues.slice(),
-        update: defaultValues.slice(),
-        reversed: false,
-      }
-      onChange = values => {
-        this.setState({ values })
-        this.props.handleValuesChange(values)
-      }
+        
   render() {
-      const {values} = this.state
-      
+      const {values, onChange, domain} = this.props;
     return (
       <div style={{height: 30, width: "100%" }}>
         <Slider
@@ -32,8 +18,7 @@ export default class SliderComponent extends Component {
           step={1}
           domain={domain}
           rootStyle={sliderStyle}
-         
-          onChange={this.onChange}
+          onChange={onChange}
           values={values}
         >
           <Rail>
@@ -44,6 +29,7 @@ export default class SliderComponent extends Component {
               <div className="slider-handles">
                 {handles.map(handle => (
                   <Handle
+                    values={values}
                     key={handle.id}
                     handle={handle}
                     domain={domain}

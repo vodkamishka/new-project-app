@@ -1,0 +1,31 @@
+/* filters-buttons */
+
+.app .filters-window .filters-buttons {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+.app .filters-window .filters-buttons > span {
+    font-size: 17px;
+    width: 44px;
+    height: 22px;
+    margin-left: 20px;
+}
+.app .filters-window .filters-buttons > .button {
+    border-radius: 8px;
+    height: 36px;
+    outline: none;
+}
+.app .filters-window .filters-buttons > .clear {
+    width: 74px;
+    margin: 0 12px 0 226px;
+    border: 1px solid #ECECEC;
+    background: white; 
+}
+.app .filters-window .filters-buttons > .apply {
+    width: 84px;
+    color: white;
+    background: #3798F3;
+    border: none;
+}

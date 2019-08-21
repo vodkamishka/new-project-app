@@ -46,9 +46,10 @@ export function Handle({
   domain: [min, max],
   handle: { id, value, percent },
   disabled,
-  getHandleProps
+  getHandleProps,
+  values
 }) {
-
+  
   return (
     <Fragment>
       <div
@@ -66,6 +67,14 @@ export function Handle({
         }}
         {...getHandleProps(id)}
       />
+      <div 
+       style={{
+         position: 'absolute',
+         left: `${percent}%`,
+         transform: "translate(-50%, 60%)",
+         fontSize: '13px'
+       }}
+      >{value}</div>
       <div
         role="slider"
         aria-valuemin={min}

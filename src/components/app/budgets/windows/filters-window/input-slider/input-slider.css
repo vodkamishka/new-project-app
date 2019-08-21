@@ -27,6 +27,7 @@
 .twix2 {
     left: 432px;
 }
+
 .slider-container {
     left: 58px;
     position: absolute;
@@ -34,24 +35,4 @@
     width: 367px;
     height: 16px;
 }
-/*.slider-container .slider {
-    width: 367px;
-    -webkit-appearance: none;
-    height: 2px;
-    background: #3798f3;
-    outline: none;
-    position: absolute;  
-}
-.app .filters-group .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #3798f3;
-    border-radius: 50%;
-}
-.slider-observer {
-   position: absolute;
-   font-size: 13px;
-   top: 11px;
-}*/
+
