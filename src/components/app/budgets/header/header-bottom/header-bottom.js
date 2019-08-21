@@ -1,7 +1,7 @@
 import React from 'react';
 import './header-bottom.css';
 
-import Sort from './sort/sort-select';
+import Sort from './sort/sort';
 import Search from './search/search';
 import Icons from './icons/icons';
 

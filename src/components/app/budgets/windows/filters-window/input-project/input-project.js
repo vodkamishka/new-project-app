@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import './input-project.css';
 
-
-
 const customStyles = {
     container: (provided) => ({
         ...provided,
@@ -66,17 +64,13 @@ const customStyles = {
     }),
 }
 
-export default class InputProject extends Component {
+export default function InputProject ({data, handleProjectChange,  selectedOption}) {
     
-    render() {
-        const { data, handleProjectChange,  selectedOption } = this.props;
         const array = data.map(el => el.projects.map(element => {
             return ({ 'value': element.title, 'label': element.title, 'id': element.id })
         }
         ))
-        
         let options = []
-
         array.map(el => {
             options = [...options, ...el]
         })
@@ -97,4 +91,3 @@ export default class InputProject extends Component {
 
         )
     }
-}
