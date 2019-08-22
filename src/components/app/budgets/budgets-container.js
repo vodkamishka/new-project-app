@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted, idBudgetGetted, idBudgetEdit, budgetsAmounted  } from '../../../actions/actions';
+import {dataBudgetsApiLoaded, createBudget, deleteBudget, budgetsSorted, budgetsSearched, budgetsFiltered, rowDeleted, idBudgetGetted, idBudgetEdit } from '../../../actions/actions';
 import withApiDataService from '../../hoc/withApiDataService';
 
 import Budgets from './budgets';

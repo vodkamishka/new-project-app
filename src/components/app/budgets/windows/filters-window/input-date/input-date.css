@@ -20,6 +20,24 @@
     height: 2px;
     background: #ECECEC;
 }
-input::-webkit-datetime-edit-fields-wrapper {
-    color:#A4A4A4;
+
+.created-date input {
+    width: 424px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #A4A4A4;
+    margin-left: 28px;
+    outline: none;
+    padding-left: 11px;
+    font-family: 'Open Sans', sans-serif !important;  
+}
+.created-date .react-datepicker-popper {
+    z-index: 100 !important;
+    margin-left: 28px;
+}
+.created-date .react-datepicker__day--selected  {
+    background: #157EE1 !important;
+}
+.create-data .react-datepicker__triangle {
+   left: 18px !important;
 }

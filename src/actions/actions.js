@@ -37,8 +37,8 @@ const createBudget = (title, po_number, amount) => {
 }
 const deleteBudget = id => {
     return dispatch => {
-        budgetsAPI.deleteBudget(id).
-        then(response => {
+        budgetsAPI.deleteBudget(id)
+        .then(response => {
             if (response.data.data === undefined) dispatch(rowDeleted(id))
         })
     }
@@ -60,7 +60,17 @@ const budgetsSearched = title => {
     }
 }
 const budgetsFiltered = (date, projectId, minValue, maxValue) => {
+    console.log(date, projectId, minValue, maxValue)
     
+    function convert(str) {
+        var date = new Date(str),
+          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+          day = ("0" + date.getDate()).slice(-2);
+        return [date.getFullYear(), mnth, day].join("-");
+      }
+
+    if (date !== '') {date = convert(date)};
+
     return dispatch => {
         budgetsAPI.getFilter(date, projectId, minValue, maxValue)
         .then(response => {

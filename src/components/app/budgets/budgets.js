@@ -32,9 +32,9 @@ class Budgets extends Component {
         ],
         budgetId: null,
         selectId: null,
-        values: null,
-        domain: null,
-        date: ''
+        values: [0,50000],
+        domain: [0,50000],
+        startDate: new Date()
     }
     componentDidUpdate(prevProps){
         if (prevProps.amount !== this.props.amount)
@@ -66,6 +66,7 @@ class Budgets extends Component {
         })
     }
     filtersWindowToggled = () => {
+        
         this.setState({
             showFiltersWindow: !this.state.showFiltersWindow,
             showIconViewSettingsWindow: false,
@@ -127,14 +128,16 @@ class Budgets extends Component {
             selectedOption: '',
             values: [this.props.amount.min, this.props.amount.max],
             domain: [this.props.amount.min, this.props.amount.max],
-            date: ''
+            startDate: ''
         })
     }
     onChange = values => {
         this.setState({ values })
     }
-    handleDateChange = (event) => {
-        this.setState({ date: event.target.value });
+    handleStartDateChange = date => {
+        this.setState({
+            startDate: date
+          });;
     }
     shiftRightButtons = number => {
         if (this.state.values[1] <= this.state.domain[1])
@@ -149,12 +152,11 @@ class Budgets extends Component {
         })
     }
     render() {
-        let { data, columnsNames, createBudget, amount} = this.props;
+        let { data, columnsNames, createBudget} = this.props;
         const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
             showFiltersWindow, showDeleteWindows, showEditBudget, selectedOption,
-            budgetId, showMainDeleteWindow, values, domain, date } = this.state;
-        
-        
+            budgetId, showMainDeleteWindow, values, domain, startDate } = this.state;
+       
         return (
             <div className='budgets'>
 
@@ -178,8 +180,8 @@ class Budgets extends Component {
         onChange={this.onChange}
         values={values}
         domain={domain}
-        date={date}
-        handleDateChange={this.handleDateChange}
+        startDate={startDate}
+        handleStartDateChange={this.handleStartDateChange}
         shiftRightButtons={this.shiftRightButtons}
         shiftLeftButtons={this.shiftLeftButtons}
         {...this.props}

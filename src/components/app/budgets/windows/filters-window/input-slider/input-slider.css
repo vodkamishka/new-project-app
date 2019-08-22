@@ -17,7 +17,7 @@
     position:absolute;
     top: 48px;
 }
-.filter-plus-minus > img{
+.filter-plus-minus > div > img{
     width: 20px;
     height: 20px;
 }
@@ -31,7 +31,7 @@
 .slider-container {
     left: 58px;
     position: absolute;
-    top: 67px;
+    top: 73px;
     width: 367px;
     height: 16px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './filters-buttons.css';
 
-export default function FiltersButtons ({date, values, selectedOption, budgetsFiltered, filterCleared, filtersWindowToggled}) {
+export default function FiltersButtons ({ values, selectedOption, budgetsFiltered, filterCleared, filtersWindowToggled, startDate}) {
     return (
         <div className='filters-buttons' >
                     <span>Filters</span>
@@ -9,17 +9,17 @@ export default function FiltersButtons ({date, values, selectedOption, budgetsFi
                         onClick={() => {
                             let promise = new Promise(resolve => {
                                 resolve()
+                                filterCleared()
                             })
                             promise.then(() => {
-                                budgetsFiltered(date, undefined, values[0], values[1])
-                                filterCleared()
+                                budgetsFiltered('', undefined, values[0], values[1])
                             })
                         }}
                     >Clear</button>
                     <button
                         className='button apply'
                         onClick={() => {
-                            budgetsFiltered(date, selectedOption.id, values[0], values[1]);
+                            budgetsFiltered(startDate, selectedOption.id, values[0], values[1]);
                             filtersWindowToggled()
                         }}
                     >Apply</button>

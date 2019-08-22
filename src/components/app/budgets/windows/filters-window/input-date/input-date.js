@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './input-date.css';
+import Picker from './date-picker';
 
-export default class InputDate extends Component {
-    render() {
+export default function InputDate (props) {
+  
         return (
             <div className='created-date'>
                 <span>Created date</span>
-                <input
+                <Picker  {...props}/>
+                {/*<input
                     type='date'
                     className='datetime-local'
-                    value={this.props.date}
-                    onChange={event => this.props.handleDateChange(event)}
-                />
+                    value={props.startDate}
+                    onChange={event => props.handleStartDateChange(event)}
+                />*/}
                 <div className='filters_line'></div>
             </div>
         )
     }
-}

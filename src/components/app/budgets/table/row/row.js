@@ -72,7 +72,7 @@ export default class Row extends Component {
                 <div className={columns[5]['col6'] ? 'hide' : 'col6'}
                     style={styleCol6}
                 >
-                    <div
+                   <div
                         className='col6-gradient'
                         style={styleGradient}
                     ></div>
