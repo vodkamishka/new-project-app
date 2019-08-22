@@ -11,14 +11,12 @@ import Budgets from './budgets';
 class BudgetsContainer extends Component {
     componentDidMount () {
         this.props.dataBudgetsApiLoaded()
-        this.props.budgetsAmounted() 
-        window.addEventListener('click', () => {
-        })
     }
+   
     render() {
         const columnsNames = this.props.apiDataService.getColumnsNames();
-       
         return <Budgets {...this.props} columnsNames={columnsNames}/>
+        
     }
 }
 const mapStateToProps = ({data}) => {
@@ -40,7 +38,6 @@ const mapDispatchToProps = {
     rowDeleted,
     idBudgetGetted,
     idBudgetEdit,
-    budgetsAmounted  
 }
 export default compose(
     withApiDataService(),

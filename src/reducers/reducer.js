@@ -3,7 +3,7 @@ const initialState = {
     data: [],
     termDataTable: [],
     editData: {},
-    amount: {}
+    amount: null
 }
 
 const reducer = (state = initialState, action) => {

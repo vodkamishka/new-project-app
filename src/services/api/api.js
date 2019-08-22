@@ -65,7 +65,6 @@ export const budgetsAPI = {
    editBudget(title, po_number, amount, id) {
 
       let token = JSON.parse(sessionStorage.getItem('tokenData'));
-
       let body_request = {
 
          "title": `${title}`,

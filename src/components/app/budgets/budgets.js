@@ -32,16 +32,16 @@ class Budgets extends Component {
         ],
         budgetId: null,
         selectId: null,
-        values: [0, 1],
-        domain: [0, 1],
+        values: null,
+        domain: null,
         date: ''
     }
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps){
         if (prevProps.amount !== this.props.amount)
-        this.setState({
-            values: [this.props.amount.min, this.props.amount.max],
-            domain: [this.props.amount.min, this.props.amount.max]
-        })
+            this.setState({
+                values: [this.props.amount.min, this.props.amount.max],
+                domain: [this.props.amount.min, this.props.amount.max] 
+            })
     }
     newBudgetToggled = () => {
         this.setState({
@@ -149,11 +149,12 @@ class Budgets extends Component {
         })
     }
     render() {
-        const { data, columnsNames, createBudget } = this.props;
+        let { data, columnsNames, createBudget, amount} = this.props;
         const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
             showFiltersWindow, showDeleteWindows, showEditBudget, selectedOption,
             budgetId, showMainDeleteWindow, values, domain, date } = this.state;
-           
+        
+        
         return (
             <div className='budgets'>
 

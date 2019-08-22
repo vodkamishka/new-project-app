@@ -12,14 +12,18 @@ const dataEdited = (title, po_number, amount) => ({type: EDIT_DATA,payload: {tit
 const rowChanged = (title, po_number, amount, id) => ({type: CHANGE_ROW, payload: {title, po_number, amount, id}})
 const amountLoaded = amount => ({type: LOAD_AMOUNT, payload: amount})
 
+
+
+
 const dataBudgetsApiLoaded = () => {
     return dispatch => {
         authAPI.getToken()
             .then(() => budgetsAPI.getBudgets())
             .then(response => {
-                console.log(response.data.data)
                 dispatch(dataBudgetsLoaded(response.data.data))
             })
+            .then(()=> budgetsAPI.getAmount())
+            .then(response =>  dispatch(amountLoaded(response.data.data)))
     }
 }
 const createBudget = (title, po_number, amount) => {
@@ -60,7 +64,6 @@ const budgetsFiltered = (date, projectId, minValue, maxValue) => {
     return dispatch => {
         budgetsAPI.getFilter(date, projectId, minValue, maxValue)
         .then(response => {
-            console.log(response.data.data)
             dispatch(dataBudgetsLoaded(response.data.data))
         })
     }
@@ -82,22 +85,12 @@ const idBudgetEdit = (title, po_number, amount, id) => {
         
         budgetsAPI.editBudget(title, po_number, amount, id)
         .then(response => {
-            console.log(response.data.data)
             const {title, po_number, amount, id} = response.data.data;
             dispatch(rowChanged(title, po_number, amount, id))
         })
     }
 }
 
-const budgetsAmounted = () => {
-  
-    return dispatch => {
-        budgetsAPI.getAmount()
-        .then(response => {
-            dispatch(amountLoaded(response.data.data))
-        })
-    }
-}
 
 export {
     dataBudgetsApiLoaded,
@@ -108,6 +101,6 @@ export {
     budgetsFiltered,
     rowDeleted,
     idBudgetGetted,
-    idBudgetEdit,
-    budgetsAmounted  
+    idBudgetEdit
+      
 }
