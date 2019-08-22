@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './row.css';
 import WindowDeleteBudget from './row-windows/window-delete-budget/window-delete-budget';
 

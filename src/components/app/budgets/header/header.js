@@ -12,7 +12,7 @@ export default function Header(props) {
             />
             <div className='at-this-week'>
                 <div className='at-this-week_title'>At this week</div>
-                <div><img src='images/icons-png/shevron.png' alt='shevron' /></div>
+                <div><img style={{transform: 'rotate(-90deg)'}} src='images/icons/shevron-left.svg' alt='shevron' /></div>
             </div>
         </div>
     )

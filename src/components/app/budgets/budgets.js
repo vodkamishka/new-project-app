@@ -34,7 +34,12 @@ class Budgets extends Component {
         selectId: null,
         values: [0,50000],
         domain: [0,50000],
-        startDate: new Date()
+        startDate: new Date(),
+        checkboxes: {
+            enough: true,
+            exeeded: true,
+            close: true
+        }
     }
     componentDidUpdate(prevProps){
         if (prevProps.amount !== this.props.amount)
@@ -42,6 +47,16 @@ class Budgets extends Component {
                 values: [this.props.amount.min, this.props.amount.max],
                 domain: [this.props.amount.min, this.props.amount.max] 
             })
+    }
+    changeCheckboxes = (checkbox) => {
+        this.setState({
+            checkboxes: {
+                enough: true,
+                exeeded: true,
+                close: true,
+                [checkbox]: false 
+            }
+        })
     }
     newBudgetToggled = () => {
         this.setState({
@@ -128,7 +143,12 @@ class Budgets extends Component {
             selectedOption: '',
             values: [this.props.amount.min, this.props.amount.max],
             domain: [this.props.amount.min, this.props.amount.max],
-            startDate: ''
+            startDate: '',
+            checkboxes: {
+                enough: true,
+                exeeded: true,
+                close: true
+            }
         })
     }
     onChange = values => {
@@ -155,8 +175,8 @@ class Budgets extends Component {
         let { data, columnsNames, createBudget} = this.props;
         const { showNewBudget, showIconViewSettingsWindow, columns, selectId,
             showFiltersWindow, showDeleteWindows, showEditBudget, selectedOption,
-            budgetId, showMainDeleteWindow, values, domain, startDate } = this.state;
-       
+            budgetId, showMainDeleteWindow, values, domain, startDate, checkboxes } = this.state;
+        console.log(checkboxes)
         return (
             <div className='budgets'>
 
@@ -184,6 +204,8 @@ class Budgets extends Component {
         handleStartDateChange={this.handleStartDateChange}
         shiftRightButtons={this.shiftRightButtons}
         shiftLeftButtons={this.shiftLeftButtons}
+        changeCheckboxes={this.changeCheckboxes}
+        checkboxes={checkboxes}
         {...this.props}
         /> : null}
 

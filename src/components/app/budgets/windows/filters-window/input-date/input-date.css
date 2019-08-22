@@ -38,6 +38,6 @@
 .created-date .react-datepicker__day--selected  {
     background: #157EE1 !important;
 }
-.create-data .react-datepicker__triangle {
+.created-date .react-datepicker__triangle {
    left: 18px !important;
 }

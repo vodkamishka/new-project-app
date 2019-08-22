@@ -1,0 +1,30 @@
+
+/*Amount remaining */
+
+.filters-group .amount-remaining-is {
+    position: relative;
+}
+.amount-remaining-is > span {
+    position: absolute;
+    font-size: 16px;
+    width: 151px;
+    height: 21px;
+    top: 18px;
+    left: 29px;
+}
+.amount-remaining-is .img-span-span1, .amount-remaining-is .img-span-span2, .amount-remaining-is .img-span-span3 {
+    display: flex;
+    position: absolute;
+    left: 29px;
+    font-size: 14px;
+    top: 55px;
+}
+.amount-remaining-is .img-span-span2 {
+    top: 95px;
+}
+.amount-remaining-is .img-span-span3 {
+    top: 135px;
+}
+.amount-remaining-is .img-span-span1 >img, .amount-remaining-is .img-span-span2 >img , .amount-remaining-is .img-span-span3 >img  {
+    margin-right: 12px;
+}
